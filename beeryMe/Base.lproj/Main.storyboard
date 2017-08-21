@@ -80,11 +80,57 @@
                         <outlet property="button" destination="kgj-vG-aFv" id="q11-Hk-eG6"/>
                         <outlet property="clickPromt" destination="sdW-eo-gMr" id="hpz-5u-0Nr"/>
                         <outlet property="geojowLbl" destination="vbi-EP-NvX" id="FoU-hH-yv5"/>
+                        <segue destination="k2F-1K-FXU" kind="show" identifier="toMap" id="J7B-gc-nWI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="31.875" y="36.971830985915496"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="KjM-Uu-13c">
+            <objects>
+                <viewController id="k2F-1K-FXU" customClass="MapViewController" customModule="beeryMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MyC-aJ-mV6"/>
+                        <viewControllerLayoutGuide type="bottom" id="nJw-5u-naa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0pk-9m-Iet">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Coordinates:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fh1-Zd-ogb">
+                                <rect key="frame" x="16" y="217" width="288" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Latitude: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEy-Rx-jeG">
+                                <rect key="frame" x="16" y="274" width="288" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Longitude: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ax7-UM-rBt">
+                                <rect key="frame" x="16" y="334" width="288" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="latitudeLabel" destination="IEy-Rx-jeG" id="lqc-oW-75A"/>
+                        <outlet property="longitudeLabel" destination="ax7-UM-rBt" id="4f0-ZY-Enu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yog-jw-KCt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="817.5" y="36.971830985915496"/>
         </scene>
     </scenes>
 </document>
