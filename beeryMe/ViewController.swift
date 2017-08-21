@@ -101,17 +101,17 @@ class ViewController: UIViewController {
             self.bMLabel.transform = CGAffineTransform(scaleX: 2, y: 2)
             self.bMLabel.alpha = 0
         })
-        //self.perform(#selector(ViewController.goToMap), with: nil, afterDelay: 1)
+        self.perform(#selector(ViewController.goToMap), with: nil, afterDelay: 1)
         
         
     }
     
-//    @objc func goToMap() {
-//        
-//        self.performSegue(withIdentifier: "toMap", sender: self)
-//        
-//
-//    }
+     func goToMap() {
+        
+        self.performSegue(withIdentifier: "toMap", sender: self)
+        
+
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
