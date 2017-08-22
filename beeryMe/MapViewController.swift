@@ -58,6 +58,10 @@ extension MapViewController: CLLocationManagerDelegate {
 
     }
     
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        <#code#>
+    }
+    
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedAlways || status == .authorizedWhenInUse {
