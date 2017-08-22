@@ -16,6 +16,30 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var latitudeLabel: UILabel!
     @IBOutlet weak var longitudeLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    
+    var geocoder: CLGeocoder?
+    
+    func lookupGeoCoding(userLocation: CLLocation) {
+        
+        if geocoder == nil {
+            geocoder = CLGeocoder()
+        }
+        
+        geocoder?.reverseGeocodeLocation(userLocation, completionHandler: { (placemark, error) in
+            let placemark = placemark?.first
+            let streetNumber = placemark?.subThoroughfare
+            let streetName = placemark?.thoroughfare
+            let city = placemark?.locality
+            let state = placemark?.administrativeArea
+            
+            let address = "\(streetNumber!) \(streetName!) \(city!) \(state!)"
+            
+            self.addressLabel.text = address
+        })
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,12 +78,15 @@ extension MapViewController: CLLocationManagerDelegate {
             guard let latest = locations.first else { return }
             latitudeLabel.text = "latitude: \(latest.coordinate.latitude)"
             longitudeLabel.text = "longitude \(latest.coordinate.longitude)"
+            lookupGeoCoding(userLocation: latest)
+         
         }
 
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        <#code#>
+        
+        
     }
     
     
