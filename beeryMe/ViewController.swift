@@ -8,7 +8,6 @@
 
 import UIKit
 import MapKit
-import CoreLocation
 class ViewController: UIViewController {
 
     @IBOutlet weak var background: UILabel!
@@ -109,8 +108,7 @@ class ViewController: UIViewController {
      func goToMap() {
         
         self.performSegue(withIdentifier: "toMap", sender: self)
-        
-
+    
     }
     
     override func viewDidLoad() {

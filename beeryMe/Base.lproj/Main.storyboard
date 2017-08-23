@@ -90,7 +90,7 @@
         <!--Map View Controller-->
         <scene sceneID="KjM-Uu-13c">
             <objects>
-                <viewController id="k2F-1K-FXU" customClass="MapViewController" customModule="beeryMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="locationView" id="k2F-1K-FXU" customClass="MapViewController" customModule="beeryMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MyC-aJ-mV6"/>
                         <viewControllerLayoutGuide type="bottom" id="nJw-5u-naa"/>
@@ -100,35 +100,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Coordinates:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fh1-Zd-ogb">
-                                <rect key="frame" x="16" y="159" width="288" height="21"/>
+                                <rect key="frame" x="16" y="101" width="288" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Latitude: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEy-Rx-jeG">
-                                <rect key="frame" x="16" y="216" width="288" height="21"/>
+                                <rect key="frame" x="16" y="158" width="288" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Longitude: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ax7-UM-rBt">
-                                <rect key="frame" x="16" y="276" width="288" height="21"/>
+                                <rect key="frame" x="16" y="218" width="288" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VdZ-ry-cOs">
-                                <rect key="frame" x="16" y="336" width="288" height="21"/>
+                                <rect key="frame" x="16" y="278" width="288" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="288" translatesAutoresizingMaskIntoConstraints="NO" id="p7R-Md-kMb">
-                                <rect key="frame" x="16" y="376" width="288" height="93"/>
+                                <rect key="frame" x="16" y="316" width="288" height="93"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="93" id="Gay-Vi-Obo"/>
                                     <constraint firstAttribute="width" constant="288" id="x7c-dg-mll"/>
@@ -137,22 +137,65 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hal-9l-hue">
+                                <rect key="frame" x="17.5" y="462" width="286" height="32"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                <state key="normal" title="Got to this location on map "/>
+                                <connections>
+                                    <action selector="goToActualMap:" destination="k2F-1K-FXU" eventType="touchUpInside" id="KFZ-SG-q3q"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="nJw-5u-naa" firstAttribute="top" secondItem="p7R-Md-kMb" secondAttribute="bottom" constant="99" id="Ol4-Bw-sb1"/>
+                            <constraint firstItem="Hal-9l-hue" firstAttribute="top" secondItem="p7R-Md-kMb" secondAttribute="bottom" constant="53" id="1tb-Ss-DWs"/>
+                            <constraint firstItem="nJw-5u-naa" firstAttribute="top" secondItem="Hal-9l-hue" secondAttribute="bottom" constant="74" id="5U5-aL-DNc"/>
                             <constraint firstItem="p7R-Md-kMb" firstAttribute="centerX" secondItem="0pk-9m-Iet" secondAttribute="centerX" id="Qvz-sR-wz9"/>
+                            <constraint firstItem="Hal-9l-hue" firstAttribute="centerX" secondItem="0pk-9m-Iet" secondAttribute="centerX" id="tMx-rC-a8G"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="addressLabel" destination="p7R-Md-kMb" id="LYu-WK-xJr"/>
                         <outlet property="latitudeLabel" destination="IEy-Rx-jeG" id="lqc-oW-75A"/>
                         <outlet property="longitudeLabel" destination="ax7-UM-rBt" id="4f0-ZY-Enu"/>
+                        <segue destination="g7C-5a-bzk" kind="show" identifier="toActualMap" id="DpT-sa-eVS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yog-jw-KCt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="817.5" y="36.971830985915496"/>
+        </scene>
+        <!--Map View View Controller-->
+        <scene sceneID="0nw-Mi-WUo">
+            <objects>
+                <viewController storyboardIdentifier="mapView" id="g7C-5a-bzk" customClass="MapViewViewController" customModule="beeryMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2tu-RD-nh6"/>
+                        <viewControllerLayoutGuide type="bottom" id="mTR-za-hJK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7p0-IR-5Gj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VfJ-jX-WWY">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="VfJ-jX-WWY" secondAttribute="trailing" id="FMU-K5-3Dl"/>
+                            <constraint firstItem="VfJ-jX-WWY" firstAttribute="leading" secondItem="7p0-IR-5Gj" secondAttribute="leading" id="gSk-Xr-0tp"/>
+                            <constraint firstItem="mTR-za-hJK" firstAttribute="top" secondItem="VfJ-jX-WWY" secondAttribute="bottom" id="gd4-JC-TID"/>
+                            <constraint firstItem="VfJ-jX-WWY" firstAttribute="top" secondItem="7p0-IR-5Gj" secondAttribute="top" id="l5y-mG-iQO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="VfJ-jX-WWY" id="HQo-c5-RxM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Gm-Av-uYr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1636.875" y="38.028169014084504"/>
         </scene>
     </scenes>
 </document>

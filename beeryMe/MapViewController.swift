@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CoreLocation
+import MapKit
 
 class MapViewController: UIViewController {
     
@@ -33,7 +33,7 @@ class MapViewController: UIViewController {
             let city = placemark?.locality
             let state = placemark?.administrativeArea
             
-            let address = "\(streetNumber!) \(streetName!) \(city!) \(state!)"
+            let address = "\(streetNumber!)\n\(streetName!)\n\(city!)\n\(state!)"
             
             self.addressLabel.text = address
         })
@@ -66,7 +66,20 @@ class MapViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    @IBAction func goToActualMap(_ sender: Any) {
+            self.performSegue(withIdentifier: "toActualMap", sender: self)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toActualMap" {
+            if let destinationViewController = segue.destination as? MapViewViewController {
+                destinationViewController.startLocation = startLocation
+            }
+        }
+        
+    }
 }
 
 extension MapViewController: CLLocationManagerDelegate {
