@@ -51,9 +51,28 @@ extension MapViewViewController: MKMapViewDelegate {
         if let pub = annotation as? Pubs,
             let image = pub.image {
             //annotationView?.detailCalloutAccessoryView = UIImageView(image: image)
-            annotationView?.leftCalloutAccessoryView = UIImageView(image: image)
+            let btn = UIButton(type: .infoLight)
+            btn.setImage(image, for: .normal)
+            btn.tintColor = nil
+            annotationView?.leftCalloutAccessoryView = btn
+            annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
         }
         
         return annotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
+        if control == view.leftCalloutAccessoryView {
+            if let button = control as? UIButton {
+                if button.currentImage == #imageLiteral(resourceName: "beer-not-visited") {
+                    let image = #imageLiteral(resourceName: "beer-visited")
+                    button.setImage(image, for: .normal)
+                } else if button.currentImage == #imageLiteral(resourceName: "beer-visited") {
+                    let image = #imageLiteral(resourceName: "beer-not-visited")
+                    button.setImage(image, for: .normal)
+                }
+            }
+        }
     }
 }
