@@ -10,7 +10,6 @@
 		BE5C1A541E4E49BD005AB2A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5C1A531E4E49BD005AB2A9 /* AppDelegate.swift */; };
 		BE5C1A561E4E49BD005AB2A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5C1A551E4E49BD005AB2A9 /* ViewController.swift */; };
 		BE5C1A591E4E49BD005AB2A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE5C1A571E4E49BD005AB2A9 /* Main.storyboard */; };
-		BE5C1A5B1E4E49BD005AB2A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE5C1A5A1E4E49BD005AB2A9 /* Assets.xcassets */; };
 		BE5C1A5E1E4E49BD005AB2A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE5C1A5C1E4E49BD005AB2A9 /* LaunchScreen.storyboard */; };
 		BECABF111F4B6B4E00D5AD11 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECABF101F4B6B4E00D5AD11 /* MapViewController.swift */; };
 		BECABF131F4CE34900D5AD11 /* MapViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECABF121F4CE34900D5AD11 /* MapViewViewController.swift */; };
@@ -22,7 +21,6 @@
 		BE5C1A531E4E49BD005AB2A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE5C1A551E4E49BD005AB2A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BE5C1A581E4E49BD005AB2A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		BE5C1A5A1E4E49BD005AB2A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE5C1A5D1E4E49BD005AB2A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE5C1A5F1E4E49BD005AB2A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE5C1A661E4F0993005AB2A9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -63,13 +61,11 @@
 		BE5C1A521E4E49BD005AB2A9 /* beeryMe */ = {
 			isa = PBXGroup;
 			children = (
+				BECABF161F4F5A3A00D5AD11 /* Opening Screen */,
 				BECABF101F4B6B4E00D5AD11 /* MapViewController.swift */,
 				BE5C1A531E4E49BD005AB2A9 /* AppDelegate.swift */,
-				BE5C1A551E4E49BD005AB2A9 /* ViewController.swift */,
 				BE5C1A571E4E49BD005AB2A9 /* Main.storyboard */,
 				BECABF121F4CE34900D5AD11 /* MapViewViewController.swift */,
-				BE5C1A5A1E4E49BD005AB2A9 /* Assets.xcassets */,
-				BE5C1A5C1E4E49BD005AB2A9 /* LaunchScreen.storyboard */,
 				BE5C1A5F1E4E49BD005AB2A9 /* Info.plist */,
 			);
 			path = beeryMe;
@@ -82,6 +78,15 @@
 				BE5C1A661E4F0993005AB2A9 /* CoreLocation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BECABF161F4F5A3A00D5AD11 /* Opening Screen */ = {
+			isa = PBXGroup;
+			children = (
+				BE5C1A5C1E4E49BD005AB2A9 /* LaunchScreen.storyboard */,
+				BE5C1A551E4E49BD005AB2A9 /* ViewController.swift */,
+			);
+			name = "Opening Screen";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,7 +156,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE5C1A5E1E4E49BD005AB2A9 /* LaunchScreen.storyboard in Resources */,
-				BE5C1A5B1E4E49BD005AB2A9 /* Assets.xcassets in Resources */,
 				BE5C1A591E4E49BD005AB2A9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
