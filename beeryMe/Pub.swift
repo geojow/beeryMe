@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 
-class Pubs: NSObject {
+class Pub: NSObject {
     
     let name: String
     let location: CLLocation
@@ -24,7 +24,7 @@ class Pubs: NSObject {
     }
 }
 
-extension Pubs: MKAnnotation {
+extension Pub: MKAnnotation {
     var coordinate: CLLocationCoordinate2D {
         get {
             return location.coordinate

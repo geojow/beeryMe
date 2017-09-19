@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BE3539BE1F5054A200DC9235 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE3539BD1F5054A200DC9235 /* Assets.xcassets */; };
-		BE3539C01F5058DE00DC9235 /* Pubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3539BF1F5058DE00DC9235 /* Pubs.swift */; };
+		BE3539C01F5058DE00DC9235 /* Pub.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3539BF1F5058DE00DC9235 /* Pub.swift */; };
 		BE5C1A541E4E49BD005AB2A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5C1A531E4E49BD005AB2A9 /* AppDelegate.swift */; };
 		BE5C1A561E4E49BD005AB2A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5C1A551E4E49BD005AB2A9 /* ViewController.swift */; };
 		BE5C1A591E4E49BD005AB2A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE5C1A571E4E49BD005AB2A9 /* Main.storyboard */; };
@@ -20,7 +20,7 @@
 
 /* Begin PBXFileReference section */
 		BE3539BD1F5054A200DC9235 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BE3539BF1F5058DE00DC9235 /* Pubs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pubs.swift; sourceTree = "<group>"; };
+		BE3539BF1F5058DE00DC9235 /* Pub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pub.swift; sourceTree = "<group>"; };
 		BE5C1A501E4E49BD005AB2A9 /* beeryMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = beeryMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE5C1A531E4E49BD005AB2A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE5C1A551E4E49BD005AB2A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,7 +72,7 @@
 				BE5C1A571E4E49BD005AB2A9 /* Main.storyboard */,
 				BECABF121F4CE34900D5AD11 /* MapViewViewController.swift */,
 				BE5C1A5F1E4E49BD005AB2A9 /* Info.plist */,
-				BE3539BF1F5058DE00DC9235 /* Pubs.swift */,
+				BE3539BF1F5058DE00DC9235 /* Pub.swift */,
 			);
 			path = beeryMe;
 			sourceTree = "<group>";
@@ -176,7 +176,7 @@
 			files = (
 				BE5C1A561E4E49BD005AB2A9 /* ViewController.swift in Sources */,
 				BECABF111F4B6B4E00D5AD11 /* MapViewController.swift in Sources */,
-				BE3539C01F5058DE00DC9235 /* Pubs.swift in Sources */,
+				BE3539C01F5058DE00DC9235 /* Pub.swift in Sources */,
 				BECABF131F4CE34900D5AD11 /* MapViewViewController.swift in Sources */,
 				BE5C1A541E4E49BD005AB2A9 /* AppDelegate.swift in Sources */,
 			);

@@ -5,13 +5,13 @@
 //  Created by George Jowitt on 22/08/2017.
 //  Copyright © 2017 George Jowitt. All rights reserved.
 //
-
+import Foundation
 import UIKit
 import MapKit
 
 class MapViewViewController: UIViewController {
     
-    var pubs: [Pubs] = []
+    var pubs: [Pub] = []
     
     var locationManager: CLLocationManager?
     @IBOutlet weak var mapView: MKMapView!
@@ -20,9 +20,10 @@ class MapViewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
  
-        let testPub = Pubs(name: "Willow Tree Inn", latitude: 53.881056, longitude: -1.8839149, visited: false)
+        let testPub = Pub(name: "Willow Tree Inn", latitude: 53.881056, longitude: -1.8839149, visited: false)
         pubs.append(testPub)
         
+      
         
         let regionRadius: CLLocationDistance = 250
         let region = MKCoordinateRegionMakeWithDistance((startLocation?.coordinate)!, regionRadius, regionRadius)
@@ -30,8 +31,11 @@ class MapViewViewController: UIViewController {
         mapView.delegate = self
         mapView.addAnnotations(pubs)
         
+        
+        
     }
-
+   
+    
 }
 
 extension MapViewViewController: MKMapViewDelegate {
@@ -48,7 +52,7 @@ extension MapViewViewController: MKMapViewDelegate {
         }
         
         annotationView?.canShowCallout = true
-        if let pub = annotation as? Pubs,
+        if let pub = annotation as? Pub,
             let image = pub.image {
             //annotationView?.detailCalloutAccessoryView = UIImageView(image: image)
             let btn = UIButton(type: .infoLight)
