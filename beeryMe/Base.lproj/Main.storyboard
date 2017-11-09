@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13168.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -13,25 +13,22 @@
             <string>Courier</string>
             <string>Courier-Bold</string>
         </array>
-        <array key="CourierNew.ttf">
-            <string>CourierNewPSMT</string>
-        </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Opening ScreenVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="beeryMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="OpeningScreenVC" customModule="beeryMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a geojow app © 2017" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbi-EP-NvX">
-                                <rect key="frame" x="63" y="508.5" width="194" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a geojow app ©" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbi-EP-NvX">
+                                <rect key="frame" x="116" y="607.5" width="143" height="17"/>
                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -83,105 +80,36 @@
                         <outlet property="button" destination="kgj-vG-aFv" id="q11-Hk-eG6"/>
                         <outlet property="clickPromt" destination="sdW-eo-gMr" id="hpz-5u-0Nr"/>
                         <outlet property="geojowLbl" destination="vbi-EP-NvX" id="FoU-hH-yv5"/>
-                        <segue destination="k2F-1K-FXU" kind="show" identifier="toMap" id="J7B-gc-nWI"/>
+                        <segue destination="g7C-5a-bzk" kind="show" identifier="toMap" id="8fe-1r-Q3E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="31.875" y="36.971830985915496"/>
+            <point key="canvasLocation" x="828" y="38"/>
         </scene>
-        <!--Map View Controller-->
-        <scene sceneID="KjM-Uu-13c">
-            <objects>
-                <viewController storyboardIdentifier="locationView" id="k2F-1K-FXU" customClass="MapViewController" customModule="beeryMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="MyC-aJ-mV6"/>
-                        <viewControllerLayoutGuide type="bottom" id="nJw-5u-naa"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="0pk-9m-Iet">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Coordinates:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fh1-Zd-ogb">
-                                <rect key="frame" x="16" y="101" width="288" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Latitude: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEy-Rx-jeG">
-                                <rect key="frame" x="16" y="158" width="288" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Longitude: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ax7-UM-rBt">
-                                <rect key="frame" x="16" y="218" width="288" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VdZ-ry-cOs">
-                                <rect key="frame" x="16" y="278" width="288" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="288" translatesAutoresizingMaskIntoConstraints="NO" id="p7R-Md-kMb">
-                                <rect key="frame" x="160" y="316" width="0.0" height="93"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="93" id="Gay-Vi-Obo"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hal-9l-hue">
-                                <rect key="frame" x="17" y="462" width="286" height="32"/>
-                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
-                                <state key="normal" title="Got to this location on map "/>
-                                <connections>
-                                    <action selector="goToActualMap:" destination="k2F-1K-FXU" eventType="touchUpInside" id="KFZ-SG-q3q"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Hal-9l-hue" firstAttribute="top" secondItem="p7R-Md-kMb" secondAttribute="bottom" constant="53" id="1tb-Ss-DWs"/>
-                            <constraint firstItem="nJw-5u-naa" firstAttribute="top" secondItem="Hal-9l-hue" secondAttribute="bottom" constant="74" id="5U5-aL-DNc"/>
-                            <constraint firstItem="p7R-Md-kMb" firstAttribute="centerX" secondItem="0pk-9m-Iet" secondAttribute="centerX" id="Qvz-sR-wz9"/>
-                            <constraint firstItem="Hal-9l-hue" firstAttribute="centerX" secondItem="0pk-9m-Iet" secondAttribute="centerX" id="tMx-rC-a8G"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="addressLabel" destination="p7R-Md-kMb" id="LYu-WK-xJr"/>
-                        <outlet property="latitudeLabel" destination="IEy-Rx-jeG" id="lqc-oW-75A"/>
-                        <outlet property="longitudeLabel" destination="ax7-UM-rBt" id="4f0-ZY-Enu"/>
-                        <segue destination="g7C-5a-bzk" kind="show" identifier="toActualMap" id="DpT-sa-eVS"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yog-jw-KCt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="817.5" y="36.971830985915496"/>
-        </scene>
-        <!--Map View View Controller-->
+        <!--MapVC-->
         <scene sceneID="0nw-Mi-WUo">
             <objects>
-                <viewController storyboardIdentifier="mapView" id="g7C-5a-bzk" customClass="MapViewViewController" customModule="beeryMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mapView" id="g7C-5a-bzk" customClass="MapVC" customModule="beeryMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2tu-RD-nh6"/>
                         <viewControllerLayoutGuide type="bottom" id="mTR-za-hJK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7p0-IR-5Gj">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VfJ-jX-WWY">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrx-qU-FNO">
+                                <rect key="frame" x="16" y="20" width="43" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="tap"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="iPT-Oy-RZQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -200,4 +128,7 @@
             <point key="canvasLocation" x="1636.875" y="38.028169014084504"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tap" width="600" height="511"/>
+    </resources>
 </document>

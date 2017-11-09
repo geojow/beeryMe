@@ -10,12 +10,12 @@
 		BE3539BE1F5054A200DC9235 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE3539BD1F5054A200DC9235 /* Assets.xcassets */; };
 		BE3539C01F5058DE00DC9235 /* Pub.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3539BF1F5058DE00DC9235 /* Pub.swift */; };
 		BE5C1A541E4E49BD005AB2A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5C1A531E4E49BD005AB2A9 /* AppDelegate.swift */; };
-		BE5C1A561E4E49BD005AB2A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5C1A551E4E49BD005AB2A9 /* ViewController.swift */; };
+		BE5C1A561E4E49BD005AB2A9 /* OpeningScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5C1A551E4E49BD005AB2A9 /* OpeningScreenVC.swift */; };
 		BE5C1A591E4E49BD005AB2A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE5C1A571E4E49BD005AB2A9 /* Main.storyboard */; };
 		BE5C1A5E1E4E49BD005AB2A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE5C1A5C1E4E49BD005AB2A9 /* LaunchScreen.storyboard */; };
-		BECABF111F4B6B4E00D5AD11 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECABF101F4B6B4E00D5AD11 /* MapViewController.swift */; };
-		BECABF131F4CE34900D5AD11 /* MapViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECABF121F4CE34900D5AD11 /* MapViewViewController.swift */; };
 		BECABF151F4CE56700D5AD11 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BECABF141F4CE56700D5AD11 /* MapKit.framework */; };
+		BEF24D911FB39AC70001E43B /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF24D901FB39AC70001E43B /* MapVC.swift */; };
+		BEFD723A1FB24C5400F7BEFE /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD72391FB24C5400F7BEFE /* QueryService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,14 +23,14 @@
 		BE3539BF1F5058DE00DC9235 /* Pub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pub.swift; sourceTree = "<group>"; };
 		BE5C1A501E4E49BD005AB2A9 /* beeryMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = beeryMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE5C1A531E4E49BD005AB2A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BE5C1A551E4E49BD005AB2A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BE5C1A551E4E49BD005AB2A9 /* OpeningScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningScreenVC.swift; sourceTree = "<group>"; };
 		BE5C1A581E4E49BD005AB2A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BE5C1A5D1E4E49BD005AB2A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE5C1A5F1E4E49BD005AB2A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE5C1A661E4F0993005AB2A9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		BECABF101F4B6B4E00D5AD11 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		BECABF121F4CE34900D5AD11 /* MapViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewViewController.swift; sourceTree = "<group>"; };
 		BECABF141F4CE56700D5AD11 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		BEF24D901FB39AC70001E43B /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
+		BEFD72391FB24C5400F7BEFE /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,14 +65,11 @@
 		BE5C1A521E4E49BD005AB2A9 /* beeryMe */ = {
 			isa = PBXGroup;
 			children = (
-				BECABF161F4F5A3A00D5AD11 /* Opening Screen */,
-				BECABF101F4B6B4E00D5AD11 /* MapViewController.swift */,
-				BE3539BD1F5054A200DC9235 /* Assets.xcassets */,
-				BE5C1A531E4E49BD005AB2A9 /* AppDelegate.swift */,
-				BE5C1A571E4E49BD005AB2A9 /* Main.storyboard */,
-				BECABF121F4CE34900D5AD11 /* MapViewViewController.swift */,
-				BE5C1A5F1E4E49BD005AB2A9 /* Info.plist */,
-				BE3539BF1F5058DE00DC9235 /* Pub.swift */,
+				BEFD72321FB24AC400F7BEFE /* View */,
+				BEFD72331FB24ADF00F7BEFE /* Model */,
+				BEFD72341FB24AE200F7BEFE /* Controller */,
+				BEFD72351FB24AE400F7BEFE /* Networking */,
+				BEFD72371FB24B5200F7BEFE /* Supporting Files */,
 			);
 			path = beeryMe;
 			sourceTree = "<group>";
@@ -86,13 +83,48 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BECABF161F4F5A3A00D5AD11 /* Opening Screen */ = {
+		BEFD72321FB24AC400F7BEFE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BE5C1A5C1E4E49BD005AB2A9 /* LaunchScreen.storyboard */,
-				BE5C1A551E4E49BD005AB2A9 /* ViewController.swift */,
 			);
-			name = "Opening Screen";
+			name = View;
+			sourceTree = "<group>";
+		};
+		BEFD72331FB24ADF00F7BEFE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BE3539BF1F5058DE00DC9235 /* Pub.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		BEFD72341FB24AE200F7BEFE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BEF24D901FB39AC70001E43B /* MapVC.swift */,
+				BE5C1A551E4E49BD005AB2A9 /* OpeningScreenVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		BEFD72351FB24AE400F7BEFE /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				BEFD72391FB24C5400F7BEFE /* QueryService.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		BEFD72371FB24B5200F7BEFE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BE5C1A5F1E4E49BD005AB2A9 /* Info.plist */,
+				BE5C1A571E4E49BD005AB2A9 /* Main.storyboard */,
+				BE5C1A531E4E49BD005AB2A9 /* AppDelegate.swift */,
+				BE5C1A5C1E4E49BD005AB2A9 /* LaunchScreen.storyboard */,
+				BE3539BD1F5054A200DC9235 /* Assets.xcassets */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,10 +206,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE5C1A561E4E49BD005AB2A9 /* ViewController.swift in Sources */,
-				BECABF111F4B6B4E00D5AD11 /* MapViewController.swift in Sources */,
+				BEF24D911FB39AC70001E43B /* MapVC.swift in Sources */,
+				BE5C1A561E4E49BD005AB2A9 /* OpeningScreenVC.swift in Sources */,
 				BE3539C01F5058DE00DC9235 /* Pub.swift in Sources */,
-				BECABF131F4CE34900D5AD11 /* MapViewViewController.swift in Sources */,
+				BEFD723A1FB24C5400F7BEFE /* QueryService.swift in Sources */,
 				BE5C1A541E4E49BD005AB2A9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,7 @@
 
 import UIKit
 import MapKit
-class ViewController: UIViewController {
+class OpeningScreenVC: UIViewController {
 
     @IBOutlet weak var background: UILabel!
     @IBOutlet weak var clickPromt: UILabel!
@@ -20,44 +20,49 @@ class ViewController: UIViewController {
     
     
     
-    func waitThenAnimate() {
+    @objc func waitThenAnimate() {
         
-        perform(#selector(ViewController.animate), with: nil, afterDelay: 0.5)
+        perform(#selector(OpeningScreenVC.animate), with: nil, afterDelay: 0.5)
         
     }
     
-    func animate() {
+    @objc func animate() {
         
         UIView.animate(withDuration: 0.9, animations:  {
             self.background.transform = CGAffineTransform(scaleX: 0.26, y: 0.145)
             self.bMLabel.transform = CGAffineTransform(scaleX: 0.25, y: 0.25)
            
-            self.perform(#selector(ViewController.setRoundedCorners), with: nil, afterDelay: 0.1)
-            self.perform(#selector(ViewController.pulseButton), with: nil, afterDelay: 2)
-            self.perform(#selector(ViewController.showPromt), with: nil, afterDelay: 4)
+            self.perform(#selector(OpeningScreenVC.setRoundedCorners), with: nil, afterDelay: 0.1)
+            self.perform(#selector(OpeningScreenVC.pulseButton), with: nil, afterDelay: 2)
+            self.perform(#selector(OpeningScreenVC.showPromt), with: nil, afterDelay: 4)
             
         })
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(OpeningScreenVC.enableButton), userInfo: nil, repeats: false)
         
     
     }
     
-    func pulseButton() {
+    @objc func enableButton() {
+        button.isEnabled = true
+    }
+    
+    @objc func pulseButton() {
         
         self.borderPulse(element: bMLabel, fromScale: 0.25, toScale: 0.275)
         self.borderPulse(element: button, fromScale: 1, toScale: 1.1)
         
     }
     
-    func showPromt() {
+    @objc func showPromt() {
         
         UIView.animate(withDuration: 1, animations: {
             
             self.clickPromt.alpha = 1
         })
-        button.isEnabled = true
+        
     }
     
-    func setRoundedCorners() {
+    @objc func setRoundedCorners() {
         UIView.animate(withDuration: 0.9, animations: {
          self.background.layer.cornerRadius = 65
         })
@@ -87,11 +92,11 @@ class ViewController: UIViewController {
         
         })
         
-       self.perform(#selector(ViewController.buttonPressedExpand), with: nil, afterDelay: 0.1)
+       self.perform(#selector(OpeningScreenVC.buttonPressedExpand), with: nil, afterDelay: 0.1)
         
     }
     
-    func buttonPressedExpand() {
+    @objc func buttonPressedExpand() {
         self.button.alpha = 0
         
         UIView.animate(withDuration: 2, animations: {
@@ -100,12 +105,12 @@ class ViewController: UIViewController {
             self.bMLabel.transform = CGAffineTransform(scaleX: 2, y: 2)
             self.bMLabel.alpha = 0
         })
-        self.perform(#selector(ViewController.goToMap), with: nil, afterDelay: 1)
+        self.perform(#selector(OpeningScreenVC.goToMap), with: nil, afterDelay: 1)
         
         
     }
     
-     func goToMap() {
+    @objc func goToMap() {
         
         self.performSegue(withIdentifier: "toMap", sender: self)
     
@@ -114,18 +119,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.waitThenAnimate), userInfo: nil, repeats: false)
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(OpeningScreenVC.waitThenAnimate), userInfo: nil, repeats: false)
         self.button.layer.cornerRadius = 20
         button.isEnabled = false
         
     }
 
-    
-     // not sure what this is here for, havent used/needed it yet
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
-    }
 
 
 }
