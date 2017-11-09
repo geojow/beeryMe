@@ -1,5 +1,5 @@
 //
-//  MapViewViewController.swift
+//  MapVC.swift
 //  beeryMe
 //
 //  Created by George Jowitt on 22/08/2017.
@@ -14,23 +14,30 @@ class MapVC: UIViewController {
     var pubs: [Pub] = []
     let queryService = QueryService()
     
+    
     var locationManager: CLLocationManager?
     @IBOutlet weak var mapView: MKMapView!
     var startLocation = CLLocation(latitude: 51.47281, longitude: -0.16145)
+    let regionRadius: CLLocationDistance = 500
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpLocationManager()
+     
         setUpMapView()
+        setUpLocationManager()
+        //
     }
     
     func setUpMapView() {
-        let regionRadius: CLLocationDistance = 250
-        let region = MKCoordinateRegionMakeWithDistance((startLocation.coordinate), regionRadius, regionRadius)
-        
-        mapView.setRegion(region, animated: true)
         mapView.delegate = self
+    }
+    
+    func centreOnLocation(_ location: CLLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
+        regionRadius, regionRadius)
+        mapView.setRegion(coordinateRegion, animated: true)
         
+        networkCall(location: location)
     }
     
     func setUpLocationManager() {
@@ -38,20 +45,25 @@ class MapVC: UIViewController {
         locationManager?.delegate = self
         locationManager?.desiredAccuracy = kCLLocationAccuracyBest
         locationManager?.requestWhenInUseAuthorization()
-        locationManager?.startUpdatingLocation()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager?.requestWhenInUseAuthorization()
+            locationManager?.startUpdatingLocation()
+            if let location = locationManager?.location {
+                centreOnLocation(location)
+            }
+        }
     }
     
     func networkCall(location: CLLocation) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         queryService.getSearchResults(location: location) { results, errorMessage in
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-        if let results = results {
-            print(results)
-            self.mapView.addAnnotations(results)
-            print("Added Annotations?")
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            if let results = results {
+                self.mapView.addAnnotations(results)
+            }
+            if !errorMessage.isEmpty { print("Search error: " + errorMessage) }
         }
-        if !errorMessage.isEmpty { print("Search error: " + errorMessage) }
-    }
     }
 }
 
@@ -81,7 +93,7 @@ extension MapVC: MKMapViewDelegate {
             annotationView?.image = UIImage(named: "beer-not-visited")
         }
         
-
+        
         
         
         return annotationView
@@ -106,14 +118,11 @@ extension MapVC: MKMapViewDelegate {
 extension MapVC: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-            guard let latest = locations.first else { return }
-            //getPubs(location: latest)
-            networkCall(location: latest)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
     }
-
+    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedAlways || status == .authorizedWhenInUse {
             locationManager?.startUpdatingLocation()
