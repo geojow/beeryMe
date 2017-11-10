@@ -15,6 +15,7 @@
 		BE5C1A5E1E4E49BD005AB2A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE5C1A5C1E4E49BD005AB2A9 /* LaunchScreen.storyboard */; };
 		BECABF151F4CE56700D5AD11 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BECABF141F4CE56700D5AD11 /* MapKit.framework */; };
 		BEF24D911FB39AC70001E43B /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF24D901FB39AC70001E43B /* MapVC.swift */; };
+		BEF24D931FB4F92C0001E43B /* PubListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF24D921FB4F92C0001E43B /* PubListVC.swift */; };
 		BEFD723A1FB24C5400F7BEFE /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD72391FB24C5400F7BEFE /* QueryService.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		BE5C1A661E4F0993005AB2A9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		BECABF141F4CE56700D5AD11 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		BEF24D901FB39AC70001E43B /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
+		BEF24D921FB4F92C0001E43B /* PubListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubListVC.swift; sourceTree = "<group>"; };
 		BEFD72391FB24C5400F7BEFE /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,8 +103,9 @@
 		BEFD72341FB24AE200F7BEFE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BEF24D901FB39AC70001E43B /* MapVC.swift */,
 				BE5C1A551E4E49BD005AB2A9 /* OpeningScreenVC.swift */,
+				BEF24D901FB39AC70001E43B /* MapVC.swift */,
+				BEF24D921FB4F92C0001E43B /* PubListVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			files = (
 				BEF24D911FB39AC70001E43B /* MapVC.swift in Sources */,
 				BE5C1A561E4E49BD005AB2A9 /* OpeningScreenVC.swift in Sources */,
+				BEF24D931FB4F92C0001E43B /* PubListVC.swift in Sources */,
 				BE3539C01F5058DE00DC9235 /* Pub.swift in Sources */,
 				BEFD723A1FB24C5400F7BEFE /* QueryService.swift in Sources */,
 				BE5C1A541E4E49BD005AB2A9 /* AppDelegate.swift in Sources */,
