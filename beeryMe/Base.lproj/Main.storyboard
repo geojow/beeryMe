@@ -127,7 +127,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
                                 <state key="normal" title="&gt;&gt;&gt;"/>
                                 <connections>
-                                    <segue destination="HsS-aK-xUr" kind="presentation" identifier="toPubList" id="fQg-tJ-IZf"/>
+                                    <segue destination="HsS-aK-xUr" kind="show" identifier="toPubList" id="fQg-tJ-IZf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -153,18 +153,20 @@
         <scene sceneID="0YF-YZ-mpB">
             <objects>
                 <tableViewController id="HsS-aK-xUr" customClass="PubListVC" customModule="beeryMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hVC-MO-uUW">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hVC-MO-uUW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="hq3-eB-Jgd">
+                        <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <navigationBar key="tableHeaderView" clipsSubviews="YES" contentMode="scaleToFill" id="hq3-eB-Jgd">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
                                 <navigationItem title="Pub List" id="RRA-z5-80u">
                                     <barButtonItem key="leftBarButtonItem" title="&lt;&lt;&lt;" id="SNH-cz-KDY">
                                         <connections>
-                                            <segue destination="g7C-5a-bzk" kind="presentation" identifier="toMapFromList" id="y3Z-bA-aMx"/>
+                                            <segue destination="g7C-5a-bzk" kind="show" identifier="toMapFromList" id="y3Z-bA-aMx"/>
                                         </connections>
                                     </barButtonItem>
                                 </navigationItem>
@@ -178,7 +180,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Test Cell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDW-bd-3fK">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Test Cell" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDW-bd-3fK">
                                             <rect key="frame" x="16" y="2" width="252" height="41"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="0.96862745100000003" green="0.58039215690000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
