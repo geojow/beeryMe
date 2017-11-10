@@ -13,7 +13,7 @@ class Pub: NSObject {
     
     let name: String
     let location: CLLocation
-    let visited: Bool
+    var visited: Bool
     
     init(name: String, latitude: Double, longitude: Double, visited: Bool) {
         
@@ -21,6 +21,10 @@ class Pub: NSObject {
         self.location = CLLocation(latitude: latitude, longitude: longitude)
         self.visited = visited
         
+    }
+    
+    func toggleVisited() {
+        visited = !visited
     }
 }
 
