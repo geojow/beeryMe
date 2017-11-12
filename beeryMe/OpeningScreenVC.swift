@@ -123,9 +123,9 @@ class OpeningScreenVC: UIViewController {
         if segue.identifier == "toMap" {
             let controller = segue.destination as! MapVC
             
-//            if controller.pubs.isEmpty {
-//                controller.pubs = tempPubList
-//            }
+            if controller.pubs.isEmpty {
+                controller.pubs = tempPubList
+            }
             
         }
     }
@@ -135,12 +135,13 @@ class OpeningScreenVC: UIViewController {
         
         // TEMP /////
         
-        let testPub1 = Pub(name: "Hope & Anchor", latitude: 51.47281, longitude: 51.47281, visited: false)
-        let testPub2 = Pub(name: "The Swan", latitude: 51.47281, longitude: 51.47281, visited: false)
-        let testPub3 = Pub(name: "The Sunningdale Lounge", latitude: 51.47281, longitude: 51.47281, visited: false)
-        let testPub4 = Pub(name: "The Gramby", latitude: 51.47281, longitude: 51.47281, visited: false)
-        let testPub5 = Pub(name: "The Goat Rodeo", latitude: 51.47281, longitude: 51.47281, visited: false)
+        let testPub1 = Pub(id: 1, name: "Hope & Anchor", latitude: 51.47281, longitude: 51.47281, visited: false)
+        let testPub2 = Pub(id: 2, name: "The Swan", latitude: 51.47281, longitude: 51.47281, visited: true)
+        let testPub3 = Pub(id: 3, name: "The Sunningdale Lounge", latitude: 51.47281, longitude: 51.47281, visited: false)
+        let testPub4 = Pub(id: 4, name: "The Gramby", latitude: 51.47281, longitude: 51.47281, visited: true)
+        let testPub5 = Pub(id: 5, name: "The Goat Rodeo", latitude: 51.47281, longitude: 51.47281, visited: false)
         tempPubList = [testPub1, testPub2, testPub3, testPub4, testPub5]
+        
         /////////////
 
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(OpeningScreenVC.waitThenAnimate), userInfo: nil, repeats: false)
