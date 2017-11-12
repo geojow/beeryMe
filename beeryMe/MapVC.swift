@@ -11,6 +11,8 @@ import MapKit
 
 class MapVC: UIViewController {
     
+    
+    var pubsVisited: [Int] = []
     var pubs: [Pub] = []
     let queryService = QueryService()
     
@@ -56,6 +58,7 @@ class MapVC: UIViewController {
         locationManager?.delegate = self
         locationManager?.desiredAccuracy = kCLLocationAccuracyBest
         locationManager?.requestWhenInUseAuthorization()
+        locationManager?.distanceFilter = 50
         
         if CLLocationManager.locationServicesEnabled() {
             locationManager?.requestWhenInUseAuthorization()
@@ -72,6 +75,7 @@ class MapVC: UIViewController {
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             if let results = results {
                 for result in results {
+                    print(result.id)
                     self.pubs.append(result)
                 }
                 self.mapView.addAnnotations(results)
@@ -111,7 +115,11 @@ extension MapVC: MKMapViewDelegate {
             btn.tintColor = nil
             annotationView?.leftCalloutAccessoryView = btn
             annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
-            annotationView?.image = UIImage(named: "beer-not-visited")
+            if pub.visited {
+                annotationView?.image = UIImage(named: "beer-visited")
+            } else {
+                annotationView?.image = UIImage(named: "beer-not-visited")
+            }
         }
         
         
@@ -127,9 +135,11 @@ extension MapVC: MKMapViewDelegate {
                 if button.currentImage == #imageLiteral(resourceName: "beer-not-visited") {
                     let image = #imageLiteral(resourceName: "beer-visited")
                     button.setImage(image, for: .normal)
+                    view.image = UIImage(named: "beer-visited")
                 } else if button.currentImage == #imageLiteral(resourceName: "beer-visited") {
                     let image = #imageLiteral(resourceName: "beer-not-visited")
                     button.setImage(image, for: .normal)
+                    view.image = UIImage(named: "beer-not-visited")
                 }
             }
         }
