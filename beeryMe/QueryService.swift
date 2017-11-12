@@ -71,11 +71,13 @@ class QueryService {
             for pub in jsonPubs {
                 
                 let myPub = pub["restaurant"] as! NSDictionary
+                let R = myPub["R"] as! NSDictionary
+                let id = R["res_id"] as! Int
                 let name = myPub["name"] as! String
                 let location = myPub["location"] as? NSDictionary
                 let latitude = (location!["latitude"] as! NSString).doubleValue
                 let longitude = (location!["longitude"] as! NSString).doubleValue
-                let newPub = Pub(name: name, latitude: latitude, longitude: longitude, visited: false)
+                let newPub = Pub(id: id, name: name, latitude: latitude, longitude: longitude, visited: false)
                 pubs.append(newPub)
             }
         } catch {
