@@ -18,7 +18,7 @@ class QueryService {
     
     var defaultSession = URLSession(configuration: .default)
     var dataTask: URLSessionDataTask?
-    let zomatoKey = "846882afa169c6314aa0953525a382cf"
+    let zomatoKey = zomatoAPIKey
     
     func getSearchResults(location: CLLocation, completion: @escaping QueryResult) {
         
