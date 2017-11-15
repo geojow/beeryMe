@@ -12,12 +12,12 @@ import MapKit
 class Pub: NSObject {
     
     
-    let id: Int
+    let id: String
     let name: String
     let location: CLLocation
     var visited: Bool
     
-    init(id: Int, name: String, latitude: Double, longitude: Double, visited: Bool) {
+    init(id: String, name: String, latitude: Double, longitude: Double, visited: Bool) {
         self.id = id
         self.name = name
         self.location = CLLocation(latitude: latitude, longitude: longitude)

@@ -12,6 +12,7 @@ import MapKit
 class MapVC: UIViewController {
     
     
+    
     //var pubsVisited: [Int] = []
     var pubs: [Pub] = []
     let queryService = QueryService()
