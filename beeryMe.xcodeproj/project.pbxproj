@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C2A693A31D66F9E43D35DB6 /* Pods_beeryMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74307787250EDCE05877B673 /* Pods_beeryMe.framework */; };
 		BE3539C01F5058DE00DC9235 /* Pub.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3539BF1F5058DE00DC9235 /* Pub.swift */; };
 		BE5C1A541E4E49BD005AB2A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5C1A531E4E49BD005AB2A9 /* AppDelegate.swift */; };
 		BE5C1A561E4E49BD005AB2A9 /* OpeningScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5C1A551E4E49BD005AB2A9 /* OpeningScreenVC.swift */; };
@@ -20,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		20C561D500C73FF42BD3D15E /* Pods-beeryMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-beeryMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-beeryMe/Pods-beeryMe.release.xcconfig"; sourceTree = "<group>"; };
+		74307787250EDCE05877B673 /* Pods_beeryMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_beeryMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE3539BF1F5058DE00DC9235 /* Pub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pub.swift; sourceTree = "<group>"; };
 		BE5C1A501E4E49BD005AB2A9 /* beeryMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = beeryMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE5C1A531E4E49BD005AB2A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -33,6 +36,7 @@
 		BEF24D921FB4F92C0001E43B /* PubListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubListVC.swift; sourceTree = "<group>"; };
 		BEF24D941FB8BE6A0001E43B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEFD72391FB24C5400F7BEFE /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
+		C45E66AFE835E7FE7ECECA00 /* Pods-beeryMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-beeryMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-beeryMe/Pods-beeryMe.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,18 +45,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				BECABF151F4CE56700D5AD11 /* MapKit.framework in Frameworks */,
+				5C2A693A31D66F9E43D35DB6 /* Pods_beeryMe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4CC02F0A7C01216EE890B3C1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C45E66AFE835E7FE7ECECA00 /* Pods-beeryMe.debug.xcconfig */,
+				20C561D500C73FF42BD3D15E /* Pods-beeryMe.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		BE5C1A471E4E49BD005AB2A9 = {
 			isa = PBXGroup;
 			children = (
 				BE5C1A521E4E49BD005AB2A9 /* beeryMe */,
 				BE5C1A511E4E49BD005AB2A9 /* Products */,
 				BE5C1A651E4F0993005AB2A9 /* Frameworks */,
+				4CC02F0A7C01216EE890B3C1 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,6 +96,7 @@
 			children = (
 				BECABF141F4CE56700D5AD11 /* MapKit.framework */,
 				BE5C1A661E4F0993005AB2A9 /* CoreLocation.framework */,
+				74307787250EDCE05877B673 /* Pods_beeryMe.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -137,9 +153,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE5C1A621E4E49BD005AB2A9 /* Build configuration list for PBXNativeTarget "beeryMe" */;
 			buildPhases = (
+				9D917614B5039043D3E72D5C /* [CP] Check Pods Manifest.lock */,
 				BE5C1A4C1E4E49BD005AB2A9 /* Sources */,
 				BE5C1A4D1E4E49BD005AB2A9 /* Frameworks */,
 				BE5C1A4E1E4E49BD005AB2A9 /* Resources */,
+				0EB1E69D6B32E0FB3F378F9B /* [CP] Embed Pods Frameworks */,
+				9F4F8C7A2AD583096194B639 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -203,6 +222,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0EB1E69D6B32E0FB3F378F9B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-beeryMe/Pods-beeryMe-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-beeryMe/Pods-beeryMe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D917614B5039043D3E72D5C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-beeryMe-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F4F8C7A2AD583096194B639 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-beeryMe/Pods-beeryMe-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BE5C1A4C1E4E49BD005AB2A9 /* Sources */ = {
@@ -345,6 +418,7 @@
 		};
 		BE5C1A631E4E49BD005AB2A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C45E66AFE835E7FE7ECECA00 /* Pods-beeryMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -363,6 +437,7 @@
 		};
 		BE5C1A641E4E49BD005AB2A9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20C561D500C73FF42BD3D15E /* Pods-beeryMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

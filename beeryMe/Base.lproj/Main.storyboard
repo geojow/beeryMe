@@ -212,7 +212,6 @@
         <image name="tap" width="600" height="511"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fQg-tJ-IZf"/>
         <segue reference="YoJ-2c-p0Q"/>
     </inferredMetricsTieBreakers>
 </document>

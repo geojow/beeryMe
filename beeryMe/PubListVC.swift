@@ -10,13 +10,20 @@ import UIKit
 
 class PubListVC: UITableViewController {
     
+    //var pubsVisited: [Int] = []
     var pubList: [Pub] = []
     let cellSpacingHeight: CGFloat = 5.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpRightSwipt()
-    
+        self.navigationController?.hidesBarsOnSwipe = false
+        
+        
+        
+        
+       
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -49,6 +56,12 @@ class PubListVC: UITableViewController {
             let pub = pubList[indexPath.section]
             pub.toggleVisited()
             configureImage(for: cell, with: pub)
+//            if pub.visited && !pubsVisited.contains(pub.id) {
+//                pubsVisited.append(pub.id)
+//            } else if !pub.visited && pubsVisited.contains(pub.id) {
+//                let index = pubsVisited.index(of: pub.id)
+//                pubsVisited.remove(at: index!)
+//            }
         }
         tableView.deselectRow(at: indexPath, animated: false)
     }
@@ -83,6 +96,7 @@ class PubListVC: UITableViewController {
         if segue.identifier == "toMapFromList" {
             let controller = segue.destination as! MapVC
             controller.pubs = pubList
+            //controller.pubsVisited = pubsVisited
         }
     }
 
@@ -104,4 +118,6 @@ class PubListVC: UITableViewController {
             self.performSegue(withIdentifier: "toMapFromList", sender: self)
         }
     }
+    
+    ///////////////////////
 }
