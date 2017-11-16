@@ -8,17 +8,21 @@
 
 import UIKit
 import MapKit
+import AVFoundation
+
 class OpeningScreenVC: UIViewController {
     
-    
 
+    @IBOutlet weak var backgroundButton: UIButton!
     @IBOutlet weak var background: UILabel!
     @IBOutlet weak var clickPromt: UILabel!
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var bMLabel: UILabel!
     @IBOutlet weak var geojowLbl: UILabel!
+    @IBOutlet weak var settings: UIView!
     
     var timer = Timer()
+    var player = AVAudioPlayer()
     var makeNetworkCall = true
     
     // TEMP /////
@@ -26,6 +30,23 @@ class OpeningScreenVC: UIViewController {
     var tempPubList: [Pub] = []
 
     /////////////
+    
+    @IBAction func settingsPressed(_ sender: UIButton) {
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.settings.alpha = 1
+            self.backgroundButton.alpha = 1
+            })
+        
+    }
+    
+    @IBAction func dismissSettings(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.settings.alpha = 0
+            self.backgroundButton.alpha = 0
+        })
+    }
+    
     
     @objc func waitThenAnimate() {
         
@@ -89,6 +110,15 @@ class OpeningScreenVC: UIViewController {
     
     @IBAction func buttonPressed(_ sender: Any) {
         
+        let audioPath = Bundle.main.path(forResource: "beer", ofType: "mp3")
+        do {
+            try player = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath!))
+            
+            player.play()
+        } catch {
+            // Process any errors
+        }
+        
         UIView.animate(withDuration: 1, animations: {
             self.background.transform = CGAffineTransform(scaleX: 0.21, y: 0.12)
             self.button.transform = CGAffineTransform(scaleX: 0.1, y: 0.05)
@@ -135,16 +165,7 @@ class OpeningScreenVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // TEMP /////
-
-        let testPub1 = Pub(id: "1", name: "Hope & Anchor", latitude: 51.47281, longitude: 51.47281, visited: false)
-        let testPub2 = Pub(id: "2", name: "The Swan", latitude: 51.47281, longitude: 51.47281, visited: true)
-        let testPub3 = Pub(id: "3", name: "The Sunningdale Lounge", latitude: 51.47281, longitude: 51.47281, visited: false)
-        let testPub4 = Pub(id: "4", name: "The Gramby", latitude: 51.47281, longitude: 51.47281, visited: true)
-        let testPub5 = Pub(id: "5", name: "The Goat Rodeo", latitude: 51.47281, longitude: 51.47281, visited: false)
-        tempPubList = [testPub1, testPub2, testPub3, testPub4, testPub5]
-
-        /////////////
+        settings.layer.cornerRadius = 30
 
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(OpeningScreenVC.waitThenAnimate), userInfo: nil, repeats: false)
         self.button.layer.cornerRadius = 20

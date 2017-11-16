@@ -37,6 +37,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DRf-JP-66Y">
+                                <rect key="frame" x="16" y="20" width="43" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="settings"/>
+                                <connections>
+                                    <action selector="settingsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JzA-rl-06a"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a geojow app ©" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbi-EP-NvX">
                                 <rect key="frame" x="88.5" y="508.5" width="143" height="17"/>
                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="17"/>
@@ -77,7 +85,14 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bKO-Qk-NVe">
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZM-OP-1Hq">
+                                <rect key="frame" x="0.0" y="0.0" width="321" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="dismissSettings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oxc-f2-ugt"/>
+                                </connections>
+                            </button>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bKO-Qk-NVe">
                                 <rect key="frame" x="40" y="164" width="240" height="240"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUl-UI-dTs">
@@ -87,7 +102,7 @@
                                             <constraint firstAttribute="height" constant="23" id="huu-ZU-fNq"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="20"/>
-                                        <color key="textColor" red="0.96862745100000003" green="0.58039215690000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radius:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dor-hO-sFC">
@@ -117,7 +132,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.58039215690000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="nQ2-2E-aHX" firstAttribute="leading" secondItem="bKO-Qk-NVe" secondAttribute="leading" id="1Zd-au-1NU"/>
                                     <constraint firstAttribute="bottom" secondItem="nQ2-2E-aHX" secondAttribute="bottom" constant="18" id="1fy-jA-IKH"/>
@@ -144,9 +159,11 @@
                     <connections>
                         <outlet property="bMLabel" destination="mhR-9c-d77" id="uHZ-uM-YsR"/>
                         <outlet property="background" destination="CRr-bE-kDh" id="F95-Tf-zJT"/>
+                        <outlet property="backgroundButton" destination="EZM-OP-1Hq" id="DB9-dO-fO3"/>
                         <outlet property="button" destination="kgj-vG-aFv" id="q11-Hk-eG6"/>
                         <outlet property="clickPromt" destination="sdW-eo-gMr" id="hpz-5u-0Nr"/>
                         <outlet property="geojowLbl" destination="vbi-EP-NvX" id="FoU-hH-yv5"/>
+                        <outlet property="settings" destination="bKO-Qk-NVe" id="Y77-Ud-cgK"/>
                         <segue destination="g7C-5a-bzk" kind="show" identifier="toMap" id="8fe-1r-Q3E"/>
                     </connections>
                 </viewController>
@@ -262,6 +279,9 @@
                             <outlet property="delegate" destination="HsS-aK-xUr" id="7C9-Bi-EP1"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="navBar" destination="hq3-eB-Jgd" id="Hxe-km-j40"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sLR-UG-xAY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -271,9 +291,10 @@
     <resources>
         <image name="list" width="128" height="128"/>
         <image name="poweredbyfoursquare" width="300" height="50"/>
+        <image name="settings" width="50" height="50"/>
         <image name="tap" width="600" height="511"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8fe-1r-Q3E"/>
+        <segue reference="YoJ-2c-p0Q"/>
     </inferredMetricsTieBreakers>
 </document>

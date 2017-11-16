@@ -14,11 +14,16 @@ class PubListVC: UITableViewController {
     var pubList: [Pub] = []
     let cellSpacingHeight: CGFloat = 5.0
     var makeNetworkCall = false
-
+    @IBOutlet weak var navBar: UINavigationBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpRightSwipt()
-        self.navigationController?.hidesBarsOnSwipe = false
+        if #available(iOS 11.0, *) {
+            navBar.prefersLargeTitles = true
+        } else {
+            // Fallback on earlier versions
+        }
         
         
         

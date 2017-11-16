@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import MapKit
+import AVFoundation
 
 class MapVC: UIViewController {
     
@@ -17,6 +18,7 @@ class MapVC: UIViewController {
     //var pubsVisited: [Int] = []
     var pubs: [Pub] = []
     let queryService = QueryService()
+    var player = AVAudioPlayer()
     
     
     var locationManager: CLLocationManager?
@@ -26,10 +28,22 @@ class MapVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         print("make network call: \(makeNetworkCall)")
         //pubs = []
         setUpMapView()
         setUpLocationManager()
+    }
+    
+    func playFizz() {
+        let audioPath = Bundle.main.path(forResource: "fizz", ofType: "mp3")
+        do {
+            try player = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath!))
+            
+            player.play()
+        } catch {
+            // Process any errors
+        }
     }
     
     func setUpMapView() {
@@ -41,6 +55,7 @@ class MapVC: UIViewController {
         regionRadius, regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
         if makeNetworkCall {
+            playFizz()
             networkCall(location: location)
         } else {
             print("Adding pubs from array")

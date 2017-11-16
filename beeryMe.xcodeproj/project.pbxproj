@@ -14,10 +14,12 @@
 		BE5C1A591E4E49BD005AB2A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE5C1A571E4E49BD005AB2A9 /* Main.storyboard */; };
 		BE5C1A5E1E4E49BD005AB2A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE5C1A5C1E4E49BD005AB2A9 /* LaunchScreen.storyboard */; };
 		BEA76D2A1FBCF83A002954E1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA76D291FBCF83A002954E1 /* Constants.swift */; };
+		BEA76D2D1FBE4250002954E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEA76D2C1FBE4250002954E1 /* Assets.xcassets */; };
+		BEA76D2F1FBE4B46002954E1 /* beer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BEA76D2E1FBE4B45002954E1 /* beer.mp3 */; };
+		BEA76D311FBE53D2002954E1 /* fizz.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BEA76D301FBE53D1002954E1 /* fizz.mp3 */; };
 		BECABF151F4CE56700D5AD11 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BECABF141F4CE56700D5AD11 /* MapKit.framework */; };
 		BEF24D911FB39AC70001E43B /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF24D901FB39AC70001E43B /* MapVC.swift */; };
 		BEF24D931FB4F92C0001E43B /* PubListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF24D921FB4F92C0001E43B /* PubListVC.swift */; };
-		BEF24D951FB8BE6B0001E43B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEF24D941FB8BE6A0001E43B /* Assets.xcassets */; };
 		BEFD723A1FB24C5400F7BEFE /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD72391FB24C5400F7BEFE /* QueryService.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,10 +35,12 @@
 		BE5C1A5F1E4E49BD005AB2A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE5C1A661E4F0993005AB2A9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		BEA76D291FBCF83A002954E1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BEA76D2C1FBE4250002954E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BEA76D2E1FBE4B45002954E1 /* beer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beer.mp3; sourceTree = "<group>"; };
+		BEA76D301FBE53D1002954E1 /* fizz.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fizz.mp3; sourceTree = "<group>"; };
 		BECABF141F4CE56700D5AD11 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		BEF24D901FB39AC70001E43B /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		BEF24D921FB4F92C0001E43B /* PubListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubListVC.swift; sourceTree = "<group>"; };
-		BEF24D941FB8BE6A0001E43B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEFD72391FB24C5400F7BEFE /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
 		C45E66AFE835E7FE7ECECA00 /* Pods-beeryMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-beeryMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-beeryMe/Pods-beeryMe.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,10 +143,12 @@
 		BEFD72371FB24B5200F7BEFE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BEA76D2E1FBE4B45002954E1 /* beer.mp3 */,
+				BEA76D301FBE53D1002954E1 /* fizz.mp3 */,
 				BE5C1A5F1E4E49BD005AB2A9 /* Info.plist */,
 				BE5C1A571E4E49BD005AB2A9 /* Main.storyboard */,
 				BE5C1A531E4E49BD005AB2A9 /* AppDelegate.swift */,
-				BEF24D941FB8BE6A0001E43B /* Assets.xcassets */,
+				BEA76D2C1FBE4250002954E1 /* Assets.xcassets */,
 				BE5C1A5C1E4E49BD005AB2A9 /* LaunchScreen.storyboard */,
 				BEA76D291FBCF83A002954E1 /* Constants.swift */,
 			);
@@ -218,8 +224,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEA76D2F1FBE4B46002954E1 /* beer.mp3 in Resources */,
+				BEA76D311FBE53D2002954E1 /* fizz.mp3 in Resources */,
 				BE5C1A5E1E4E49BD005AB2A9 /* LaunchScreen.storyboard in Resources */,
-				BEF24D951FB8BE6B0001E43B /* Assets.xcassets in Resources */,
+				BEA76D2D1FBE4250002954E1 /* Assets.xcassets in Resources */,
 				BE5C1A591E4E49BD005AB2A9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
