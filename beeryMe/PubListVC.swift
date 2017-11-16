@@ -13,6 +13,7 @@ class PubListVC: UITableViewController {
     //var pubsVisited: [Int] = []
     var pubList: [Pub] = []
     let cellSpacingHeight: CGFloat = 5.0
+    var makeNetworkCall = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,6 +98,7 @@ class PubListVC: UITableViewController {
             let controller = segue.destination as! MapVC
             controller.pubs = pubList
             //controller.pubsVisited = pubsVisited
+            controller.makeNetworkCall = makeNetworkCall
         }
     }
 

@@ -11,6 +11,7 @@ import MapKit
 
 class MapVC: UIViewController {
     
+    var makeNetworkCall = true
     
     
     //var pubsVisited: [Int] = []
@@ -25,7 +26,8 @@ class MapVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pubs = []
+        print("make network call: \(makeNetworkCall)")
+        //pubs = []
         setUpMapView()
         setUpLocationManager()
     }
@@ -38,8 +40,12 @@ class MapVC: UIViewController {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
         regionRadius, regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
-        
-        networkCall(location: location)
+        if makeNetworkCall {
+            networkCall(location: location)
+        } else {
+            print("Adding pubs from array")
+            self.mapView.addAnnotations(pubs)
+        }
     }
     
     func setUpLocationManager() {

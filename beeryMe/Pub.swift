@@ -8,6 +8,7 @@
 
 import Foundation
 import MapKit
+import Contacts
 
 class Pub: NSObject {
     
@@ -36,14 +37,13 @@ extension Pub: MKAnnotation {
             return location.coordinate
         }
     }
-    
+
     var title: String? {
         get {
             return name
         }
     }
-    
-    
+
     // TODO - Move this to somewhere more appropriate, model should not have anything to do with view
     var image: UIImage? {
         get {
@@ -54,5 +54,5 @@ extension Pub: MKAnnotation {
             }
         }
     }
-    
+
 }

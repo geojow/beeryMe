@@ -9,6 +9,8 @@
 import UIKit
 import MapKit
 class OpeningScreenVC: UIViewController {
+    
+    
 
     @IBOutlet weak var background: UILabel!
     @IBOutlet weak var clickPromt: UILabel!
@@ -17,6 +19,7 @@ class OpeningScreenVC: UIViewController {
     @IBOutlet weak var geojowLbl: UILabel!
     
     var timer = Timer()
+    var makeNetworkCall = true
     
     // TEMP /////
 
@@ -122,7 +125,8 @@ class OpeningScreenVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toMap" {
-            //let controller = segue.destination as! MapVC
+            let controller = segue.destination as! MapVC
+            controller.makeNetworkCall = makeNetworkCall
             
 
         }
