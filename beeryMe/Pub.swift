@@ -43,6 +43,7 @@ extension Pub: MKAnnotation {
             return name
         }
     }
+    
 
     // TODO - Move this to somewhere more appropriate, model should not have anything to do with view
     var image: UIImage? {

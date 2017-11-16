@@ -137,6 +137,16 @@ extension MapVC: MKMapViewDelegate {
                     button.setImage(image, for: .normal)
                     view.image = UIImage(named: "beer-not-visited")
                 }
+                
+                // toggle visited from map
+                
+                if let annotation = view.annotation {
+                    print("\(annotation)")
+                    if let pub = annotation as? Pub {
+                        print("toggle visited")
+                        pub.toggleVisited()
+                    }
+                }
             }
         }
     }
