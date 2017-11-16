@@ -14,6 +14,9 @@
             <string>Courier</string>
             <string>Courier-Bold</string>
         </array>
+        <array key="CourierNew.ttf">
+            <string>CourierNewPSMT</string>
+        </array>
         <array key="CourierNewBold.ttf">
             <string>CourierNewPS-BoldMT</string>
         </array>
@@ -74,11 +77,68 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bKO-Qk-NVe">
+                                <rect key="frame" x="40" y="164" width="240" height="240"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUl-UI-dTs">
+                                        <rect key="frame" x="18" y="18" width="109" height="23"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="109" id="WKP-4D-gSa"/>
+                                            <constraint firstAttribute="height" constant="23" id="huu-ZU-fNq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="20"/>
+                                        <color key="textColor" red="0.96862745100000003" green="0.58039215690000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radius:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dor-hO-sFC">
+                                        <rect key="frame" x="18" y="57" width="72" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="72" id="mEt-Yx-RIK"/>
+                                            <constraint firstAttribute="height" constant="20" id="vvo-Rt-t8m"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nh2-H9-aOd">
+                                        <rect key="frame" x="181" y="57" width="41" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="8fQ-TF-HSy"/>
+                                            <constraint firstAttribute="width" constant="41" id="tUC-H4-tpw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poweredbyfoursquare" translatesAutoresizingMaskIntoConstraints="NO" id="nQ2-2E-aHX">
+                                        <rect key="frame" x="0.0" y="186" width="240" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="4lA-0e-npI"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="nQ2-2E-aHX" firstAttribute="leading" secondItem="bKO-Qk-NVe" secondAttribute="leading" id="1Zd-au-1NU"/>
+                                    <constraint firstAttribute="bottom" secondItem="nQ2-2E-aHX" secondAttribute="bottom" constant="18" id="1fy-jA-IKH"/>
+                                    <constraint firstItem="yUl-UI-dTs" firstAttribute="top" secondItem="bKO-Qk-NVe" secondAttribute="top" constant="18" id="4KL-W5-Xyr"/>
+                                    <constraint firstItem="dor-hO-sFC" firstAttribute="top" secondItem="yUl-UI-dTs" secondAttribute="bottom" constant="16" id="Ihc-XT-zLW"/>
+                                    <constraint firstItem="yUl-UI-dTs" firstAttribute="leading" secondItem="bKO-Qk-NVe" secondAttribute="leading" constant="18" id="JcZ-RU-otK"/>
+                                    <constraint firstItem="dor-hO-sFC" firstAttribute="leading" secondItem="bKO-Qk-NVe" secondAttribute="leading" constant="18" id="NLW-by-LMc"/>
+                                    <constraint firstAttribute="height" constant="240" id="PGF-1w-ecx"/>
+                                    <constraint firstItem="nh2-H9-aOd" firstAttribute="top" secondItem="bKO-Qk-NVe" secondAttribute="top" constant="57" id="d7e-Kp-d29"/>
+                                    <constraint firstAttribute="width" constant="240" id="lYB-3X-nBe"/>
+                                    <constraint firstAttribute="trailing" secondItem="nQ2-2E-aHX" secondAttribute="trailing" id="sN6-JF-sMT"/>
+                                    <constraint firstAttribute="trailing" secondItem="nh2-H9-aOd" secondAttribute="trailing" constant="18" id="zIe-Fv-m2M"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="vbi-EP-NvX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DI3-YB-YBP"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="vbi-EP-NvX" secondAttribute="bottom" constant="42.5" id="NS2-ZB-d9u"/>
+                            <constraint firstItem="bKO-Qk-NVe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="riN-eh-BhK"/>
+                            <constraint firstItem="bKO-Qk-NVe" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="tCp-WN-FGm"/>
                         </constraints>
                     </view>
                     <connections>
@@ -210,9 +270,10 @@
     </scenes>
     <resources>
         <image name="list" width="128" height="128"/>
+        <image name="poweredbyfoursquare" width="300" height="50"/>
         <image name="tap" width="600" height="511"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YoJ-2c-p0Q"/>
+        <segue reference="8fe-1r-Q3E"/>
     </inferredMetricsTieBreakers>
 </document>
