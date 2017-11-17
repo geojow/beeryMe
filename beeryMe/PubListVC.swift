@@ -19,6 +19,7 @@ class PubListVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpRightSwipt()
+        
         if #available(iOS 11.0, *) {
             navBar.prefersLargeTitles = true
         } else {

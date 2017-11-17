@@ -19,6 +19,7 @@ class MapVC: UIViewController {
     var pubs: [Pub] = []
     let queryService = QueryService()
     var player = AVAudioPlayer()
+    var timer = Timer()
     
     
     var locationManager: CLLocationManager?
@@ -36,7 +37,7 @@ class MapVC: UIViewController {
     }
     
     func playFizz() {
-        let audioPath = Bundle.main.path(forResource: "fizz", ofType: "mp3")
+        let audioPath = Bundle.main.path(forResource: "beerpour", ofType: "mp3")
         do {
             try player = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath!))
             
@@ -44,6 +45,11 @@ class MapVC: UIViewController {
         } catch {
             // Process any errors
         }
+        timer = Timer.scheduledTimer(timeInterval: 3.5, target: self, selector: #selector(MapVC.stopSound), userInfo: nil, repeats: false)
+    }
+    
+    @objc func stopSound() {
+        player.stop()
     }
     
     func setUpMapView() {
@@ -61,6 +67,7 @@ class MapVC: UIViewController {
             print("Adding pubs from array")
             self.mapView.addAnnotations(pubs)
         }
+        
     }
     
     func setUpLocationManager() {

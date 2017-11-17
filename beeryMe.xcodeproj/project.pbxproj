@@ -17,6 +17,7 @@
 		BEA76D2D1FBE4250002954E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEA76D2C1FBE4250002954E1 /* Assets.xcassets */; };
 		BEA76D2F1FBE4B46002954E1 /* beer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BEA76D2E1FBE4B45002954E1 /* beer.mp3 */; };
 		BEA76D311FBE53D2002954E1 /* fizz.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BEA76D301FBE53D1002954E1 /* fizz.mp3 */; };
+		BEA76D331FBF04BC002954E1 /* beerpour.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BEA76D321FBF04BC002954E1 /* beerpour.mp3 */; };
 		BECABF151F4CE56700D5AD11 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BECABF141F4CE56700D5AD11 /* MapKit.framework */; };
 		BEF24D911FB39AC70001E43B /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF24D901FB39AC70001E43B /* MapVC.swift */; };
 		BEF24D931FB4F92C0001E43B /* PubListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF24D921FB4F92C0001E43B /* PubListVC.swift */; };
@@ -38,6 +39,7 @@
 		BEA76D2C1FBE4250002954E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEA76D2E1FBE4B45002954E1 /* beer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beer.mp3; sourceTree = "<group>"; };
 		BEA76D301FBE53D1002954E1 /* fizz.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fizz.mp3; sourceTree = "<group>"; };
+		BEA76D321FBF04BC002954E1 /* beerpour.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beerpour.mp3; sourceTree = "<group>"; };
 		BECABF141F4CE56700D5AD11 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		BEF24D901FB39AC70001E43B /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		BEF24D921FB4F92C0001E43B /* PubListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubListVC.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 		BEFD72371FB24B5200F7BEFE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BEA76D321FBF04BC002954E1 /* beerpour.mp3 */,
 				BEA76D2E1FBE4B45002954E1 /* beer.mp3 */,
 				BEA76D301FBE53D1002954E1 /* fizz.mp3 */,
 				BE5C1A5F1E4E49BD005AB2A9 /* Info.plist */,
@@ -228,6 +231,7 @@
 				BEA76D311FBE53D2002954E1 /* fizz.mp3 in Resources */,
 				BE5C1A5E1E4E49BD005AB2A9 /* LaunchScreen.storyboard in Resources */,
 				BEA76D2D1FBE4250002954E1 /* Assets.xcassets in Resources */,
+				BEA76D331FBF04BC002954E1 /* beerpour.mp3 in Resources */,
 				BE5C1A591E4E49BD005AB2A9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
