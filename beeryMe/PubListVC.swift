@@ -8,23 +8,25 @@
 
 import UIKit
 
-class PubListVC: UITableViewController {
+class PubListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //var pubsVisited: [Int] = []
     var pubList: [Pub] = []
     let cellSpacingHeight: CGFloat = 5.0
     var makeNetworkCall = false
     @IBOutlet weak var navBar: UINavigationBar!
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setUpRightSwipt()
         
-        if #available(iOS 11.0, *) {
-            navBar.prefersLargeTitles = true
-        } else {
-            // Fallback on earlier versions
-        }
+//        if #available(iOS 11.0, *) {
+//            navBar.prefersLargeTitles = true
+//        } else {
+//            // Fallback on earlier versions
+//        }
         
         
         
@@ -45,20 +47,20 @@ class PubListVC: UITableViewController {
 //        return 0
 //    }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 1
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return pubList.count
     }
     
-    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return cellSpacingHeight
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) {
             let pub = pubList[indexPath.section]
             pub.toggleVisited()
@@ -73,7 +75,7 @@ class PubListVC: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: false)
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "pubItem", for: indexPath)
         let label = cell.viewWithTag(1000) as! UILabel
         label.layer.cornerRadius = 20
@@ -129,3 +131,5 @@ class PubListVC: UITableViewController {
     
     ///////////////////////
 }
+
+
