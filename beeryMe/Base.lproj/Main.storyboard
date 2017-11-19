@@ -46,7 +46,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a geojow app ©" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbi-EP-NvX">
-                                <rect key="frame" x="88.5" y="508.5" width="143" height="17"/>
+                                <rect key="frame" x="89" y="509" width="143" height="17"/>
                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -98,7 +98,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search radius:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dor-hO-sFC">
                                         <rect key="frame" x="18" y="58" width="135" height="19"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="135" id="mEt-Yx-RIK"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="135" id="mEt-Yx-RIK"/>
                                             <constraint firstAttribute="height" constant="19" id="vvo-Rt-t8m"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="16"/>
@@ -109,7 +109,6 @@
                                         <rect key="frame" x="173" y="57" width="49" height="19"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="19" id="8fQ-TF-HSy"/>
-                                            <constraint firstAttribute="width" constant="49" id="tUC-H4-tpw"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="16"/>
                                         <nil key="textColor"/>
@@ -133,12 +132,9 @@
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of results:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XcH-YK-ady">
-                                        <rect key="frame" x="18" y="121" width="205" height="20"/>
+                                        <rect key="frame" x="18" y="121" width="173" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="205" id="0vU-kh-2Uf"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="Cr9-Vg-rsh"/>
-                                            <constraint firstAttribute="height" constant="20" id="aI1-wt-Sdf"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="205" id="kWW-wU-iMX"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="16"/>
                                         <nil key="textColor"/>
@@ -147,7 +143,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lt3-EC-TXe">
                                         <rect key="frame" x="181" y="121" width="41" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="41" id="Ox2-1T-Jyk"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="41" id="Ox2-1T-Jyk"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="19" id="Qff-Tr-oUU"/>
                                             <constraint firstAttribute="height" constant="20" id="ZeY-uO-mlI"/>
                                         </constraints>
@@ -166,7 +162,6 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUl-UI-dTs">
                                         <rect key="frame" x="16" y="16" width="109" height="23"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="109" id="WKP-4D-gSa"/>
                                             <constraint firstAttribute="height" constant="23" id="huu-ZU-fNq"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="20"/>
@@ -178,16 +173,18 @@
                                 <constraints>
                                     <constraint firstItem="nQ2-2E-aHX" firstAttribute="leading" secondItem="bKO-Qk-NVe" secondAttribute="leading" id="1Zd-au-1NU"/>
                                     <constraint firstAttribute="bottom" secondItem="nQ2-2E-aHX" secondAttribute="bottom" constant="18" id="1fy-jA-IKH"/>
+                                    <constraint firstItem="yUl-UI-dTs" firstAttribute="leading" secondItem="bKO-Qk-NVe" secondAttribute="leading" constant="16" id="1xl-ST-wkY"/>
                                     <constraint firstItem="nQ2-2E-aHX" firstAttribute="top" secondItem="A0y-Wd-bSb" secondAttribute="bottom" constant="8" id="2dJ-rj-IS4"/>
                                     <constraint firstItem="yy2-eG-igi" firstAttribute="top" secondItem="dor-hO-sFC" secondAttribute="bottom" constant="8" id="3SP-Bm-wBO"/>
                                     <constraint firstItem="yUl-UI-dTs" firstAttribute="top" secondItem="bKO-Qk-NVe" secondAttribute="top" constant="16" id="4KL-W5-Xyr"/>
                                     <constraint firstAttribute="trailing" secondItem="yy2-eG-igi" secondAttribute="trailing" constant="8" id="Cx4-ZF-Jsh"/>
                                     <constraint firstItem="A0y-Wd-bSb" firstAttribute="top" secondItem="XcH-YK-ady" secondAttribute="bottom" constant="8" id="CxP-o0-ZbK"/>
+                                    <constraint firstItem="yUl-UI-dTs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bKO-Qk-NVe" secondAttribute="leading" constant="16" id="Duk-qf-TAF"/>
                                     <constraint firstItem="lt3-EC-TXe" firstAttribute="top" secondItem="yy2-eG-igi" secondAttribute="bottom" constant="7" id="EYA-vD-leR"/>
                                     <constraint firstItem="XcH-YK-ady" firstAttribute="top" secondItem="yy2-eG-igi" secondAttribute="bottom" constant="7" id="Iay-83-gMa"/>
                                     <constraint firstItem="dor-hO-sFC" firstAttribute="top" secondItem="yUl-UI-dTs" secondAttribute="bottom" constant="19" id="Ihc-XT-zLW"/>
                                     <constraint firstAttribute="trailing" secondItem="lt3-EC-TXe" secondAttribute="trailing" constant="18" id="J9D-bx-CWo"/>
-                                    <constraint firstItem="yUl-UI-dTs" firstAttribute="leading" secondItem="bKO-Qk-NVe" secondAttribute="leading" constant="16" id="JcZ-RU-otK"/>
+                                    <constraint firstItem="nh2-H9-aOd" firstAttribute="leading" secondItem="dor-hO-sFC" secondAttribute="trailing" constant="20" id="KWN-18-xRo"/>
                                     <constraint firstItem="dor-hO-sFC" firstAttribute="leading" secondItem="bKO-Qk-NVe" secondAttribute="leading" constant="18" id="NLW-by-LMc"/>
                                     <constraint firstAttribute="height" constant="240" id="PGF-1w-ecx"/>
                                     <constraint firstItem="XcH-YK-ady" firstAttribute="leading" secondItem="bKO-Qk-NVe" secondAttribute="leading" constant="18" id="TrJ-X1-p0h"/>
@@ -195,8 +192,10 @@
                                     <constraint firstItem="A0y-Wd-bSb" firstAttribute="leading" secondItem="bKO-Qk-NVe" secondAttribute="leading" constant="8" id="cLz-st-BJ2"/>
                                     <constraint firstItem="nh2-H9-aOd" firstAttribute="top" secondItem="bKO-Qk-NVe" secondAttribute="top" constant="57" id="d7e-Kp-d29"/>
                                     <constraint firstItem="yy2-eG-igi" firstAttribute="leading" secondItem="bKO-Qk-NVe" secondAttribute="leading" constant="8" id="gOj-ur-qas"/>
+                                    <constraint firstItem="lt3-EC-TXe" firstAttribute="leading" secondItem="XcH-YK-ady" secondAttribute="trailing" constant="-10" id="iJx-SV-RLn"/>
                                     <constraint firstAttribute="width" constant="240" id="lYB-3X-nBe"/>
                                     <constraint firstAttribute="trailing" secondItem="nQ2-2E-aHX" secondAttribute="trailing" id="sN6-JF-sMT"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yUl-UI-dTs" secondAttribute="trailing" id="u1T-1R-Ui1"/>
                                     <constraint firstAttribute="trailing" secondItem="nh2-H9-aOd" secondAttribute="trailing" constant="18" id="zIe-Fv-m2M"/>
                                 </constraints>
                             </view>
@@ -308,12 +307,12 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Cell" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="iJ9-ko-6RP">
-                                                    <rect key="frame" x="15" y="0.0" width="253" height="44"/>
+                                                    <rect key="frame" x="15" y="2" width="253" height="42"/>
                                                     <color key="backgroundColor" red="0.96862745100000003" green="0.58039215690000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="44" id="370-VQ-N0g"/>
-                                                        <constraint firstAttribute="width" constant="253" id="l5e-2I-rsa"/>
+                                                        <constraint firstAttribute="height" constant="42" id="370-VQ-N0g"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="253" id="l5e-2I-rsa"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -331,7 +330,7 @@
                                             <constraints>
                                                 <constraint firstItem="UWu-z3-8Hn" firstAttribute="centerY" secondItem="03f-2K-XyX" secondAttribute="centerY" constant="0.75" id="aCh-0d-mu9"/>
                                                 <constraint firstItem="iJ9-ko-6RP" firstAttribute="leading" secondItem="03f-2K-XyX" secondAttribute="leading" constant="15" id="oSp-Xn-tkN"/>
-                                                <constraint firstItem="iJ9-ko-6RP" firstAttribute="centerY" secondItem="03f-2K-XyX" secondAttribute="centerY" id="row-Dl-0Dq"/>
+                                                <constraint firstItem="UWu-z3-8Hn" firstAttribute="leading" secondItem="iJ9-ko-6RP" secondAttribute="trailing" constant="6" id="pgG-CE-NdH"/>
                                                 <constraint firstAttribute="bottom" secondItem="iJ9-ko-6RP" secondAttribute="bottom" id="wrd-bm-DKP"/>
                                                 <constraint firstAttribute="trailing" secondItem="UWu-z3-8Hn" secondAttribute="trailing" constant="15" id="zVe-E9-vXR"/>
                                             </constraints>
@@ -431,6 +430,7 @@
                             <constraint firstItem="kyX-td-E9T" firstAttribute="leading" secondItem="h5e-uI-qhs" secondAttribute="leadingMargin" id="cGw-TP-8MG"/>
                             <constraint firstItem="IOH-4N-A0T" firstAttribute="top" secondItem="SrD-RV-zZP" secondAttribute="bottom" constant="3" id="d1O-2k-kAD"/>
                             <constraint firstItem="GTh-l3-Aci" firstAttribute="centerY" secondItem="X3h-FH-lbq" secondAttribute="centerY" constant="-10" id="oIY-Nm-3C3"/>
+                            <constraint firstItem="IOH-4N-A0T" firstAttribute="leading" secondItem="GTh-l3-Aci" secondAttribute="trailing" constant="-161" id="qXq-37-sxG"/>
                             <constraint firstItem="GTh-l3-Aci" firstAttribute="top" secondItem="h5e-uI-qhs" secondAttribute="top" id="rye-Me-rEO"/>
                             <constraint firstItem="X3h-FH-lbq" firstAttribute="leading" secondItem="h5e-uI-qhs" secondAttribute="leadingMargin" constant="14" id="umm-Py-XNB"/>
                             <constraint firstItem="GTh-l3-Aci" firstAttribute="leading" secondItem="h5e-uI-qhs" secondAttribute="leading" id="upO-h9-iQC"/>
@@ -458,6 +458,6 @@
         <image name="tap" width="600" height="511"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8fe-1r-Q3E"/>
+        <segue reference="0pY-28-VRk"/>
     </inferredMetricsTieBreakers>
 </document>

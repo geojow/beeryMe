@@ -17,6 +17,8 @@ class Pub: NSObject {
     let name: String
     let location: CLLocation
     var visited: Bool
+    
+    // TODO - Look at these, do they need to be here?
     var formattedAddress: String = "Address:\n"
     var website: String = "Website:\nNo website found!"
     
@@ -25,7 +27,6 @@ class Pub: NSObject {
         self.name = name
         self.location = CLLocation(latitude: latitude, longitude: longitude)
         self.visited = visited
-        
     }
     
     func toggleVisited() {
@@ -33,6 +34,8 @@ class Pub: NSObject {
     }
 }
 
+
+    // TODO - When i look into the mapkit tutorial, is this MVC?
 extension Pub: MKAnnotation {
     var coordinate: CLLocationCoordinate2D {
         get {
@@ -46,7 +49,6 @@ extension Pub: MKAnnotation {
         }
     }
     
-
     // TODO - Move this to somewhere more appropriate, model should not have anything to do with view
     var image: UIImage? {
         get {

@@ -12,7 +12,8 @@ import AVFoundation
 
 class OpeningScreenVC: UIViewController {
     
-
+    // MARK: IBOutlets
+    
     @IBOutlet weak var backgroundButton: UIButton!
     @IBOutlet weak var background: UILabel!
     @IBOutlet weak var clickPromt: UILabel!
@@ -22,47 +23,30 @@ class OpeningScreenVC: UIViewController {
     @IBOutlet weak var settings: UIView!
     @IBOutlet weak var radiusLabel: UILabel!
     @IBOutlet weak var resultsLabel: UILabel!
-    
-    
     @IBOutlet weak var radiusSlider: UISlider!
     @IBOutlet weak var resultsSlider: UISlider!
-    @IBAction func radiusSliderMoved(_ sender: UISlider) {
-        radius = lroundf(sender.value)
-        radiusLabel.text = "\(radius)m"
-    }
-    @IBAction func resultsSliderMoved(_ sender: UISlider) {
-        results = lroundf(sender.value)
-        resultsLabel.text = "\(results)"
-    }
+    
+    // MARK: Variables
     
     var timer = Timer()
     var player = AVAudioPlayer()
     var makeNetworkCall = true
-    
     var radius = 1000
     var results = 25
-    // TEMP /////
-
-    var tempPubList: [Pub] = []
-
-    /////////////
     
-    @IBAction func settingsPressed(_ sender: UIButton) {
+    // MARK: Load Functionality
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        UIView.animate(withDuration: 0.5, animations: {
-            self.settings.alpha = 1
-            self.backgroundButton.alpha = 1
-            })
+        settings.layer.cornerRadius = 30
+        button.layer.cornerRadius = 20
+        
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(OpeningScreenVC.waitThenAnimate), userInfo: nil, repeats: false)
+        
+        button.isEnabled = false
         
     }
-    
-    @IBAction func dismissSettings(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.5, animations: {
-            self.settings.alpha = 0
-            self.backgroundButton.alpha = 0
-        })
-    }
-    
     
     @objc func waitThenAnimate() {
         
@@ -75,7 +59,7 @@ class OpeningScreenVC: UIViewController {
         UIView.animate(withDuration: 0.9, animations:  {
             self.background.transform = CGAffineTransform(scaleX: 0.26, y: 0.145)
             self.bMLabel.transform = CGAffineTransform(scaleX: 0.25, y: 0.25)
-           
+            
             self.perform(#selector(OpeningScreenVC.setRoundedCorners), with: nil, afterDelay: 0.1)
             self.perform(#selector(OpeningScreenVC.pulseButton), with: nil, afterDelay: 2)
             self.perform(#selector(OpeningScreenVC.showPromt), with: nil, afterDelay: 4)
@@ -83,11 +67,12 @@ class OpeningScreenVC: UIViewController {
         })
         timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(OpeningScreenVC.enableButton), userInfo: nil, repeats: false)
         
-    
     }
     
-    @objc func enableButton() {
-        button.isEnabled = true
+    @objc func setRoundedCorners() {
+        UIView.animate(withDuration: 0.9, animations: {
+            self.background.layer.cornerRadius = 65
+        })
     }
     
     @objc func pulseButton() {
@@ -95,21 +80,6 @@ class OpeningScreenVC: UIViewController {
         self.borderPulse(element: bMLabel, fromScale: 0.25, toScale: 0.275)
         self.borderPulse(element: button, fromScale: 1, toScale: 1.1)
         
-    }
-    
-    @objc func showPromt() {
-        
-        UIView.animate(withDuration: 1, animations: {
-            
-            self.clickPromt.alpha = 1
-        })
-        
-    }
-    
-    @objc func setRoundedCorners() {
-        UIView.animate(withDuration: 0.9, animations: {
-         self.background.layer.cornerRadius = 65
-        })
     }
     
     func borderPulse(element: UIView, fromScale: Float, toScale: Float) {
@@ -123,6 +93,21 @@ class OpeningScreenVC: UIViewController {
         element.layer.add(scaleAnimation, forKey: "scale")
         
     }
+    
+    @objc func showPromt() {
+        
+        UIView.animate(withDuration: 1, animations: {
+            
+            self.clickPromt.alpha = 1
+        })
+        
+    }
+    
+    @objc func enableButton() {
+        button.isEnabled = true
+    }
+    
+    // MARK: Button Functionality
     
     @IBAction func buttonPressed(_ sender: Any) {
         
@@ -142,10 +127,10 @@ class OpeningScreenVC: UIViewController {
             self.clickPromt.alpha = 0
             self.button.alpha=0
             self.geojowLbl.alpha = 0
-        
+            
         })
         
-       self.perform(#selector(OpeningScreenVC.buttonPressedExpand), with: nil, afterDelay: 0.1)
+        self.perform(#selector(OpeningScreenVC.buttonPressedExpand), with: nil, afterDelay: 0.1)
         
     }
     
@@ -169,28 +154,45 @@ class OpeningScreenVC: UIViewController {
         
     }
     
+    // MARK: Settings Functionality
+    
+    @IBAction func settingsPressed(_ sender: UIButton) {
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.settings.alpha = 1
+            self.backgroundButton.alpha = 1
+        })
+        
+    }
+    
+    @IBAction func dismissSettings(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.settings.alpha = 0
+            self.backgroundButton.alpha = 0
+        })
+    }
+    
+    @IBAction func radiusSliderMoved(_ sender: UISlider) {
+        radius = lroundf(sender.value)
+        radiusLabel.text = "\(radius)m"
+    }
+    
+    @IBAction func resultsSliderMoved(_ sender: UISlider) {
+        results = lroundf(sender.value)
+        resultsLabel.text = "\(results)"
+    }
+    
+    // MARK: Segue Functionality
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toMap" {
             let controller = segue.destination as! MapVC
             controller.makeNetworkCall = makeNetworkCall
             controller.searchRadius = radius
             controller.numberOfResults = results
-
+            
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        settings.layer.cornerRadius = 30
-
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(OpeningScreenVC.waitThenAnimate), userInfo: nil, repeats: false)
-        self.button.layer.cornerRadius = 20
-        button.isEnabled = false
-        
-    }
-
-
-
 }
 
