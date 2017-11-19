@@ -55,13 +55,31 @@ class PubListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         pubName.text = pub.name
         address.text = pub.formattedAddress
         website.text = pub.website
+        
+//        /// Double Tap
+//        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(PubListVC.doubleTapHandler(_:cellForRowAt:)))
+//        doubleTap.numberOfTapsRequired = 2
+//        pubName.addGestureRecognizer(doubleTap)
+//        ///////////
+    
     }
+    
+//    @objc func doubleTapHandler(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) {
+//        print("double tap")
+//        print(tableView)
+//        print(indexPath)
+//        if let cell = tableView.cellForRow(at: indexPath) {
+//            let pub = pubList[indexPath.section]
+//            pub.toggleVisited()
+//            configureImage(for: cell, with: pub)
+//        }
+//    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) {
             let pub = pubList[indexPath.section]
-            pub.toggleVisited()
-            configureImage(for: cell, with: pub)
+//            pub.toggleVisited()
+//            configureImage(for: cell, with: pub)
             setInfo(indexPath)
             UIView.animate(withDuration: 0.5, animations: {
                 self.info.alpha = 1
@@ -77,13 +95,7 @@ class PubListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: false)
     }
     
-//    @objc func doubleTapHandler(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) {
-//        if let cell = tableView.cellForRow(at: indexPath) {
-//            let pub = pubList[indexPath.section]
-//            pub.toggleVisited()
-//            configureImage(for: cell, with: pub)
-//        }
-//    }
+   
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "pubItem", for: indexPath)
@@ -95,13 +107,6 @@ class PubListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         configureImage(for: cell, with: pub)
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         
-//        /// Double Tap
-//        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(PubListVC.doubleTapHandler(_:cellForRowAt:)))
-//        doubleTap.numberOfTapsRequired = 2
-//        cell.addGestureRecognizer(doubleTap)
-//        ///////////
-//
-//
         return cell
     }
     
@@ -148,6 +153,27 @@ class PubListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     ///////////////////////
+    
+    /////// Right swipe on cells
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    
+    let visited = pubList[indexPath.section].visited
+  
+    let updateVisited = UITableViewRowAction(style: .normal, title: (visited ? "Visited" : "Not Visited")) { (action, indexPath) in
+    // code to implement the status update goes here
+        print("right swipe on cell!")
+        if let cell = tableView.cellForRow(at: indexPath) {
+            let pub = self.pubList[indexPath.section]
+            pub.toggleVisited()
+            self.configureImage(for: cell, with: pub)
+        }
+    }
+    
+    return [updateVisited]
+    }
+    
+    ////////////////////
 }
 
 
