@@ -20,11 +20,27 @@ class OpeningScreenVC: UIViewController {
     @IBOutlet weak var bMLabel: UILabel!
     @IBOutlet weak var geojowLbl: UILabel!
     @IBOutlet weak var settings: UIView!
+    @IBOutlet weak var radiusLabel: UILabel!
+    @IBOutlet weak var resultsLabel: UILabel!
+    
+    
+    @IBOutlet weak var radiusSlider: UISlider!
+    @IBOutlet weak var resultsSlider: UISlider!
+    @IBAction func radiusSliderMoved(_ sender: UISlider) {
+        radius = lroundf(sender.value)
+        radiusLabel.text = "\(radius)m"
+    }
+    @IBAction func resultsSliderMoved(_ sender: UISlider) {
+        results = lroundf(sender.value)
+        resultsLabel.text = "\(results)"
+    }
     
     var timer = Timer()
     var player = AVAudioPlayer()
     var makeNetworkCall = true
     
+    var radius = 1000
+    var results = 25
     // TEMP /////
 
     var tempPubList: [Pub] = []
@@ -157,7 +173,8 @@ class OpeningScreenVC: UIViewController {
         if segue.identifier == "toMap" {
             let controller = segue.destination as! MapVC
             controller.makeNetworkCall = makeNetworkCall
-            
+            controller.searchRadius = radius
+            controller.numberOfResults = results
 
         }
     }
