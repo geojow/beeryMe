@@ -17,6 +17,8 @@ class Pub: NSObject {
     let name: String
     let location: CLLocation
     var visited: Bool
+    var formattedAddress: String = "Address:\n"
+    var website: String = "Website:\nNo website found!"
     
     init(id: String, name: String, latitude: Double, longitude: Double, visited: Bool) {
         self.id = id

@@ -23,15 +23,15 @@ class QueryService {
     let client_id = foursquareClientId
     let client_secret = foursquareClientSecret
     
-    func getSearchResults(location: CLLocation, completion: @escaping QueryResult) {
+    func getSearchResults(location: CLLocation, searchRadius: Int, numberOfResults: Int, completion: @escaping QueryResult) {
         
         dataTask?.cancel()
         
-        let centreLatitude = location.coordinate.latitude, centreLongitude = location.coordinate.longitude, radius = 500
+        let centreLatitude = location.coordinate.latitude, centreLongitude = location.coordinate.longitude, radius = searchRadius, numberOfResults = numberOfResults
      
         //let urlString = "https://developers.zomato.com/api/v2.1/search?lat=\(centreLatitude)&lon=\(centreLongitude)&radius=\(radius)&category=11&sort=real_distance"
-         let urlString = "https://api.foursquare.com/v2/venues/search?ll=\(centreLatitude),\(centreLongitude)&v=20160607&intent=browse&limit=20&radius=\(radius)&categoryId=4bf58dd8d48988d116941735,50327c8591d4c4b30a586d5d&client_id=\(client_id)&client_secret=\(client_secret)"
-        
+         let urlString = "https://api.foursquare.com/v2/venues/search?ll=\(centreLatitude),\(centreLongitude)&v=20160607&intent=checkin&limit=\(numberOfResults)&radius=\(radius)&categoryId=4bf58dd8d48988d116941735,50327c8591d4c4b30a586d5d&client_id=\(client_id)&client_secret=\(client_secret)"
+        print(urlString)
         let queryUrl = URL(string: urlString)
         
         guard let url = queryUrl else { return }
@@ -68,26 +68,6 @@ class QueryService {
     
         pubs.removeAll()
         
-//        do {
-//            let jsonResult = try JSONSerialization.jsonObject(with: data as Data, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
-//
-//            let jsonPubs = jsonResult?["restaurants"] as! [AnyObject]
-//
-//            for pub in jsonPubs {
-//
-//                let myPub = pub["restaurant"] as! NSDictionary
-//                let R = myPub["R"] as! NSDictionary
-//                let id = R["res_id"] as! Int
-//                let name = myPub["name"] as! String
-//                let location = myPub["location"] as? NSDictionary
-//                let latitude = (location!["latitude"] as! NSString).doubleValue
-//                let longitude = (location!["longitude"] as! NSString).doubleValue
-//                let newPub = Pub(id: id, name: name, latitude: latitude, longitude: longitude, visited: false)
-//                pubs.append(newPub)
-//            }
-//        } catch {
-//            print(error)
-//        }
         do {
             let json =  try JSON(data: data)
             let venues = json["response"]["venues"]
@@ -95,8 +75,26 @@ class QueryService {
                 let id = venues[venueIndex]["id"].string
                 let name = venues[venueIndex]["name"].string
                 let location = venues[venueIndex]["location"]
+                
                 if let latitude = location["lat"].double, let longitude = location["lng"].double {
                     let newPub = Pub(id: id!, name: name!, latitude: latitude, longitude: longitude, visited: false)
+                    if let formattedAddress = location["formattedAddress"].array {
+                        var address = ""
+                        if formattedAddress.count > 1 {
+                            for item in formattedAddress {
+                                address += "\(item.string!)\n"
+                            }
+                        } else {
+                            address = "No formatted address found!"
+                        }
+                        newPub.formattedAddress += address
+                    }
+                    if let pubUrl = venues[venueIndex]["url"].string {
+                        print("pubUrl: \(pubUrl)")
+                        if pubUrl.count > 3 {
+                            newPub.website = "Website:\n\(pubUrl)"
+                        }
+                    }
                     pubs.append(newPub)
                 }
                 

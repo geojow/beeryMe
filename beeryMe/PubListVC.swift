@@ -10,43 +10,33 @@ import UIKit
 
 class PubListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var backgroundButton: UIButton!
+    @IBOutlet weak var info: UIView!
     //var pubsVisited: [Int] = []
     var pubList: [Pub] = []
     let cellSpacingHeight: CGFloat = 5.0
     var makeNetworkCall = false
-    @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var pubName: UILabel!
     
+    /// info labels
+    @IBOutlet weak var address: UILabel!
+    @IBOutlet weak var website: UITextView!
+    
+    
+    @IBAction func backgroundButtonClicked(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.info.alpha = 0
+            self.backgroundButton.alpha = 0
+        })
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        info.layer.cornerRadius = 30
         setUpRightSwipt()
         
-//        if #available(iOS 11.0, *) {
-//            navBar.prefersLargeTitles = true
-//        } else {
-//            // Fallback on earlier versions
-//        }
-        
-        
-        
-        
-       
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
-    // MARK: - Table view data source
-
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 1
@@ -60,20 +50,40 @@ class PubListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return cellSpacingHeight
     }
     
+    func setInfo(_ indexPath: IndexPath) {
+        let pub = pubList[indexPath.section]
+        pubName.text = pub.name
+        address.text = pub.formattedAddress
+        website.text = pub.website
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) {
             let pub = pubList[indexPath.section]
             pub.toggleVisited()
             configureImage(for: cell, with: pub)
-//            if pub.visited && !pubsVisited.contains(pub.id) {
-//                pubsVisited.append(pub.id)
-//            } else if !pub.visited && pubsVisited.contains(pub.id) {
-//                let index = pubsVisited.index(of: pub.id)
-//                pubsVisited.remove(at: index!)
-//            }
+            setInfo(indexPath)
+            UIView.animate(withDuration: 0.5, animations: {
+                self.info.alpha = 1
+                self.backgroundButton.alpha = 0.9
+            })
+////            if pub.visited && !pubsVisited.contains(pub.id) {
+////                pubsVisited.append(pub.id)
+////            } else if !pub.visited && pubsVisited.contains(pub.id) {
+////                let index = pubsVisited.index(of: pub.id)
+////                pubsVisited.remove(at: index!)
+////            }
         }
         tableView.deselectRow(at: indexPath, animated: false)
     }
+    
+//    @objc func doubleTapHandler(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) {
+//        if let cell = tableView.cellForRow(at: indexPath) {
+//            let pub = pubList[indexPath.section]
+//            pub.toggleVisited()
+//            configureImage(for: cell, with: pub)
+//        }
+//    }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "pubItem", for: indexPath)
@@ -84,6 +94,14 @@ class PubListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         configureText(for: cell, with: pub)
         configureImage(for: cell, with: pub)
         cell.selectionStyle = UITableViewCellSelectionStyle.none
+        
+//        /// Double Tap
+//        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(PubListVC.doubleTapHandler(_:cellForRowAt:)))
+//        doubleTap.numberOfTapsRequired = 2
+//        cell.addGestureRecognizer(doubleTap)
+//        ///////////
+//
+//
         return cell
     }
     

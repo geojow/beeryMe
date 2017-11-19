@@ -26,6 +26,8 @@ class MapVC: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     var startLocation = CLLocation(latitude: 51.47281, longitude: 51.47281)
     let regionRadius: CLLocationDistance = 500
+    var searchRadius = 500
+    var numberOfResults = 25
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +64,7 @@ class MapVC: UIViewController {
         mapView.setRegion(coordinateRegion, animated: true)
         if makeNetworkCall {
             playFizz()
-            networkCall(location: location)
+            networkCall(location: location, searchRadius: searchRadius, numberOfResults: numberOfResults)
         } else {
             print("Adding pubs from array")
             self.mapView.addAnnotations(pubs)
@@ -86,9 +88,9 @@ class MapVC: UIViewController {
         }
     }
     
-    func networkCall(location: CLLocation) {
+    func networkCall(location: CLLocation, searchRadius: Int, numberOfResults: Int) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        queryService.getSearchResults(location: location) { results, errorMessage in
+        queryService.getSearchResults(location: location, searchRadius: searchRadius, numberOfResults: numberOfResults) { results, errorMessage in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             if let results = results {
                 for result in results {
