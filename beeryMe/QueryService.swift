@@ -12,60 +12,62 @@ import SwiftyJSON
 
 class QueryService {
     
+    // MARK: Type Alias'
+    
     typealias QueryResult = ([Pub]?, String) -> ()
+    
+    // MARK: Variables & Constants
     
     var pubs: [Pub] = []
     var errorMessage = ""
-    
     var defaultSession = URLSession(configuration: .default)
     var dataTask: URLSessionDataTask?
     let zomatoKey = zomatoAPIKey
     let client_id = foursquareClientId
     let client_secret = foursquareClientSecret
     
+    // MARK: Networking Functionality
+    
     func getSearchResults(location: CLLocation, searchRadius: Int, numberOfResults: Int, completion: @escaping QueryResult) {
         
         dataTask?.cancel()
         
         let centreLatitude = location.coordinate.latitude, centreLongitude = location.coordinate.longitude, radius = searchRadius, numberOfResults = numberOfResults
-     
-        //let urlString = "https://developers.zomato.com/api/v2.1/search?lat=\(centreLatitude)&lon=\(centreLongitude)&radius=\(radius)&category=11&sort=real_distance"
-         let urlString = "https://api.foursquare.com/v2/venues/search?ll=\(centreLatitude),\(centreLongitude)&v=20160607&intent=checkin&limit=\(numberOfResults)&radius=\(radius)&categoryId=4bf58dd8d48988d116941735,50327c8591d4c4b30a586d5d&client_id=\(client_id)&client_secret=\(client_secret)"
-        print(urlString)
+        
+        let urlString = "https://api.foursquare.com/v2/venues/search?ll=\(centreLatitude),\(centreLongitude)&v=20160607&intent=checkin&limit=\(numberOfResults)&radius=\(radius)&categoryId=4bf58dd8d48988d116941735,50327c8591d4c4b30a586d5d&client_id=\(client_id)&client_secret=\(client_secret)"
         let queryUrl = URL(string: urlString)
         
         guard let url = queryUrl else { return }
-            var request = URLRequest(url: url)
-            request.httpMethod = "GET"
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.addValue("application/json", forHTTPHeaderField: "Accept")
-            //request.addValue(zomatoKey, forHTTPHeaderField: "user_key")
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        dataTask = defaultSession.dataTask(with: request) { data, response, error in
             
-            dataTask = defaultSession.dataTask(with: request) { data, response, error in
-                
-                defer { self.dataTask = nil }
-                //5
-                if let error = error {
-                    self.errorMessage += "DataTask error: " + error.localizedDescription + "\n"
-                } else if let data = data,
-                    let response = response as? HTTPURLResponse,
-                    response.statusCode == 200 {
-                    self.updateSearchResults(data)
-                }
-                //6
-                DispatchQueue.main.async {
-                    completion(self.pubs, self.errorMessage)
-                }
-                
+            defer { self.dataTask = nil }
             
+            if let error = error {
+                self.errorMessage += "DataTask error: " + error.localizedDescription + "\n"
+            } else if let data = data,
+                let response = response as? HTTPURLResponse,
+                response.statusCode == 200 {
+                self.updateSearchResults(data)
             }
+            
+            DispatchQueue.main.async {
+                completion(self.pubs, self.errorMessage)
+            }
+            
+            
+        }
         
         
         dataTask?.resume()
     }
     
     fileprivate func updateSearchResults(_ data: Data) {
-    
+        
         pubs.removeAll()
         
         do {
@@ -90,7 +92,6 @@ class QueryService {
                         newPub.formattedAddress += address
                     }
                     if let pubUrl = venues[venueIndex]["url"].string {
-                        print("pubUrl: \(pubUrl)")
                         if pubUrl.count > 3 {
                             newPub.website = "Website:\n\(pubUrl)"
                         }

@@ -12,64 +12,29 @@ import AVFoundation
 
 class MapVC: UIViewController {
     
+    // MARK: IBOutlets
+    
+    @IBOutlet weak var mapView: MKMapView!
+    
+    // MARK: Variables & Constants
+    
     var makeNetworkCall = true
-    
-    
-    //var pubsVisited: [Int] = []
     var pubs: [Pub] = []
-    let queryService = QueryService()
     var player = AVAudioPlayer()
     var timer = Timer()
-    
-    
     var locationManager: CLLocationManager?
-    @IBOutlet weak var mapView: MKMapView!
     var startLocation = CLLocation(latitude: 51.47281, longitude: 51.47281)
-    let regionRadius: CLLocationDistance = 500
     var searchRadius = 500
     var numberOfResults = 25
+    let queryService = QueryService()
+    let regionRadius: CLLocationDistance = 500
+    
+    // MARK: Load Functionality
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print("make network call: \(makeNetworkCall)")
-        //pubs = []
-        setUpMapView()
-        setUpLocationManager()
-    }
-    
-    func playFizz() {
-        let audioPath = Bundle.main.path(forResource: "beerpour", ofType: "mp3")
-        do {
-            try player = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath!))
-            
-            player.play()
-        } catch {
-            // Process any errors
-        }
-        timer = Timer.scheduledTimer(timeInterval: 3.5, target: self, selector: #selector(MapVC.stopSound), userInfo: nil, repeats: false)
-    }
-    
-    @objc func stopSound() {
-        player.stop()
-    }
-    
-    func setUpMapView() {
         mapView.delegate = self
-    }
-    
-    func centreOnLocation(_ location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-        regionRadius, regionRadius)
-        mapView.setRegion(coordinateRegion, animated: true)
-        if makeNetworkCall {
-            playFizz()
-            networkCall(location: location, searchRadius: searchRadius, numberOfResults: numberOfResults)
-        } else {
-            print("Adding pubs from array")
-            self.mapView.addAnnotations(pubs)
-        }
-        
+        setUpLocationManager()
     }
     
     func setUpLocationManager() {
@@ -88,13 +53,41 @@ class MapVC: UIViewController {
         }
     }
     
+    func centreOnLocation(_ location: CLLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
+                                                                  regionRadius, regionRadius)
+        mapView.setRegion(coordinateRegion, animated: true)
+        if makeNetworkCall {
+            playFizz()
+            networkCall(location: location, searchRadius: searchRadius, numberOfResults: numberOfResults)
+        } else {
+            self.mapView.addAnnotations(pubs)
+        }
+        
+    }
+    
+    func playFizz() {
+        let audioPath = Bundle.main.path(forResource: "beerpour", ofType: "mp3")
+        do {
+            try player = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath!))
+            
+            player.play()
+        } catch {
+            // Process any errors
+        }
+        timer = Timer.scheduledTimer(timeInterval: 3.5, target: self, selector: #selector(MapVC.stopSound), userInfo: nil, repeats: false)
+    }
+    
+    @objc func stopSound() {
+        player.stop()
+    }
+    
     func networkCall(location: CLLocation, searchRadius: Int, numberOfResults: Int) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         queryService.getSearchResults(location: location, searchRadius: searchRadius, numberOfResults: numberOfResults) { results, errorMessage in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             if let results = results {
                 for result in results {
-                    print(result.id)
                     self.pubs.append(result)
                 }
                 self.mapView.addAnnotations(results)
@@ -103,16 +96,17 @@ class MapVC: UIViewController {
         }
     }
     
+    // MARK: Segue Functionality
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toPubList" {
             let controller = segue.destination as! PubListVC
             controller.pubList = pubs
-            //controller.pubsVisited = pubsVisited
         }
     }
 }
 
-
+    // TODO - Look at this when look at MapKit tutorial
 
 extension MapVC: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -141,10 +135,6 @@ extension MapVC: MKMapViewDelegate {
                 annotationView?.image = UIImage(named: "beer-not-visited")
             }
         }
-        
-        
-        
-        
         return annotationView
     }
     
@@ -162,12 +152,8 @@ extension MapVC: MKMapViewDelegate {
                     view.image = UIImage(named: "beer-not-visited")
                 }
                 
-                // toggle visited from map
-                
                 if let annotation = view.annotation {
-                    print("\(annotation)")
                     if let pub = annotation as? Pub {
-                        print("toggle visited")
                         pub.toggleVisited()
                     }
                 }
