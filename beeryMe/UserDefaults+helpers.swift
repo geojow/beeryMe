@@ -26,4 +26,23 @@ extension UserDefaults {
         return integer(forKey: "results")
     }
     
+    func addPub(id: String) {
+        set(id, forKey: "\(id)")
+    }
+    
+    func isPubWithIdInUserDefaults(id: String) -> Bool {
+        if string(forKey: "\(id)") != nil {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func updateWith(pub: Pub) {
+        if pub.visited {
+            addPub(id: "\(pub.id)")
+        } else {
+            removeObject(forKey: "\(pub.id)")
+        }
+    }
 }

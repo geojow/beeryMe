@@ -110,13 +110,15 @@ class MapVC: UIViewController {
 
 extension MapVC: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
         if annotation is MKUserLocation {
             return nil
         }
         
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "pub")
+        let identifier = "pub"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
         if annotationView == nil {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "pub")
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
         } else {
             annotationView?.annotation = annotation
         }
@@ -155,6 +157,7 @@ extension MapVC: MKMapViewDelegate {
                 if let annotation = view.annotation {
                     if let pub = annotation as? Pub {
                         pub.toggleVisited()
+                        UserDefaults.standard.updateWith(pub: pub)
                     }
                 }
             }

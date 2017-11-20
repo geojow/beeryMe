@@ -90,6 +90,7 @@ class PubListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             if let cell = tableView.cellForRow(at: indexPath) {
                 let pub = self.pubList[indexPath.section]
                 pub.toggleVisited()
+                UserDefaults.standard.updateWith(pub: pub)
                 self.configureImage(for: cell, with: pub)
             }
         }
