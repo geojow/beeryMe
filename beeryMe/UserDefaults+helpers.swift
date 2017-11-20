@@ -7,3 +7,23 @@
 //
 
 import Foundation
+
+extension UserDefaults {
+    
+    func setRadius(value: Int) {
+        set(value, forKey: "radius")
+    }
+    
+    func getRadius() -> Int {
+        return integer(forKey: "radius")
+    }
+    
+    func setNoOfResults(value: Int) {
+        set(value, forKey: "results")
+    }
+    
+    func getNoOfResults() -> Int {
+        return integer(forKey: "results")
+    }
+    
+}

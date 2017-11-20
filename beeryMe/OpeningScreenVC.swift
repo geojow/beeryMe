@@ -39,6 +39,16 @@ class OpeningScreenVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if UserDefaults.standard.getRadius() != 0 {
+            radius = UserDefaults.standard.getRadius()
+        }
+        print("saved radius: \(radius)")
+        
+        if UserDefaults.standard.getNoOfResults() != 0 {
+            results = UserDefaults.standard.getNoOfResults()
+        }
+        print("saved results: \(results)")
+        
         settings.layer.cornerRadius = 30
         button.layer.cornerRadius = 20
         
@@ -158,6 +168,11 @@ class OpeningScreenVC: UIViewController {
     
     @IBAction func settingsPressed(_ sender: UIButton) {
         
+        radiusLabel.text = "\(radius)m"
+        radiusSlider.setValue(Float(radius), animated: false)
+        resultsLabel.text = "\(results)"
+        resultsSlider.setValue(Float(results), animated: false)
+        
         UIView.animate(withDuration: 0.5, animations: {
             self.settings.alpha = 1
             self.backgroundButton.alpha = 1
@@ -169,6 +184,8 @@ class OpeningScreenVC: UIViewController {
         UIView.animate(withDuration: 0.5, animations: {
             self.settings.alpha = 0
             self.backgroundButton.alpha = 0
+            UserDefaults.standard.setRadius(value: self.radius)
+            UserDefaults.standard.setNoOfResults(value: self.results)
         })
     }
     
