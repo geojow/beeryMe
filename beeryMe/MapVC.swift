@@ -130,7 +130,10 @@ extension MapVC: MKMapViewDelegate {
             btn.setImage(image, for: .normal)
             btn.tintColor = nil
             annotationView?.leftCalloutAccessoryView = btn
-            annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
+            let mapsButton = UIButton(frame: CGRect(origin: CGPoint.zero,
+                                                    size: CGSize(width: 30, height: 30)))
+            mapsButton.setBackgroundImage(UIImage(named: "maps-icon"), for: UIControlState())
+            annotationView?.rightCalloutAccessoryView = mapsButton
             if pub.visited {
                 annotationView?.image = UIImage(named: "beer-visited")
             } else {
@@ -162,7 +165,14 @@ extension MapVC: MKMapViewDelegate {
                 }
             }
         }
+        
+        if control == view.rightCalloutAccessoryView {
+            let location = view.annotation as! Pub
+            let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeWalking]
+            location.mapItem().openInMaps(launchOptions: launchOptions)
+        }
     }
+    
 }
 
 extension MapVC: CLLocationManagerDelegate {

@@ -96,6 +96,11 @@ class QueryService {
                             newPub.website = "Website:\n\(pubUrl)"
                         }
                     }
+                    if let street = location["address"].string {
+                        newPub.street = street
+                    }
+                    newPub.visited = UserDefaults.standard.isPubWithIdInUserDefaults(id: newPub.id)
+                    print(newPub.visited)
                     pubs.append(newPub)
                 }
                 

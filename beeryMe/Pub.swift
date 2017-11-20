@@ -21,12 +21,15 @@ class Pub: NSObject {
     // TODO - Look at these, do they need to be here?
     var formattedAddress: String = "Address:\n"
     var website: String = "Website:\nNo website found!"
+    var street: String = ""
     
     init(id: String, name: String, latitude: Double, longitude: Double, visited: Bool) {
         self.id = id
         self.name = name
         self.location = CLLocation(latitude: latitude, longitude: longitude)
         self.visited = visited
+        
+        super.init()
     }
     
     func toggleVisited() {
@@ -34,8 +37,6 @@ class Pub: NSObject {
     }
 }
 
-
-    // TODO - When i look into the mapkit tutorial, is this MVC?
 extension Pub: MKAnnotation {
     var coordinate: CLLocationCoordinate2D {
         get {
@@ -49,7 +50,6 @@ extension Pub: MKAnnotation {
         }
     }
     
-    // TODO - Move this to somewhere more appropriate, model should not have anything to do with view
     var image: UIImage? {
         get {
             if visited {
@@ -58,6 +58,14 @@ extension Pub: MKAnnotation {
                 return #imageLiteral(resourceName: "beer-not-visited")
             }
         }
+    }
+    
+    func mapItem() -> MKMapItem {
+        let addressDict = [CNPostalAddressStreetKey: street]
+        let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDict)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = title
+        return mapItem
     }
 
 }
