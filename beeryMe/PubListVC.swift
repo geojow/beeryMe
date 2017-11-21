@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class PubListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -24,6 +25,7 @@ class PubListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var pubList: [Pub] = []
     var makeNetworkCall = false
     let cellSpacingHeight: CGFloat = 5.0
+    var currentPub: Pub?
     
     // MARK: Load Functionality
     
@@ -60,10 +62,7 @@ class PubListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if let cell = tableView.cellForRow(at: indexPath) {
-//            let pub = pubList[indexPath.section]
-        
-//        }
+        currentPub = pubList[indexPath.section]
         setInfo(indexPath)
         showInfoView()
         tableView.deselectRow(at: indexPath, animated: false)
@@ -133,6 +132,13 @@ class PubListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         pubName.text = pub.name
         address.text = pub.formattedAddress
         website.text = pub.website
+    }
+    
+    @IBAction func goToMapsApp(_ sender: UIButton) {
+        if let location = currentPub {
+            let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeWalking]
+            location.mapItem().openInMaps(launchOptions: launchOptions)
+        }
     }
     
     // MARK: Segue Functionality
