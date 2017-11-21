@@ -10,12 +10,24 @@ import Foundation
 
 extension UserDefaults {
     
-    func setRadius(value: Int) {
+    func setRadius(value: Double) {
         set(value, forKey: "radius")
     }
     
-    func getRadius() -> Int {
-        return integer(forKey: "radius")
+    func getRadius() -> Double {
+        return double(forKey: "radius")
+    }
+    
+    func setUnits(value: String) {
+        set(value, forKey: "units")
+    }
+    
+    func getUnits() -> String {
+        if let units = string(forKey: "units") {
+            return units
+        } else {
+            return "km"
+        }
     }
     
     func setNoOfResults(value: Int) {

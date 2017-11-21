@@ -25,14 +25,16 @@ class OpeningScreenVC: UIViewController {
     @IBOutlet weak var resultsLabel: UILabel!
     @IBOutlet weak var radiusSlider: UISlider!
     @IBOutlet weak var resultsSlider: UISlider!
+    @IBOutlet weak var measurementsButton: UIButton!
     
     // MARK: Variables
     
     var timer = Timer()
     var player = AVAudioPlayer()
     var makeNetworkCall = true
-    var radius = 1000
+    var radius = 1000.00
     var results = 25
+    var units = "km"
     
     // MARK: Load Functionality
     
@@ -49,6 +51,10 @@ class OpeningScreenVC: UIViewController {
         }
         print("saved results: \(results)")
         
+        if UserDefaults.standard.getUnits() != "" {
+            units = UserDefaults.standard.getUnits()
+        }
+        
         settings.layer.cornerRadius = 30
         button.layer.cornerRadius = 20
         
@@ -63,7 +69,7 @@ class OpeningScreenVC: UIViewController {
         perform(#selector(OpeningScreenVC.animate), with: nil, afterDelay: 0.5)
         
     }
-    
+        
     @objc func animate() {
         
         UIView.animate(withDuration: 0.9, animations:  {
@@ -168,16 +174,33 @@ class OpeningScreenVC: UIViewController {
     
     @IBAction func settingsPressed(_ sender: UIButton) {
         
-        radiusLabel.text = "\(radius)m"
         radiusSlider.setValue(Float(radius), animated: false)
         resultsLabel.text = "\(results)"
         resultsSlider.setValue(Float(results), animated: false)
+        measurementsButton.layer.cornerRadius = 10
+        updateRadiusAndUnitsLabels()
         
         UIView.animate(withDuration: 0.5, animations: {
             self.settings.alpha = 1
             self.backgroundButton.alpha = 1
         })
-        
+    }
+    
+    func updateRadiusAndUnitsLabels() {
+        let units = UserDefaults.standard.getUnits()
+        measurementsButton.setTitle(units, for: .normal)
+        if units == "km" {
+            let newKm = String(format: "%.2f", arguments: [radius/1000])
+            radiusLabel.text = "\(newKm) km"
+        } else {
+            let miles = convertToMiles(radius/1000)
+            let newMiles = String(format: "%.2f", arguments: [miles])
+            radiusLabel.text = "\(newMiles) miles"
+        }
+    }
+    
+    func convertToMiles(_ number: Double) -> Double {
+        return number * 1.6
     }
     
     @IBAction func dismissSettings(_ sender: UIButton) {
@@ -188,10 +211,10 @@ class OpeningScreenVC: UIViewController {
             UserDefaults.standard.setNoOfResults(value: self.results)
         })
     }
-    
+
     @IBAction func radiusSliderMoved(_ sender: UISlider) {
-        radius = lroundf(sender.value)
-        radiusLabel.text = "\(radius)m"
+        radius = Double(sender.value)
+        updateRadiusAndUnitsLabels()
     }
     
     @IBAction func resultsSliderMoved(_ sender: UISlider) {
@@ -199,13 +222,24 @@ class OpeningScreenVC: UIViewController {
         resultsLabel.text = "\(results)"
     }
     
+    @IBAction func changeUnitsOfMeasurement(_ sender: UIButton) {
+        if units == "km" {
+            units = "miles"
+            UserDefaults.standard.setUnits(value: "miles")
+        } else if units == "miles" {
+            units = "km"
+            UserDefaults.standard.setUnits(value: "km")
+        }
+        updateRadiusAndUnitsLabels()
+    }
+
     // MARK: Segue Functionality
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toMap" {
             let controller = segue.destination as! MapVC
             controller.makeNetworkCall = makeNetworkCall
-            controller.searchRadius = radius
+            controller.searchRadius = Int(radius)
             controller.numberOfResults = results
             
         }
