@@ -258,8 +258,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VfJ-jX-WWY">
-                                <rect key="frame" x="0.0" y="20" width="375" height="548"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VfJ-jX-WWY">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <viewLayoutGuide key="safeArea" id="tox-ei-d1F"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrx-qU-FNO">
                                 <rect key="frame" x="25" y="40" width="43" height="37"/>
@@ -288,13 +289,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="qrx-qU-FNO" firstAttribute="leading" secondItem="Laz-zb-BIZ" secondAttribute="leading" constant="25" id="9lf-Qq-lay"/>
+                            <constraint firstItem="VfJ-jX-WWY" firstAttribute="leading" secondItem="Laz-zb-BIZ" secondAttribute="leading" id="Km5-JW-6Jg"/>
+                            <constraint firstItem="VfJ-jX-WWY" firstAttribute="trailing" secondItem="Laz-zb-BIZ" secondAttribute="trailing" id="LDD-xA-ueU"/>
                             <constraint firstItem="Laz-zb-BIZ" firstAttribute="trailing" secondItem="yyw-IZ-h1F" secondAttribute="trailing" constant="25" id="Lv4-cL-n07"/>
-                            <constraint firstItem="VfJ-jX-WWY" firstAttribute="bottom" secondItem="Laz-zb-BIZ" secondAttribute="bottom" id="WGc-FU-8RI"/>
-                            <constraint firstItem="VfJ-jX-WWY" firstAttribute="leading" secondItem="Laz-zb-BIZ" secondAttribute="leading" id="XW2-HU-qLv"/>
-                            <constraint firstItem="VfJ-jX-WWY" firstAttribute="trailing" secondItem="Laz-zb-BIZ" secondAttribute="trailing" id="ekk-wl-TpE"/>
+                            <constraint firstItem="VfJ-jX-WWY" firstAttribute="top" secondItem="Laz-zb-BIZ" secondAttribute="top" id="ekE-3z-iwS"/>
                             <constraint firstItem="qrx-qU-FNO" firstAttribute="centerY" secondItem="yyw-IZ-h1F" secondAttribute="centerY" id="rWE-sP-jJY"/>
                             <constraint firstItem="yyw-IZ-h1F" firstAttribute="top" secondItem="Laz-zb-BIZ" secondAttribute="top" constant="20" id="uv6-qy-Fh5"/>
-                            <constraint firstItem="VfJ-jX-WWY" firstAttribute="top" secondItem="Laz-zb-BIZ" secondAttribute="top" id="zlM-2f-Ask"/>
+                            <constraint firstItem="VfJ-jX-WWY" firstAttribute="bottom" secondItem="Laz-zb-BIZ" secondAttribute="bottom" id="zPe-US-yUl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Laz-zb-BIZ"/>
                     </view>
@@ -304,7 +305,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Gm-Av-uYr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1636.875" y="38.028169014084504"/>
+            <point key="canvasLocation" x="1636" y="37.331334332833585"/>
         </scene>
         <!--Pub ListVC-->
         <scene sceneID="Daz-yl-T9f">
@@ -504,6 +505,7 @@
         <image name="tap" width="600" height="511"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8fe-1r-Q3E"/>
+        <segue reference="9pe-35-ZHM"/>
+        <segue reference="0pY-28-VRk"/>
     </inferredMetricsTieBreakers>
 </document>
