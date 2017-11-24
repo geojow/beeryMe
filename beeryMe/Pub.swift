@@ -38,12 +38,13 @@ class Pub: NSObject {
 }
 
 extension Pub: MKAnnotation {
+
     var coordinate: CLLocationCoordinate2D {
         get {
             return location.coordinate
         }
     }
-
+    
     var title: String? {
         get {
             return name
@@ -59,7 +60,8 @@ extension Pub: MKAnnotation {
             }
         }
     }
-    
+
+    // Annotation right callout accessory opens this mapItem in Maps app
     func mapItem() -> MKMapItem {
         let addressDict = [CNPostalAddressStreetKey: street]
         let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDict)
@@ -67,5 +69,5 @@ extension Pub: MKAnnotation {
         mapItem.name = title
         return mapItem
     }
-
+    
 }

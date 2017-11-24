@@ -34,6 +34,11 @@ class MapVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
+        if #available(iOS 11.0, *) {
+            mapView.register(PubView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        } else {
+            // Fallback on earlier versions
+        }
         setUpLocationManager()
     }
     
@@ -109,40 +114,7 @@ class MapVC: UIViewController {
     // TODO - Look at this when look at MapKit tutorial
 
 extension MapVC: MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
-        if annotation is MKUserLocation {
-            return nil
-        }
-        
-        let identifier = "pub"
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-        if annotationView == nil {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-        } else {
-            annotationView?.annotation = annotation
-        }
-        
-        annotationView?.canShowCallout = true
-        if let pub = annotation as? Pub,
-            let image = pub.image {
-            let btn = UIButton(type: .infoLight)
-            btn.setImage(image, for: .normal)
-            btn.tintColor = nil
-            annotationView?.leftCalloutAccessoryView = btn
-            let mapsButton = UIButton(frame: CGRect(origin: CGPoint.zero,
-                                                    size: CGSize(width: 30, height: 30)))
-            mapsButton.setBackgroundImage(UIImage(named: "maps-icon"), for: UIControlState())
-            annotationView?.rightCalloutAccessoryView = mapsButton
-            if pub.visited {
-                annotationView?.image = UIImage(named: "beer-visited")
-            } else {
-                annotationView?.image = UIImage(named: "beer-not-visited")
-            }
-        }
-        return annotationView
-    }
-    
+
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         
         if control == view.leftCalloutAccessoryView {
