@@ -148,13 +148,6 @@ extension MapVC: MKMapViewDelegate {
 }
 
 extension MapVC: CLLocationManagerDelegate {
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-    }
-    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedAlways || status == .authorizedWhenInUse {
             locationManager?.startUpdatingLocation()
