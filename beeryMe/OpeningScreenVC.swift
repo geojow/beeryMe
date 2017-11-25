@@ -24,6 +24,7 @@ class OpeningScreenVC: UIViewController {
     @IBOutlet weak var radiusSlider: UISlider!
     @IBOutlet weak var resultsSlider: UISlider!
     @IBOutlet weak var measurementsButton: UIButton!
+    @IBOutlet weak var settingsButton: UIButton!
     
     // MARK: Variables
     
@@ -69,8 +70,6 @@ class OpeningScreenVC: UIViewController {
         
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(OpeningScreenVC.waitThenAnimate), userInfo: nil, repeats: false)
         
-        button.isEnabled = false
-        
     }
     
     @objc func waitThenAnimate() {
@@ -93,53 +92,14 @@ class OpeningScreenVC: UIViewController {
             self.button.titleLabel?.font = self.button.titleLabel?.font.withSize(25)
             self.button.frame = CGRect(x: (self.screenWidth/2)-45, y: (self.screenHeight/2)-45, width: 90, height: 90)
             self.button.layer.cornerRadius = 20
-            //self.animateFontSize()
-            //self.button.titleLabel?.font = self.button.titleLabel?.font.withSize(25)
-            // TODO: Button to start full screen then shrink to a new size
-            
-            //self.background.transform = CGAffineTransform(scaleX: 0.26, y: 0.145)
-            //self.bMLabel.transform = CGAffineTransform(scaleX: 0.25, y: 0.25)
-            
-            ///////////////////////
-            
-            //self.perform(#selector(OpeningScreenVC.setRoundedCorners), with: nil, afterDelay: 0.1)
-            //self.perform(#selector(OpeningScreenVC.pulseButton), with: nil, afterDelay: 2)
             
             // Look at making this animate with delay function instead
             self.perform(#selector(OpeningScreenVC.showPromt), with: nil, afterDelay: 4)
             
         })
-        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(OpeningScreenVC.enableButton), userInfo: nil, repeats: false)
-        
+        button.pulsate()
     }
-    
-//    @objc func setRoundedCorners() {
-//        UIView.animate(withDuration: 0.9, animations: {
-//            self.background.layer.cornerRadius = 65
-//        })
-//    }
-    
-    
-    // TODO: Replace this function with a pulse() function in UIButton Extension
-//    @objc func pulseButton() {
-//
-//        self.borderPulse(element: bMLabel, fromScale: 0.25, toScale: 0.275)
-//        self.borderPulse(element: button, fromScale: 1, toScale: 1.1)
-//
-//    }
-    
-//    func borderPulse(element: UIView, fromScale: Float, toScale: Float) {
-//
-//        let scaleAnimation:CABasicAnimation = CABasicAnimation(keyPath: "transform.scale")
-//        scaleAnimation.duration = 0.5
-//        scaleAnimation.repeatCount = 3.0
-//        scaleAnimation.autoreverses = true
-//        scaleAnimation.fromValue = fromScale
-//        scaleAnimation.toValue = toScale
-//        element.layer.add(scaleAnimation, forKey: "scale")
-//
-//    }
-    
+
     @objc func showPromt() {
         
         UIView.animate(withDuration: 1, animations: {
@@ -155,45 +115,29 @@ class OpeningScreenVC: UIViewController {
     
     // MARK: Button Functionality
     
-    @IBAction func buttonPressed(_ sender: Any) {
-        
+    @IBAction func buttonPressed(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.clickPromt.alpha = 0
+            self.geojowLbl.alpha = 0
+            self.settingsButton.alpha = 0
+        })
+        sender.layer.removeAllAnimations()
         let audioPath = Bundle.main.path(forResource: "beer", ofType: "mp3")
         do {
             try player = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath!))
-            
             player.play()
         } catch {
             // Process any errors
         }
-        
-        UIView.animate(withDuration: 1, animations: {
-            //self.background.transform = CGAffineTransform(scaleX: 0.21, y: 0.12)
-            //self.button.transform = CGAffineTransform(scaleX: 0.21, y: 0.12)
-            //self.bMLabel.transform = CGAffineTransform(scaleX: 0.19, y: 0.19)
-            self.clickPromt.alpha = 0
-            //self.button.alpha=0
-            self.geojowLbl.alpha = 0
-            
-        })
-        
         self.perform(#selector(OpeningScreenVC.buttonPressedExpand), with: nil, afterDelay: 0.1)
-        
     }
     
     @objc func buttonPressedExpand() {
-        
-        
         UIView.animate(withDuration: 2, animations: {
             self.button.transform = CGAffineTransform(scaleX: 5, y: 5)
             self.button.alpha = 0
-            //self.background.transform = CGAffineTransform(scaleX: 1, y: 0.563)
-            //self.background.alpha = 0
-            //self.bMLabel.transform = CGAffineTransform(scaleX: 2, y: 2)
-            //self.bMLabel.alpha = 0
         })
         self.perform(#selector(OpeningScreenVC.goToMap), with: nil, afterDelay: 1)
-        
-        
     }
     
     @objc func goToMap() {

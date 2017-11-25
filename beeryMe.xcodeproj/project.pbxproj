@@ -118,7 +118,6 @@
 		BEFD72321FB24AC400F7BEFE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BE31BD301FCA21C9001D241D /* ButtonAnimations.swift */,
 				BE31BD021FC77978001D241D /* PubView.swift */,
 			);
 			name = View;
@@ -162,6 +161,7 @@
 				BE5C1A531E4E49BD005AB2A9 /* AppDelegate.swift */,
 				BEA76D2C1FBE4250002954E1 /* Assets.xcassets */,
 				BE5C1A5C1E4E49BD005AB2A9 /* LaunchScreen.storyboard */,
+				BE31BD301FCA21C9001D241D /* ButtonAnimations.swift */,
 				BEA76D291FBCF83A002954E1 /* Constants.swift */,
 			);
 			name = "Supporting Files";
