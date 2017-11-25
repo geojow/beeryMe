@@ -22,7 +22,6 @@ class QueryService {
     var errorMessage = ""
     var defaultSession = URLSession(configuration: .default)
     var dataTask: URLSessionDataTask?
-    let zomatoKey = zomatoAPIKey
     let client_id = foursquareClientId
     let client_secret = foursquareClientSecret
     
@@ -58,11 +57,7 @@ class QueryService {
             DispatchQueue.main.async {
                 completion(self.pubs, self.errorMessage)
             }
-            
-            
         }
-        
-        
         dataTask?.resume()
     }
     
@@ -99,11 +94,12 @@ class QueryService {
                     if let street = location["address"].string {
                         newPub.street = street
                     }
+                    
                     newPub.visited = UserDefaults.standard.isPubWithIdInUserDefaults(id: newPub.id)
                     print(newPub.visited)
                     pubs.append(newPub)
                 }
-                
+
             }
         } catch {
             print(error)
