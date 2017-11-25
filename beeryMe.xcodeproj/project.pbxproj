@@ -10,6 +10,7 @@
 		5C2A693A31D66F9E43D35DB6 /* Pods_beeryMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74307787250EDCE05877B673 /* Pods_beeryMe.framework */; };
 		BE1E06BF1FC35E85000A6F30 /* UserDefaults+helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1E06BE1FC35E85000A6F30 /* UserDefaults+helpers.swift */; };
 		BE31BD031FC77978001D241D /* PubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE31BD021FC77978001D241D /* PubView.swift */; };
+		BE31BD311FCA21C9001D241D /* ButtonAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE31BD301FCA21C9001D241D /* ButtonAnimations.swift */; };
 		BE3539C01F5058DE00DC9235 /* Pub.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3539BF1F5058DE00DC9235 /* Pub.swift */; };
 		BE5C1A541E4E49BD005AB2A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5C1A531E4E49BD005AB2A9 /* AppDelegate.swift */; };
 		BE5C1A561E4E49BD005AB2A9 /* OpeningScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5C1A551E4E49BD005AB2A9 /* OpeningScreenVC.swift */; };
@@ -31,6 +32,7 @@
 		74307787250EDCE05877B673 /* Pods_beeryMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_beeryMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE1E06BE1FC35E85000A6F30 /* UserDefaults+helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+helpers.swift"; sourceTree = "<group>"; };
 		BE31BD021FC77978001D241D /* PubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubView.swift; sourceTree = "<group>"; };
+		BE31BD301FCA21C9001D241D /* ButtonAnimations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonAnimations.swift; sourceTree = "<group>"; };
 		BE3539BF1F5058DE00DC9235 /* Pub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pub.swift; sourceTree = "<group>"; };
 		BE5C1A501E4E49BD005AB2A9 /* beeryMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = beeryMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE5C1A531E4E49BD005AB2A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		BEFD72321FB24AC400F7BEFE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BE31BD301FCA21C9001D241D /* ButtonAnimations.swift */,
 				BE31BD021FC77978001D241D /* PubView.swift */,
 			);
 			name = View;
@@ -303,6 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE31BD311FCA21C9001D241D /* ButtonAnimations.swift in Sources */,
 				BEF24D911FB39AC70001E43B /* MapVC.swift in Sources */,
 				BE5C1A561E4E49BD005AB2A9 /* OpeningScreenVC.swift in Sources */,
 				BE1E06BF1FC35E85000A6F30 /* UserDefaults+helpers.swift in Sources */,
