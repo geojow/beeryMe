@@ -77,13 +77,6 @@ class OpeningScreenVC: UIViewController {
         perform(#selector(OpeningScreenVC.animate), with: nil, afterDelay: 0.5)
         
     }
-    
-    func animateFontSize() {
-        UIView.animate(withDuration: 0.9, animations: {
-            self.button.titleLabel?.font = self.button.titleLabel?.font.withSize(25)
-            })
-        
-    }
         
     @objc func animate() {
         
