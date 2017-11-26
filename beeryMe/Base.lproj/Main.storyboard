@@ -62,7 +62,7 @@
                                     <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Uy-nM-8rg"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CLICK BOX FOR BEER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdW-eo-gMr">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CLICK BOX FOR BEER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sdW-eo-gMr">
                                 <rect key="frame" x="59" y="355" width="202" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="17"/>
@@ -203,6 +203,15 @@
                                     <constraint firstItem="yUl-UI-dTs" firstAttribute="top" secondItem="bKO-Qk-NVe" secondAttribute="top" constant="20" id="uf2-ml-7aw"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vs6-Yy-mNJ">
+                                <rect key="frame" x="117" y="239" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="refresh"/>
+                                <connections>
+                                    <action selector="refreshButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e9k-7z-OGW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -223,6 +232,7 @@
                         <outlet property="measurementsButton" destination="5w4-Qs-WTj" id="9nD-Su-2sj"/>
                         <outlet property="radiusLabel" destination="nh2-H9-aOd" id="jtb-tr-cjW"/>
                         <outlet property="radiusSlider" destination="yy2-eG-igi" id="PoZ-8W-nip"/>
+                        <outlet property="refreshButton" destination="Vs6-Yy-mNJ" id="DCu-66-c7X"/>
                         <outlet property="resultsLabel" destination="lt3-EC-TXe" id="siy-eb-1os"/>
                         <outlet property="resultsSlider" destination="A0y-Wd-bSb" id="YzQ-u4-063"/>
                         <outlet property="settings" destination="bKO-Qk-NVe" id="Y77-Ud-cgK"/>
@@ -510,6 +520,7 @@
         <image name="list" width="128" height="128"/>
         <image name="maps-icon" width="64" height="64"/>
         <image name="poweredbyfoursquare" width="300" height="50"/>
+        <image name="refresh" width="40" height="40"/>
         <image name="settings" width="50" height="50"/>
         <image name="tap" width="600" height="511"/>
     </resources>

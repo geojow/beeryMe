@@ -25,6 +25,7 @@ class OpeningScreenVC: UIViewController {
     @IBOutlet weak var resultsSlider: UISlider!
     @IBOutlet weak var measurementsButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var refreshButton: UIButton!
     
     // MARK: Variables
     
@@ -43,6 +44,7 @@ class OpeningScreenVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        connectionCheck()
         screen = UIScreen.main.bounds
         screenWidth = screen.width
         screenHeight = screen.height
@@ -67,8 +69,27 @@ class OpeningScreenVC: UIViewController {
         
         settings.layer.cornerRadius = 30
         button.layer.cornerRadius = 5
+        refreshButton.layer.cornerRadius = 20
         
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(OpeningScreenVC.waitThenAnimate), userInfo: nil, repeats: false)
+        
+    }
+    
+    func connectionCheck() {
+        if ConnectionCheck.isConnectedToNetwork() {
+            print("connected!")
+            button.isEnabled = true
+            button.alpha = 1
+            refreshButton.alpha = 0
+            clickPromt.text = "CLICK BOX FOR BEER"
+        } else {
+            print("not connected!")
+            button.isEnabled = false
+            button.alpha = 0
+            refreshButton.alpha = 1
+            clickPromt.alpha = 1
+            clickPromt.text = "No internet connection!"
+        }
         
     }
     
@@ -104,6 +125,11 @@ class OpeningScreenVC: UIViewController {
     
     @objc func enableButton() {
         button.isEnabled = true
+    }
+    
+    
+    @IBAction func refreshButtonPressed(_ sender: UIButton) {
+        connectionCheck()
     }
     
     // MARK: Button Functionality

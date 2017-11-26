@@ -48,9 +48,9 @@ class MapVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if makeNetworkCall {
-            startLoading()
-        }
+//        if makeNetworkCall {
+//            startLoading()
+//        }
     }
     
     func startLoading() {
@@ -95,6 +95,7 @@ class MapVC: UIViewController {
                                                                   regionRadius, regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
         if makeNetworkCall {
+            startLoading()
             playFizz()
             networkCall(location: location, searchRadius: searchRadius, numberOfResults: numberOfResults)
         } else {

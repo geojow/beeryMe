@@ -11,6 +11,7 @@
 		BE1E06BF1FC35E85000A6F30 /* UserDefaults+helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1E06BE1FC35E85000A6F30 /* UserDefaults+helpers.swift */; };
 		BE31BD031FC77978001D241D /* PubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE31BD021FC77978001D241D /* PubView.swift */; };
 		BE31BD311FCA21C9001D241D /* ButtonAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE31BD301FCA21C9001D241D /* ButtonAnimations.swift */; };
+		BE31BD331FCAEA6A001D241D /* ConnectionCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE31BD321FCAEA68001D241D /* ConnectionCheck.swift */; };
 		BE3539C01F5058DE00DC9235 /* Pub.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3539BF1F5058DE00DC9235 /* Pub.swift */; };
 		BE5C1A541E4E49BD005AB2A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5C1A531E4E49BD005AB2A9 /* AppDelegate.swift */; };
 		BE5C1A561E4E49BD005AB2A9 /* OpeningScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5C1A551E4E49BD005AB2A9 /* OpeningScreenVC.swift */; };
@@ -33,6 +34,7 @@
 		BE1E06BE1FC35E85000A6F30 /* UserDefaults+helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+helpers.swift"; sourceTree = "<group>"; };
 		BE31BD021FC77978001D241D /* PubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubView.swift; sourceTree = "<group>"; };
 		BE31BD301FCA21C9001D241D /* ButtonAnimations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonAnimations.swift; sourceTree = "<group>"; };
+		BE31BD321FCAEA68001D241D /* ConnectionCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionCheck.swift; sourceTree = "<group>"; };
 		BE3539BF1F5058DE00DC9235 /* Pub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pub.swift; sourceTree = "<group>"; };
 		BE5C1A501E4E49BD005AB2A9 /* beeryMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = beeryMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE5C1A531E4E49BD005AB2A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				BEA76D2C1FBE4250002954E1 /* Assets.xcassets */,
 				BE5C1A5C1E4E49BD005AB2A9 /* LaunchScreen.storyboard */,
 				BE31BD301FCA21C9001D241D /* ButtonAnimations.swift */,
+				BE31BD321FCAEA68001D241D /* ConnectionCheck.swift */,
 				BEA76D291FBCF83A002954E1 /* Constants.swift */,
 			);
 			name = "Supporting Files";
@@ -314,6 +317,7 @@
 				BE3539C01F5058DE00DC9235 /* Pub.swift in Sources */,
 				BEA76D2A1FBCF83A002954E1 /* Constants.swift in Sources */,
 				BEFD723A1FB24C5400F7BEFE /* QueryService.swift in Sources */,
+				BE31BD331FCAEA6A001D241D /* ConnectionCheck.swift in Sources */,
 				BE5C1A541E4E49BD005AB2A9 /* AppDelegate.swift in Sources */,
 				BE31BD031FC77978001D241D /* PubView.swift in Sources */,
 			);
