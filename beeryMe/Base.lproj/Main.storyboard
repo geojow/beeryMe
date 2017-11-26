@@ -270,6 +270,28 @@
                                     <segue destination="2Bk-Kn-CAp" kind="show" identifier="toPubList" id="9pe-35-ZHM"/>
                                 </connections>
                             </button>
+                            <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="97S-0g-US6">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Mug" translatesAutoresizingMaskIntoConstraints="NO" id="Kg8-BI-Ohw">
+                                <rect key="frame" x="85" y="209" width="150" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Beer" translatesAutoresizingMaskIntoConstraints="NO" id="FmK-vj-laA">
+                                <rect key="frame" x="95" y="219" width="95" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Brr-98-vWR">
+                                <rect key="frame" x="95" y="219" width="95" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -281,12 +303,16 @@
                         <viewLayoutGuide key="safeArea" id="Laz-zb-BIZ"/>
                     </view>
                     <connections>
+                        <outlet property="beer" destination="FmK-vj-laA" id="KyF-af-Sqm"/>
+                        <outlet property="froth" destination="Brr-98-vWR" id="lIn-Xy-vfH"/>
+                        <outlet property="loadingView" destination="97S-0g-US6" id="HqR-6D-Qzq"/>
                         <outlet property="mapView" destination="VfJ-jX-WWY" id="HQo-c5-RxM"/>
+                        <outlet property="mug" destination="Kg8-BI-Ohw" id="dVv-xB-xYK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Gm-Av-uYr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1636" y="36.945812807881772"/>
+            <point key="canvasLocation" x="1635" y="35.91549295774648"/>
         </scene>
         <!--Pub ListVC-->
         <scene sceneID="Daz-yl-T9f">
@@ -479,6 +505,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Beer" width="129" height="174"/>
+        <image name="Mug" width="204" height="202"/>
         <image name="list" width="128" height="128"/>
         <image name="maps-icon" width="64" height="64"/>
         <image name="poweredbyfoursquare" width="300" height="50"/>

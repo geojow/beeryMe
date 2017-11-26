@@ -15,6 +15,10 @@ class MapVC: UIViewController {
     // MARK: IBOutlets
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var mug: UIImageView!
+    @IBOutlet weak var froth: UILabel!
+    @IBOutlet weak var beer: UIImageView!
     
     // MARK: Variables & Constants
     
@@ -33,6 +37,7 @@ class MapVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.froth.frame = CGRect(x: self.froth.frame.minX, y: self.froth.frame.minY, width: 95, height: 128)
         mapView.delegate = self
         if #available(iOS 11.0, *) {
             mapView.register(PubView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
@@ -40,6 +45,33 @@ class MapVC: UIViewController {
             // Fallback on earlier versions
         }
         setUpLocationManager()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if makeNetworkCall {
+            startLoading()
+        }
+    }
+    
+    func startLoading() {
+        loadingView.alpha = 0.8
+        mug.alpha = 1
+        beer.alpha = 1
+        froth.alpha = 1
+        UIView.animate(withDuration: 5, animations: {
+            self.froth.transform = CGAffineTransform(scaleX: 1, y: 1/128)
+            self.froth.frame = CGRect(x: self.beer.frame.minX, y: self.beer.frame.minY, width: 95, height: 1)
+        })
+        
+    }
+    
+    func stopLoading() {
+        UIView.animate(withDuration: 1) {
+            self.loadingView.alpha = 0
+            self.mug.alpha = 0
+            self.beer.alpha = 0
+            self.froth.alpha = 0
+        }
     }
     
     func setUpLocationManager() {
@@ -85,6 +117,7 @@ class MapVC: UIViewController {
     
     @objc func stopSound() {
         player.stop()
+        stopLoading()
     }
     
     func networkCall(location: CLLocation, searchRadius: Int, numberOfResults: Int) {
