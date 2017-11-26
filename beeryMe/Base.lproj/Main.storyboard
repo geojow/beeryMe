@@ -280,6 +280,13 @@
                                     <segue destination="2Bk-Kn-CAp" kind="show" identifier="toPubList" id="9pe-35-ZHM"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="foursquare" translatesAutoresizingMaskIntoConstraints="NO" id="QPC-V7-qnk">
+                                <rect key="frame" x="25" y="503" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="2ZA-6M-RIZ"/>
+                                    <constraint firstAttribute="width" constant="40" id="Le6-ya-8Ow"/>
+                                </constraints>
+                            </imageView>
                             <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="97S-0g-US6">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
@@ -305,8 +312,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Laz-zb-BIZ" firstAttribute="bottom" secondItem="QPC-V7-qnk" secondAttribute="bottom" constant="25" id="43c-kJ-hnV"/>
                             <constraint firstItem="qrx-qU-FNO" firstAttribute="leading" secondItem="Laz-zb-BIZ" secondAttribute="leading" constant="25" id="9lf-Qq-lay"/>
                             <constraint firstItem="Laz-zb-BIZ" firstAttribute="trailing" secondItem="yyw-IZ-h1F" secondAttribute="trailing" constant="25" id="Lv4-cL-n07"/>
+                            <constraint firstItem="QPC-V7-qnk" firstAttribute="leading" secondItem="Laz-zb-BIZ" secondAttribute="leading" constant="25" id="OXP-Yu-e1N"/>
                             <constraint firstItem="qrx-qU-FNO" firstAttribute="centerY" secondItem="yyw-IZ-h1F" secondAttribute="centerY" id="rWE-sP-jJY"/>
                             <constraint firstItem="yyw-IZ-h1F" firstAttribute="top" secondItem="Laz-zb-BIZ" secondAttribute="top" constant="20" id="uv6-qy-Fh5"/>
                         </constraints>
@@ -517,6 +526,7 @@
     <resources>
         <image name="Beer" width="129" height="174"/>
         <image name="Mug" width="204" height="202"/>
+        <image name="foursquare" width="40" height="40"/>
         <image name="list" width="128" height="128"/>
         <image name="maps-icon" width="64" height="64"/>
         <image name="poweredbyfoursquare" width="300" height="50"/>
@@ -525,6 +535,7 @@
         <image name="tap" width="600" height="511"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8fe-1r-Q3E"/>
+        <segue reference="9pe-35-ZHM"/>
+        <segue reference="0pY-28-VRk"/>
     </inferredMetricsTieBreakers>
 </document>
