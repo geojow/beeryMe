@@ -53,12 +53,12 @@ class OpeningScreenVC: UIViewController {
         button.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
         
         
-        if UserDefaults.standard.getRadius() != 0 {
+        if UserDefaults.standard.getRadius() != -1 {
             radius = UserDefaults.standard.getRadius()
         }
         print("saved radius: \(radius)")
         
-        if UserDefaults.standard.getNoOfResults() != 0 {
+        if UserDefaults.standard.getNoOfResults() != -1 {
             results = UserDefaults.standard.getNoOfResults()
         }
         print("saved results: \(results)")
@@ -170,9 +170,9 @@ class OpeningScreenVC: UIViewController {
     @IBAction func settingsPressed(_ sender: UIButton) {
         
         radiusSlider.setValue(Float(radius), animated: false)
-        resultsLabel.text = "\(results)"
         resultsSlider.setValue(Float(results), animated: false)
         measurementsButton.layer.cornerRadius = 10
+        resultsLabel.text = "\(results)"
         updateRadiusAndUnitsLabels()
         
         UIView.animate(withDuration: 0.5, animations: {
@@ -202,9 +202,11 @@ class OpeningScreenVC: UIViewController {
         UIView.animate(withDuration: 0.5, animations: {
             self.settings.alpha = 0
             self.backgroundButton.alpha = 0
-            UserDefaults.standard.setRadius(value: self.radius)
-            UserDefaults.standard.setNoOfResults(value: self.results)
         })
+        UserDefaults.standard.setRadius(value: self.radius)
+        UserDefaults.standard.setNoOfResults(value: self.results)
+        print("dismissed results: \(self.results)")
+        print("dismissed radius: \(self.radius)")
     }
 
     @IBAction func radiusSliderMoved(_ sender: UISlider) {
