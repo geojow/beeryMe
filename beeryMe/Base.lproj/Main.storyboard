@@ -175,7 +175,7 @@
                                     <constraint firstItem="A0y-Wd-bSb" firstAttribute="leading" secondItem="bKO-Qk-NVe" secondAttribute="leading" constant="20" id="1j2-Uk-bBU"/>
                                     <constraint firstItem="XcH-YK-ady" firstAttribute="top" secondItem="yy2-eG-igi" secondAttribute="bottom" constant="10" id="4Om-hE-7aT"/>
                                     <constraint firstAttribute="bottom" secondItem="nQ2-2E-aHX" secondAttribute="bottom" constant="15" id="4fL-JJ-ZUK"/>
-                                    <constraint firstItem="nh2-H9-aOd" firstAttribute="leading" secondItem="BpT-AD-jwY" secondAttribute="trailing" constant="66" id="57z-yt-Sy9"/>
+                                    <constraint firstItem="nh2-H9-aOd" firstAttribute="leading" relation="lessThanOrEqual" secondItem="BpT-AD-jwY" secondAttribute="trailing" constant="66" id="57z-yt-Sy9"/>
                                     <constraint firstAttribute="trailing" secondItem="A0y-Wd-bSb" secondAttribute="trailing" constant="20" id="61U-og-BHY"/>
                                     <constraint firstAttribute="trailing" secondItem="lt3-EC-TXe" secondAttribute="trailing" constant="20" id="83x-zE-RXU"/>
                                     <constraint firstItem="XcH-YK-ady" firstAttribute="leading" secondItem="bKO-Qk-NVe" secondAttribute="leading" constant="20" id="8gV-5f-uyj"/>
@@ -309,6 +309,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="beeryMe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="voS-tp-nBb">
+                                <rect key="frame" x="54" y="375" width="211" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="50"/>
+                                <color key="textColor" red="0.96862745100000003" green="0.58039215690000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No pubs found! Tap back!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oap-Co-vSW">
+                                <rect key="frame" x="50" y="239" width="220" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -322,11 +337,15 @@
                         <viewLayoutGuide key="safeArea" id="Laz-zb-BIZ"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="qrx-qU-FNO" id="B5X-xd-xwe"/>
                         <outlet property="beer" destination="FmK-vj-laA" id="KyF-af-Sqm"/>
+                        <outlet property="beeryMe" destination="voS-tp-nBb" id="ELh-Cl-bna"/>
                         <outlet property="froth" destination="Brr-98-vWR" id="lIn-Xy-vfH"/>
+                        <outlet property="listButton" destination="yyw-IZ-h1F" id="uHX-xo-5D2"/>
                         <outlet property="loadingView" destination="97S-0g-US6" id="HqR-6D-Qzq"/>
                         <outlet property="mapView" destination="VfJ-jX-WWY" id="HQo-c5-RxM"/>
                         <outlet property="mug" destination="Kg8-BI-Ohw" id="dVv-xB-xYK"/>
+                        <outlet property="userAlertLabel" destination="oap-Co-vSW" id="P76-Bq-Z98"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Gm-Av-uYr" userLabel="First Responder" sceneMemberID="firstResponder"/>

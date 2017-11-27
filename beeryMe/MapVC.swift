@@ -19,6 +19,11 @@ class MapVC: UIViewController {
     @IBOutlet weak var mug: UIImageView!
     @IBOutlet weak var froth: UILabel!
     @IBOutlet weak var beer: UIImageView!
+    @IBOutlet weak var beeryMe: UILabel!
+    @IBOutlet weak var listButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var userAlertLabel: UILabel!
+    
     
     // MARK: Variables & Constants
     
@@ -27,7 +32,7 @@ class MapVC: UIViewController {
     var player = AVAudioPlayer()
     var timer = Timer()
     var locationManager: CLLocationManager?
-    var startLocation = CLLocation(latitude: 51.47281, longitude: 51.47281)
+    //var startLocation = CLLocation(latitude: 51.47281, longitude: 51.47281)
     var searchRadius = 500
     var numberOfResults = 25
     let queryService = QueryService()
@@ -37,6 +42,8 @@ class MapVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        userAlertLabel.layer.cornerRadius = 20
+        userAlertLabel.layer.masksToBounds = true
         self.froth.frame = CGRect(x: self.froth.frame.minX, y: self.froth.frame.minY, width: 95, height: 128)
         mapView.delegate = self
         if #available(iOS 11.0, *) {
@@ -44,13 +51,15 @@ class MapVC: UIViewController {
         } else {
             // Fallback on earlier versions
         }
+        
         setUpLocationManager()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        if makeNetworkCall {
-//            startLoading()
-//        }
+        
+        if makeNetworkCall {
+            startLoading()
+        }
     }
     
     func startLoading() {
@@ -58,6 +67,7 @@ class MapVC: UIViewController {
         mug.alpha = 1
         beer.alpha = 1
         froth.alpha = 1
+        beeryMe.alpha = 1
         UIView.animate(withDuration: 5, animations: {
             self.froth.transform = CGAffineTransform(scaleX: 1, y: 1/128)
             self.froth.frame = CGRect(x: self.beer.frame.minX, y: self.beer.frame.minY, width: 95, height: 1)
@@ -71,6 +81,7 @@ class MapVC: UIViewController {
             self.mug.alpha = 0
             self.beer.alpha = 0
             self.froth.alpha = 0
+            self.beeryMe.alpha = 0
         }
     }
     
@@ -84,8 +95,13 @@ class MapVC: UIViewController {
         if CLLocationManager.locationServicesEnabled() {
             locationManager?.requestWhenInUseAuthorization()
             locationManager?.startUpdatingLocation()
+           
             if let location = locationManager?.location {
                 centreOnLocation(location)
+            } else {
+                mapView.showsUserLocation = false
+                stopLoading()
+                setUserAlert(for: "location")
             }
         }
     }
@@ -95,7 +111,6 @@ class MapVC: UIViewController {
                                                                   regionRadius, regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
         if makeNetworkCall {
-            startLoading()
             playFizz()
             networkCall(location: location, searchRadius: searchRadius, numberOfResults: numberOfResults)
         } else {
@@ -105,6 +120,7 @@ class MapVC: UIViewController {
     }
     
     func playFizz() {
+        //startLoading()
         let audioPath = Bundle.main.path(forResource: "beerpour", ofType: "mp3")
         do {
             try player = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath!))
@@ -126,13 +142,27 @@ class MapVC: UIViewController {
         queryService.getSearchResults(location: location, searchRadius: searchRadius, numberOfResults: numberOfResults) { results, errorMessage in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             if let results = results {
-                for result in results {
-                    self.pubs.append(result)
+                if results.isEmpty {
+                    self.stopSound()
+                    self.setUserAlert(for: "pubs")
+                } else {
+                    for result in results {
+                        self.pubs.append(result)
+                    }
+                    self.mapView.addAnnotations(results)
                 }
-                self.mapView.addAnnotations(results)
             }
             if !errorMessage.isEmpty { print("Search error: " + errorMessage) }
         }
+    }
+    
+    func setUserAlert(for value: String) {
+        self.userAlertLabel.text = "No \(value) found! Tap back!"
+        self.mapView.alpha = 0.5
+        self.listButton.isEnabled = false
+        self.listButton.alpha = 0.5
+        self.backButton.pulsate()
+        self.userAlertLabel.alpha = 1
     }
     
     // MARK: Segue Functionality
