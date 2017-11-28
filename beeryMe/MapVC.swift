@@ -157,8 +157,10 @@ class MapVC: UIViewController {
     }
     
     func setUserAlert(for value: String) {
+        stopLoading()
         self.userAlertLabel.text = "No \(value) found! Tap back!"
         self.mapView.alpha = 0.5
+        self.mapView.isUserInteractionEnabled = false
         self.listButton.isEnabled = false
         self.listButton.alpha = 0.5
         self.backButton.pulsate()
