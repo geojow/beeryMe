@@ -76,6 +76,15 @@
                                     <action selector="dismissSettings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oxc-f2-ugt"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vs6-Yy-mNJ">
+                                <rect key="frame" x="117" y="239" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="refresh"/>
+                                <connections>
+                                    <action selector="refreshButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e9k-7z-OGW"/>
+                                </connections>
+                            </button>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bKO-Qk-NVe">
                                 <rect key="frame" x="20" y="144" width="280" height="280"/>
                                 <subviews>
@@ -203,15 +212,6 @@
                                     <constraint firstItem="yUl-UI-dTs" firstAttribute="top" secondItem="bKO-Qk-NVe" secondAttribute="top" constant="20" id="uf2-ml-7aw"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vs6-Yy-mNJ">
-                                <rect key="frame" x="117" y="239" width="90" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" image="refresh"/>
-                                <connections>
-                                    <action selector="refreshButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e9k-7z-OGW"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -227,7 +227,7 @@
                     <connections>
                         <outlet property="backgroundButton" destination="EZM-OP-1Hq" id="DB9-dO-fO3"/>
                         <outlet property="button" destination="kgj-vG-aFv" id="sV6-Kc-rre"/>
-                        <outlet property="clickPromt" destination="sdW-eo-gMr" id="hpz-5u-0Nr"/>
+                        <outlet property="clickPrompt" destination="sdW-eo-gMr" id="hpz-5u-0Nr"/>
                         <outlet property="geojowLbl" destination="vbi-EP-NvX" id="FoU-hH-yv5"/>
                         <outlet property="measurementsButton" destination="5w4-Qs-WTj" id="9nD-Su-2sj"/>
                         <outlet property="radiusLabel" destination="nh2-H9-aOd" id="jtb-tr-cjW"/>
@@ -554,7 +554,6 @@
         <image name="tap" width="600" height="511"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9pe-35-ZHM"/>
-        <segue reference="0pY-28-VRk"/>
+        <segue reference="8fe-1r-Q3E"/>
     </inferredMetricsTieBreakers>
 </document>
