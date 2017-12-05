@@ -292,13 +292,19 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Mug" translatesAutoresizingMaskIntoConstraints="NO" id="Kg8-BI-Ohw">
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mug" translatesAutoresizingMaskIntoConstraints="NO" id="Kg8-BI-Ohw">
                                 <rect key="frame" x="85" y="209" width="150" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="1a3-Iq-0IG"/>
+                                    <constraint firstAttribute="height" constant="150" id="91Z-WE-hYQ"/>
+                                </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Beer" translatesAutoresizingMaskIntoConstraints="NO" id="FmK-vj-laA">
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Beer" translatesAutoresizingMaskIntoConstraints="NO" id="FmK-vj-laA">
                                 <rect key="frame" x="95" y="219" width="95" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="ac9-wk-uuR"/>
+                                    <constraint firstAttribute="width" constant="95" id="rHk-BP-iXN"/>
+                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Brr-98-vWR">
                                 <rect key="frame" x="95" y="219" width="95" height="128"/>
@@ -329,10 +335,14 @@
                         <constraints>
                             <constraint firstItem="Laz-zb-BIZ" firstAttribute="bottom" secondItem="QPC-V7-qnk" secondAttribute="bottom" constant="25" id="43c-kJ-hnV"/>
                             <constraint firstItem="qrx-qU-FNO" firstAttribute="leading" secondItem="Laz-zb-BIZ" secondAttribute="leading" constant="25" id="9lf-Qq-lay"/>
+                            <constraint firstItem="Kg8-BI-Ohw" firstAttribute="centerX" secondItem="7p0-IR-5Gj" secondAttribute="centerX" id="Hkj-nq-sjp"/>
                             <constraint firstItem="Laz-zb-BIZ" firstAttribute="trailing" secondItem="yyw-IZ-h1F" secondAttribute="trailing" constant="25" id="Lv4-cL-n07"/>
                             <constraint firstItem="QPC-V7-qnk" firstAttribute="leading" secondItem="Laz-zb-BIZ" secondAttribute="leading" constant="25" id="OXP-Yu-e1N"/>
+                            <constraint firstItem="FmK-vj-laA" firstAttribute="leading" secondItem="Kg8-BI-Ohw" secondAttribute="leading" constant="10" id="d5x-po-Igf"/>
+                            <constraint firstItem="Kg8-BI-Ohw" firstAttribute="centerY" secondItem="7p0-IR-5Gj" secondAttribute="centerY" id="g8b-R5-b8e"/>
                             <constraint firstItem="qrx-qU-FNO" firstAttribute="centerY" secondItem="yyw-IZ-h1F" secondAttribute="centerY" id="rWE-sP-jJY"/>
                             <constraint firstItem="yyw-IZ-h1F" firstAttribute="top" secondItem="Laz-zb-BIZ" secondAttribute="top" constant="20" id="uv6-qy-Fh5"/>
+                            <constraint firstItem="FmK-vj-laA" firstAttribute="top" secondItem="Kg8-BI-Ohw" secondAttribute="top" constant="10" id="zXX-Gr-fTd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Laz-zb-BIZ"/>
                     </view>

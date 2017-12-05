@@ -43,7 +43,7 @@ class MapVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setUserAlertCorners()
-    froth.frame = CGRect(x: froth.frame.minX, y: froth.frame.minY, width: 95, height: 128)
+    
     mapView.delegate = self
     if #available(iOS 11.0, *) {
       mapView.register(PubView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
@@ -57,6 +57,7 @@ class MapVC: UIViewController {
   }
   
   override func viewDidAppear(_ animated: Bool) {
+    froth.frame = CGRect(x: mug.frame.minX + 10, y: mug.frame.minY + 10, width: 95, height: 128)
     if makeNetworkCall {
       mapView.alpha = 1
       startLoading()
@@ -74,8 +75,6 @@ class MapVC: UIViewController {
     beer.alpha = 1
     froth.alpha = 1
     beeryMe.alpha = 1
-    UIView.animate(withDuration: 5, animations: {
-    })
     UIView.animate(withDuration: 5, animations: {
       self.froth.transform = CGAffineTransform(scaleX: 1, y: 1/128)
       self.froth.frame = CGRect(x: self.beer.frame.minX, y: self.beer.frame.minY, width: 95, height: 1)
