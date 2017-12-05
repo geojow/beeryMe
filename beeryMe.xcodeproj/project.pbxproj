@@ -19,6 +19,7 @@
 		BE5C1A5E1E4E49BD005AB2A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE5C1A5C1E4E49BD005AB2A9 /* LaunchScreen.storyboard */; };
 		BE7DC0361FCE10DD007EAB18 /* beer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BE7DC0351FCE10DD007EAB18 /* beer.mp3 */; };
 		BE7DC0381FCE2362007EAB18 /* beerpour.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BE7DC0371FCE2361007EAB18 /* beerpour.mp3 */; };
+		BE7DC03A1FD74478007EAB18 /* PubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7DC0391FD74478007EAB18 /* PubCell.swift */; };
 		BEA76D2A1FBCF83A002954E1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA76D291FBCF83A002954E1 /* Constants.swift */; };
 		BEA76D2D1FBE4250002954E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEA76D2C1FBE4250002954E1 /* Assets.xcassets */; };
 		BEA76D311FBE53D2002954E1 /* fizz.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BEA76D301FBE53D1002954E1 /* fizz.mp3 */; };
@@ -45,6 +46,7 @@
 		BE5C1A661E4F0993005AB2A9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		BE7DC0351FCE10DD007EAB18 /* beer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beer.mp3; sourceTree = "<group>"; };
 		BE7DC0371FCE2361007EAB18 /* beerpour.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beerpour.mp3; sourceTree = "<group>"; };
+		BE7DC0391FD74478007EAB18 /* PubCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubCell.swift; sourceTree = "<group>"; };
 		BEA76D291FBCF83A002954E1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BEA76D2C1FBE4250002954E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEA76D301FBE53D1002954E1 /* fizz.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fizz.mp3; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				BE31BD021FC77978001D241D /* PubView.swift */,
+				BE7DC0391FD74478007EAB18 /* PubCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				BE31BD311FCA21C9001D241D /* ButtonAnimations.swift in Sources */,
 				BEF24D911FB39AC70001E43B /* MapVC.swift in Sources */,
 				BE5C1A561E4E49BD005AB2A9 /* OpeningScreenVC.swift in Sources */,
+				BE7DC03A1FD74478007EAB18 /* PubCell.swift in Sources */,
 				BE1E06BF1FC35E85000A6F30 /* UserDefaults+helpers.swift in Sources */,
 				BEF24D931FB4F92C0001E43B /* PubListVC.swift in Sources */,
 				BE3539C01F5058DE00DC9235 /* Pub.swift in Sources */,
@@ -374,6 +378,8 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_ACTIVITY_MODE = "";
+				"DEBUG_ACTIVITY_MODE[sdk=iphonesimulator*]" = default;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -429,6 +435,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_ACTIVITY_MODE = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

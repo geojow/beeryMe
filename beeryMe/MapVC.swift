@@ -44,12 +44,14 @@ class MapVC: UIViewController {
     super.viewDidLoad()
     setUserAlertCorners()
     froth.frame = CGRect(x: froth.frame.minX, y: froth.frame.minY, width: 95, height: 128)
-    mapView.alpha = 0
     mapView.delegate = self
     if #available(iOS 11.0, *) {
       mapView.register(PubView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
     } else {
       // Fallback on earlier versions
+    }
+    if makeNetworkCall {
+      mapView.alpha = 0
     }
     setUpLocationManager()
   }

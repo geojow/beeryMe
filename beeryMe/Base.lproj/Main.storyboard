@@ -268,7 +268,7 @@
                                     <segue destination="BYZ-38-t0r" kind="presentation" id="iPT-Oy-RZQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yyw-IZ-h1F" customClass="toPubList">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yyw-IZ-h1F">
                                 <rect key="frame" x="252" y="40" width="43" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="43" id="B2T-fF-vcT"/>
@@ -366,7 +366,7 @@
                                 <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pubItem" id="Kuc-Fs-MNv">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pubItem" id="Kuc-Fs-MNv" customClass="PubCell" customModule="beeryMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1002" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kuc-Fs-MNv" id="03f-2K-XyX">
@@ -402,6 +402,10 @@
                                                 <constraint firstAttribute="trailing" secondItem="UWu-z3-8Hn" secondAttribute="trailing" constant="15" id="zVe-E9-vXR"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="pubLabel" destination="iJ9-ko-6RP" id="v2x-TT-JL3"/>
+                                            <outlet property="pubVisitedImage" destination="UWu-z3-8Hn" id="207-vN-iy0"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

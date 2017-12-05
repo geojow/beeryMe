@@ -189,8 +189,6 @@ class OpeningScreenVC: UIViewController {
     })
     UserDefaults.standard.setRadius(value: self.radius)
     UserDefaults.standard.setNoOfResults(value: self.results)
-    print("dismissed results: \(self.results)")
-    print("dismissed radius: \(self.radius)")
   }
   
   @IBAction func radiusSliderMoved(_ sender: UISlider) {

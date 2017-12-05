@@ -63,7 +63,7 @@ class PubListVC: UIViewController {
     })
   }
   
-  func setInfo(_ indexPath: IndexPath) {
+  func setInfoText(_ indexPath: IndexPath) {
     let pub = pubList[indexPath.section]
     pubName.text = pub.name
     address.text = pub.formattedAddress
@@ -92,6 +92,7 @@ class PubListVC: UIViewController {
 
 // MARK: UITableViewDataSource
 extension PubListVC: UITableViewDataSource {
+  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return 1
   }
@@ -101,30 +102,13 @@ extension PubListVC: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "pubItem", for: indexPath)
-    let label = cell.viewWithTag(1000) as! UILabel
-    label.layer.cornerRadius = 20
-    label.layer.masksToBounds = true
-    let pub = pubList[indexPath.section]
-    configureText(for: cell, with: pub)
-    configureImage(for: cell, with: pub)
+    let cell = tableView.dequeueReusableCell(withIdentifier: "pubItem", for: indexPath) as! PubCell
+    
+    cell.configureCell(pub: pubList[indexPath.section])
+
     cell.selectionStyle = UITableViewCellSelectionStyle.none
     
     return cell
-  }
-  
-  func configureText(for cell: UITableViewCell, with item: Pub) {
-    let label = cell.viewWithTag(1000) as! UILabel
-    label.text = item.name
-  }
-  
-  func configureImage(for cell: UITableViewCell, with item: Pub) {
-    let image = cell.viewWithTag(1001) as! UIImageView
-    if item.visited {
-      image.image = #imageLiteral(resourceName: "beer-visited")
-    } else {
-      image.image = #imageLiteral(resourceName: "beer-not-visited")
-    }
   }
 }
 
@@ -136,7 +120,7 @@ extension PubListVC: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     currentPub = pubList[indexPath.section]
-    setInfo(indexPath)
+    setInfoText(indexPath)
     showInfoView()
     tableView.deselectRow(at: indexPath, animated: false)
   }
@@ -144,11 +128,11 @@ extension PubListVC: UITableViewDelegate {
   func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
     let visited = pubList[indexPath.section].visited
     let updateVisited = UITableViewRowAction(style: .normal, title: (visited ? "Visited" : "Not Visited")) { (action, indexPath) in
-      if let cell = tableView.cellForRow(at: indexPath) {
+      if let cell = tableView.cellForRow(at: indexPath) as? PubCell {
         let pub = self.pubList[indexPath.section]
         pub.toggleVisited()
         UserDefaults.standard.updateWith(pub: pub)
-        self.configureImage(for: cell, with: pub)
+        cell.configureImageFor(pub: pub)
       }
     }
     return [updateVisited]
