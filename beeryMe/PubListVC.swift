@@ -118,25 +118,25 @@ extension PubListVC: UITableViewDelegate {
     return cellSpacingHeight
   }
   
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    currentPub = pubList[indexPath.section]
-    setInfoText(indexPath)
-    showInfoView()
-    tableView.deselectRow(at: indexPath, animated: false)
-  }
+//  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//    currentPub = pubList[indexPath.section]
+//    setInfoText(indexPath)
+//    showInfoView()
+//    tableView.deselectRow(at: indexPath, animated: false)
+//  }
   
-  func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-    let visited = pubList[indexPath.section].visited
-    let updateVisited = UITableViewRowAction(style: .normal, title: (visited ? "Visited" : "Not Visited")) { (action, indexPath) in
-      if let cell = tableView.cellForRow(at: indexPath) as? PubCell {
-        let pub = self.pubList[indexPath.section]
-        pub.toggleVisited()
-        UserDefaults.standard.updateWith(pub: pub)
-        cell.configureImageFor(pub: pub)
-      }
-    }
-    return [updateVisited]
-  }
+//  func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//    let visited = pubList[indexPath.section].visited
+//    let updateVisited = UITableViewRowAction(style: .normal, title: (visited ? "Visited" : "Not Visited")) { (action, indexPath) in
+//      if let cell = tableView.cellForRow(at: indexPath) as? PubCell {
+//        let pub = self.pubList[indexPath.section]
+//        pub.toggleVisited()
+//        UserDefaults.standard.updateWith(pub: pub)
+//        cell.configureImageFor(pub: pub)
+//      }
+//    }
+//    return [updateVisited]
+//  }
 }
 
 
