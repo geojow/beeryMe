@@ -75,6 +75,7 @@ class MapVC: UIViewController {
     beer.alpha = 1
     froth.alpha = 1
     beeryMe.alpha = 1
+    playFizz()
     UIView.animate(withDuration: 5, animations: {
       self.froth.transform = CGAffineTransform(scaleX: 1, y: 1/128)
       self.froth.frame = CGRect(x: self.beer.frame.minX, y: self.beer.frame.minY, width: 95, height: 1)
@@ -112,7 +113,6 @@ class MapVC: UIViewController {
       if let location = locationManager?.location {
         centreOnLocation(location)
       } else {
-        playFizz()
         noLocation = true
       }
     }
@@ -123,7 +123,6 @@ class MapVC: UIViewController {
                                                               regionRadius, regionRadius)
     mapView.setRegion(coordinateRegion, animated: true)
     if makeNetworkCall {
-      playFizz()
       networkCall(location: location, searchRadius: searchRadius, numberOfResults: numberOfResults)
     } else {
       self.mapView.addAnnotations(pubs)
