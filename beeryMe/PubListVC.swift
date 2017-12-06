@@ -31,6 +31,8 @@ class PubListVC: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    tableView.delaysContentTouches = true
+    tableView.canCancelContentTouches = true
     info.layer.cornerRadius = 30
     setUpRightSwipt()
   }
@@ -63,8 +65,7 @@ class PubListVC: UIViewController {
     })
   }
   
-  func setInfoText(_ indexPath: IndexPath) {
-    let pub = pubList[indexPath.section]
+  func setInfoText(_ pub: Pub) {
     pubName.text = pub.name
     address.text = pub.formattedAddress
     website.text = pub.website
@@ -76,7 +77,7 @@ class PubListVC: UIViewController {
       location.mapItem().openInMaps(launchOptions: launchOptions)
     }
   }
-  
+
   // MARK: Segue Functionality
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -103,40 +104,16 @@ extension PubListVC: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "pubItem", for: indexPath) as! PubCell
-    
-    cell.configureCell(pub: pubList[indexPath.section])
-
+    cell.pub = pubList[indexPath.section]
+    cell.viewController = self
     cell.selectionStyle = UITableViewCellSelectionStyle.none
-    
     return cell
   }
 }
 
 // MARK: UITableViewDelegate
 extension PubListVC: UITableViewDelegate {
-  func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-    return cellSpacingHeight
-  }
-  
-//  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//    currentPub = pubList[indexPath.section]
-//    setInfoText(indexPath)
-//    showInfoView()
-//    tableView.deselectRow(at: indexPath, animated: false)
-//  }
-  
-//  func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//    let visited = pubList[indexPath.section].visited
-//    let updateVisited = UITableViewRowAction(style: .normal, title: (visited ? "Visited" : "Not Visited")) { (action, indexPath) in
-//      if let cell = tableView.cellForRow(at: indexPath) as? PubCell {
-//        let pub = self.pubList[indexPath.section]
-//        pub.toggleVisited()
-//        UserDefaults.standard.updateWith(pub: pub)
-//        cell.configureImageFor(pub: pub)
-//      }
-//    }
-//    return [updateVisited]
-//  }
+
 }
 
 

@@ -10,16 +10,20 @@ import UIKit
 
 class PubCell: UITableViewCell {
   
-  @IBOutlet weak var pubLabel: UILabel!
-  @IBOutlet weak var pubVisitedImage: UIImageView!
-  
   @IBOutlet weak var pubButton: UIButton!
   @IBOutlet weak var visitedButton: UIButton!
   
-  func configureCell(pub: Pub) {
-//    pubLabel.layer.cornerRadius = 20
-//    pubLabel.layer.masksToBounds = true
-//    pubLabel.text = pub.name
+  var viewController: PubListVC?
+  var pub: Pub! {
+    didSet {
+      configureCell()
+    }
+  }
+  
+  func configureCell() {
+    pubButton.titleLabel?.minimumScaleFactor = 0.5
+    pubButton.titleLabel?.adjustsFontSizeToFitWidth = true
+
     pubButton.layer.cornerRadius = 20
     pubButton.layer.masksToBounds = true
     pubButton.setTitle(pub.name, for: .normal)
@@ -30,11 +34,19 @@ class PubCell: UITableViewCell {
   func configureImageFor(pub: Pub) {
     if pub.visited {
       visitedButton.setImage(#imageLiteral(resourceName: "beer-visited"), for: .normal)
-      //pubVisitedImage.image = #imageLiteral(resourceName: "beer-visited")
     } else {
       visitedButton.setImage(#imageLiteral(resourceName: "beer-not-visited"), for: .normal)
-      //pubVisitedImage.image = #imageLiteral(resourceName: "beer-not-visited")
     }
   }
-
+  
+  @IBAction func visitedButtonPressed(_ sender: UIButton) {
+    pub.toggleVisited()
+    UserDefaults.standard.updateWith(pub: pub)
+    configureImageFor(pub: pub)
+  }
+  
+  @IBAction func pubButtonPressed(_ sender: UIButton) {
+    self.viewController?.setInfoText(pub)
+    self.viewController?.showInfoView()
+  }
 }

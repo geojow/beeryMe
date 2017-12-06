@@ -64,7 +64,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CLICK BOX FOR BEER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sdW-eo-gMr">
-                                <rect key="frame" x="87" y="513" width="202" height="21"/>
+                                <rect key="frame" x="86" y="513" width="202" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -324,7 +324,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No pubs found! Tap back!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oap-Co-vSW">
-                                <rect key="frame" x="78" y="361" width="220" height="90"/>
+                                <rect key="frame" x="77" y="361" width="220" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="18"/>
@@ -371,6 +371,85 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RVn-7w-XZV">
+                                <rect key="frame" x="0.0" y="121" width="375" height="657"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pubItem" rowHeight="75" id="Kuc-Fs-MNv" customClass="PubCell" customModule="beeryMe" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1002" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kuc-Fs-MNv" id="03f-2K-XyX">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecD-NW-m7x">
+                                                    <rect key="frame" x="15" y="18" width="295" height="40"/>
+                                                    <color key="backgroundColor" red="0.96862745100000003" green="0.58039215690000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="mrv-42-nBF"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="20"/>
+                                                    <state key="normal" title="Test Cell">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="pubButtonPressed:" destination="Kuc-Fs-MNv" eventType="touchUpInside" id="OsK-eA-BAA"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h3c-fu-Omy">
+                                                    <rect key="frame" x="320" y="18" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="DRq-75-3gc"/>
+                                                        <constraint firstAttribute="width" constant="40" id="hf2-px-xAR"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <action selector="visitedButtonPressed:" destination="Kuc-Fs-MNv" eventType="touchUpInside" id="AmF-bE-Sfx"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="h3c-fu-Omy" secondAttribute="trailing" id="Q5H-Qq-GgA"/>
+                                                <constraint firstItem="h3c-fu-Omy" firstAttribute="centerY" secondItem="03f-2K-XyX" secondAttribute="centerY" id="asZ-6Q-CyD"/>
+                                                <constraint firstItem="ecD-NW-m7x" firstAttribute="leading" secondItem="03f-2K-XyX" secondAttribute="leadingMargin" id="hM7-ZU-05D"/>
+                                                <constraint firstItem="ecD-NW-m7x" firstAttribute="centerY" secondItem="03f-2K-XyX" secondAttribute="centerY" id="rn3-aR-Oid"/>
+                                                <constraint firstItem="h3c-fu-Omy" firstAttribute="leading" secondItem="ecD-NW-m7x" secondAttribute="trailing" constant="10" id="wL9-4H-5dV"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="pubButton" destination="ecD-NW-m7x" id="tEC-EB-48x"/>
+                                            <outlet property="visitedButton" destination="h3c-fu-Omy" id="sfa-BC-zed"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="2Bk-Kn-CAp" id="url-bo-HFC"/>
+                                    <outlet property="delegate" destination="2Bk-Kn-CAp" id="vfe-4y-3D0"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyX-td-E9T">
+                                <rect key="frame" x="25" y="64" width="43" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="43" id="gZu-Vc-I0e"/>
+                                    <constraint firstAttribute="height" constant="37" id="ypa-qq-iiJ"/>
+                                </constraints>
+                                <state key="normal" image="tap"/>
+                                <connections>
+                                    <segue destination="g7C-5a-bzk" kind="show" identifier="toMapFromList" id="0pY-28-VRk"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pub List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOH-4N-A0T">
+                                <rect key="frame" x="205" y="66" width="145" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="145" id="3Cl-Y7-6NB"/>
+                                    <constraint firstAttribute="height" constant="34" id="R8h-XN-WVG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GTh-l3-Aci">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -379,7 +458,7 @@
                                 </connections>
                             </button>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X3h-FH-lbq">
-                                <rect key="frame" x="47.666666666666657" y="266" width="280" height="280"/>
+                                <rect key="frame" x="47" y="266" width="280" height="280"/>
                                 <subviews>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pub Name" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FjV-s4-P20">
                                         <rect key="frame" x="20" y="20" width="195" height="30"/>
@@ -391,7 +470,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Of8-Th-n2t">
-                                        <rect key="frame" x="220.00000000000003" y="20" width="30" height="30"/>
+                                        <rect key="frame" x="220" y="20" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Yzk-Yw-d6d"/>
                                             <constraint firstAttribute="width" constant="30" id="ws6-Od-4m5"/>
@@ -448,79 +527,6 @@
                                     <constraint firstItem="89K-Xq-CyS" firstAttribute="top" secondItem="FjV-s4-P20" secondAttribute="bottom" id="xwF-AS-vjx"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RVn-7w-XZV">
-                                <rect key="frame" x="0.0" y="121" width="375" height="657"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pubItem" rowHeight="75" id="Kuc-Fs-MNv" customClass="PubCell" customModule="beeryMe" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="75"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1002" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kuc-Fs-MNv" id="03f-2K-XyX">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74.666666666666671"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecD-NW-m7x">
-                                                    <rect key="frame" x="15" y="18" width="295" height="40"/>
-                                                    <color key="backgroundColor" red="0.96862745100000003" green="0.58039215690000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="mrv-42-nBF"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="20"/>
-                                                    <state key="normal" title="Test Cell">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h3c-fu-Omy">
-                                                    <rect key="frame" x="320" y="18" width="40" height="40"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="DRq-75-3gc"/>
-                                                        <constraint firstAttribute="width" constant="40" id="hf2-px-xAR"/>
-                                                    </constraints>
-                                                </button>
-                                            </subviews>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="h3c-fu-Omy" secondAttribute="trailing" id="Q5H-Qq-GgA"/>
-                                                <constraint firstItem="h3c-fu-Omy" firstAttribute="centerY" secondItem="03f-2K-XyX" secondAttribute="centerY" id="asZ-6Q-CyD"/>
-                                                <constraint firstItem="ecD-NW-m7x" firstAttribute="leading" secondItem="03f-2K-XyX" secondAttribute="leadingMargin" id="hM7-ZU-05D"/>
-                                                <constraint firstItem="ecD-NW-m7x" firstAttribute="centerY" secondItem="03f-2K-XyX" secondAttribute="centerY" id="rn3-aR-Oid"/>
-                                                <constraint firstItem="h3c-fu-Omy" firstAttribute="leading" secondItem="ecD-NW-m7x" secondAttribute="trailing" constant="10" id="wL9-4H-5dV"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="pubButton" destination="ecD-NW-m7x" id="tEC-EB-48x"/>
-                                            <outlet property="visitedButton" destination="h3c-fu-Omy" id="sfa-BC-zed"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="2Bk-Kn-CAp" id="url-bo-HFC"/>
-                                    <outlet property="delegate" destination="2Bk-Kn-CAp" id="vfe-4y-3D0"/>
-                                </connections>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyX-td-E9T">
-                                <rect key="frame" x="25" y="64" width="43" height="37"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="43" id="gZu-Vc-I0e"/>
-                                    <constraint firstAttribute="height" constant="37" id="ypa-qq-iiJ"/>
-                                </constraints>
-                                <state key="normal" image="tap"/>
-                                <connections>
-                                    <segue destination="g7C-5a-bzk" kind="show" identifier="toMapFromList" id="0pY-28-VRk"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pub List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOH-4N-A0T">
-                                <rect key="frame" x="205" y="66" width="145" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="145" id="3Cl-Y7-6NB"/>
-                                    <constraint firstAttribute="height" constant="34" id="R8h-XN-WVG"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
