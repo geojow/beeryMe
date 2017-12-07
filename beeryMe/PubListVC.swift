@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import SafariServices
 
 class PubListVC: UIViewController {
   
@@ -18,7 +19,7 @@ class PubListVC: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var pubName: UILabel!
   @IBOutlet weak var address: UILabel!
-  @IBOutlet weak var website: UITextView!
+  @IBOutlet weak var websiteButton: UIButton!
   
   // MARK: Variables & Constants
   
@@ -65,19 +66,20 @@ class PubListVC: UIViewController {
     })
   }
   
-//  func setInfoText(_ pub: Pub) {
-//    pubName.text = pub.name
-//    address.text = pub.formattedAddress
-//    website.text = pub.website
-//  }
-  
   @IBAction func goToMapsApp(_ sender: UIButton) {
     if let location = currentPub {
       let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeWalking]
       location.mapItem().openInMaps(launchOptions: launchOptions)
     }
   }
-
+  
+  @IBAction func websiteButtonPressed(_ sender: Any) {
+    if let website = currentPub?.website, let url = URL(string: website) {
+      let safariVC = SFSafariViewController(url: url)
+      present(safariVC, animated: true, completion: nil)
+    }
+  }
+  
   // MARK: Segue Functionality
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -92,9 +94,15 @@ class PubListVC: UIViewController {
 
 extension PubListVC: PubCellDelegate {
   func showInfoFor(pub: Pub) {
+    currentPub = pub
     pubName.text = pub.name
     address.text = pub.formattedAddress
-    website.text = pub.website
+    if pub.website != "" {
+      websiteButton.roundCorners()
+      websiteButton.alpha = 1
+    } else {
+      websiteButton.alpha = 0
+    }
     showInfoView()
   }
 }

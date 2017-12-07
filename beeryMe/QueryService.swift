@@ -88,8 +88,11 @@ class QueryService {
           }
           if let pubUrl = venues[venueIndex]["url"].string {
             if pubUrl.count > 3 {
-              newPub.website = "Website:\n\(pubUrl)"
+              newPub.website = pubUrl
+            } else {
+              newPub.website = ""
             }
+            print(newPub.website)
           }
           if let street = location["address"].string {
             newPub.street = street

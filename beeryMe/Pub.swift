@@ -17,7 +17,7 @@ class Pub: NSObject {
   var visited: Bool
   
   var formattedAddress = "Address:\n"
-  var website = "Website:\nNo website found!"
+  var website = ""
   var street = ""
   
   init(id: String, name: String, latitude: Double, longitude: Double, visited: Bool) {
