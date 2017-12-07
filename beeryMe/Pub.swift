@@ -16,7 +16,7 @@ class Pub: NSObject {
   let location: CLLocation
   var visited: Bool
   
-  var formattedAddress = "Address:\n"
+  var formattedAddress = ""
   var website = ""
   var street = ""
   

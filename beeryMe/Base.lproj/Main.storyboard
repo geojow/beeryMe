@@ -481,7 +481,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address:" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89K-Xq-CyS">
-                                        <rect key="frame" x="20" y="50" width="245" height="110"/>
+                                        <rect key="frame" x="20" y="86" width="240" height="74"/>
                                         <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -496,7 +496,7 @@
                                         <rect key="frame" x="70" y="168" width="140" height="44"/>
                                         <color key="backgroundColor" red="0.96862745100000003" green="0.46749068119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="140" id="NLp-Kx-KvZ"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="NLp-Kx-KvZ"/>
                                             <constraint firstAttribute="height" constant="44" id="haC-Ia-BeH"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
@@ -507,6 +507,16 @@
                                             <action selector="websiteButtonPressed:" destination="2Bk-Kn-CAp" eventType="touchUpInside" id="qu0-Yc-1wu"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEZ-4M-WGK">
+                                        <rect key="frame" x="20" y="58" width="92" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="92" id="KaF-w2-wvQ"/>
+                                            <constraint firstAttribute="height" constant="20" id="KtO-Nj-YC0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.58039215690000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -515,15 +525,18 @@
                                     <constraint firstAttribute="trailing" secondItem="bvD-yD-LX2" secondAttribute="trailing" constant="15" id="H90-zf-3uY"/>
                                     <constraint firstItem="bvD-yD-LX2" firstAttribute="leading" secondItem="X3h-FH-lbq" secondAttribute="leading" constant="15" id="Hgj-9P-dyj"/>
                                     <constraint firstItem="EAO-5R-u35" firstAttribute="centerX" secondItem="X3h-FH-lbq" secondAttribute="centerX" id="I6J-Sr-L5l"/>
+                                    <constraint firstAttribute="trailing" secondItem="89K-Xq-CyS" secondAttribute="trailing" constant="20" id="LUa-IO-NUb"/>
+                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="iEZ-4M-WGK" secondAttribute="trailing" constant="168" id="Osi-at-WL5"/>
+                                    <constraint firstItem="89K-Xq-CyS" firstAttribute="top" secondItem="iEZ-4M-WGK" secondAttribute="bottom" constant="8" id="Ps1-Yr-SjR"/>
                                     <constraint firstAttribute="height" constant="280" id="RkD-7R-GHS"/>
                                     <constraint firstItem="Of8-Th-n2t" firstAttribute="top" secondItem="X3h-FH-lbq" secondAttribute="top" constant="20" id="Xak-Gh-2gd"/>
+                                    <constraint firstItem="iEZ-4M-WGK" firstAttribute="top" secondItem="FjV-s4-P20" secondAttribute="bottom" constant="8" id="a8a-d4-T3B"/>
                                     <constraint firstAttribute="bottom" secondItem="bvD-yD-LX2" secondAttribute="bottom" constant="20" id="aAU-px-fUO"/>
-                                    <constraint firstAttribute="trailing" secondItem="89K-Xq-CyS" secondAttribute="trailing" constant="15" id="bXp-gw-SRe"/>
                                     <constraint firstItem="FjV-s4-P20" firstAttribute="top" secondItem="X3h-FH-lbq" secondAttribute="top" constant="20" id="bkk-Vq-DJt"/>
                                     <constraint firstItem="Of8-Th-n2t" firstAttribute="leading" secondItem="FjV-s4-P20" secondAttribute="trailing" constant="5" id="mAr-q3-R4E"/>
                                     <constraint firstItem="89K-Xq-CyS" firstAttribute="leading" secondItem="X3h-FH-lbq" secondAttribute="leading" constant="20" id="p14-8e-Hz8"/>
+                                    <constraint firstItem="iEZ-4M-WGK" firstAttribute="leading" secondItem="X3h-FH-lbq" secondAttribute="leading" constant="20" id="p7y-Eb-dUN"/>
                                     <constraint firstAttribute="width" constant="280" id="tT1-mX-cWI"/>
-                                    <constraint firstItem="89K-Xq-CyS" firstAttribute="top" secondItem="FjV-s4-P20" secondAttribute="bottom" id="xwF-AS-vjx"/>
                                     <constraint firstItem="EAO-5R-u35" firstAttribute="top" secondItem="89K-Xq-CyS" secondAttribute="bottom" constant="8" id="zba-wA-GCM"/>
                                     <constraint firstItem="bvD-yD-LX2" firstAttribute="top" secondItem="EAO-5R-u35" secondAttribute="bottom" constant="8" id="zvd-LU-6eN"/>
                                 </constraints>
