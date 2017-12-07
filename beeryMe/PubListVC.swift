@@ -65,11 +65,11 @@ class PubListVC: UIViewController {
     })
   }
   
-  func setInfoText(_ pub: Pub) {
-    pubName.text = pub.name
-    address.text = pub.formattedAddress
-    website.text = pub.website
-  }
+//  func setInfoText(_ pub: Pub) {
+//    pubName.text = pub.name
+//    address.text = pub.formattedAddress
+//    website.text = pub.website
+//  }
   
   @IBAction func goToMapsApp(_ sender: UIButton) {
     if let location = currentPub {
@@ -90,6 +90,15 @@ class PubListVC: UIViewController {
   
 }
 
+extension PubListVC: PubCellDelegate {
+  func showInfoFor(pub: Pub) {
+    pubName.text = pub.name
+    address.text = pub.formattedAddress
+    website.text = pub.website
+    showInfoView()
+  }
+}
+
 
 // MARK: UITableViewDataSource
 extension PubListVC: UITableViewDataSource {
@@ -103,9 +112,11 @@ extension PubListVC: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    currentPub = pubList[indexPath.section]
     let cell = tableView.dequeueReusableCell(withIdentifier: "pubItem", for: indexPath) as! PubCell
     cell.pub = pubList[indexPath.section]
-    cell.viewController = self
+    cell.delegate = self
+    //cell.viewController = self
     cell.selectionStyle = UITableViewCellSelectionStyle.none
     return cell
   }

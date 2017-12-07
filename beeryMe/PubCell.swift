@@ -8,12 +8,19 @@
 
 import UIKit
 
+protocol PubCellDelegate {
+  func showInfoFor(pub: Pub)
+}
+
 class PubCell: UITableViewCell {
   
   @IBOutlet weak var pubButton: UIButton!
   @IBOutlet weak var visitedButton: UIButton!
   
-  var viewController: PubListVC?
+  //var viewController: PubListVC?
+  
+  var delegate: PubCellDelegate?
+  
   var pub: Pub! {
     didSet {
       configureCell()
@@ -45,7 +52,8 @@ class PubCell: UITableViewCell {
   }
   
   @IBAction func pubButtonPressed(_ sender: UIButton) {
-    self.viewController?.setInfoText(pub)
-    self.viewController?.showInfoView()
+    delegate?.showInfoFor(pub: pub)
+    //self.viewController?.setInfoText(pub)
+    //self.viewController?.showInfoView()
   }
 }
