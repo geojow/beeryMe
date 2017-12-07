@@ -1,5 +1,5 @@
 //
-//  ButtonAnimations.swift
+//  ButtonExtension.swift
 //  beeryMe
 //
 //  Created by George Jowitt on 24/11/2017.

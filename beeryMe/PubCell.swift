@@ -24,8 +24,7 @@ class PubCell: UITableViewCell {
     pubButton.titleLabel?.minimumScaleFactor = 0.5
     pubButton.titleLabel?.adjustsFontSizeToFitWidth = true
 
-    pubButton.layer.cornerRadius = 20
-    pubButton.layer.masksToBounds = true
+    pubButton.roundCorners()
     pubButton.setTitle(pub.name, for: .normal)
     
     configureImageFor(pub: pub)
