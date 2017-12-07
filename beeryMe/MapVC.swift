@@ -30,7 +30,7 @@ class MapVC: UIViewController {
   var pubs: [Pub] = []
   var player = AVAudioPlayer()
   var timer = Timer()
-  var locationManager: CLLocationManager?
+  var userLocation: CLLocation?
   var searchRadius = 500
   var numberOfResults = 25
   var noResults = false
@@ -53,7 +53,7 @@ class MapVC: UIViewController {
     if makeNetworkCall {
       mapView.alpha = 0
     }
-    setUpLocationManager()
+    checkLocation()
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -99,22 +99,11 @@ class MapVC: UIViewController {
     
   }
   
-  func setUpLocationManager() {
-    locationManager = CLLocationManager()
-    locationManager?.delegate = self
-    locationManager?.desiredAccuracy = kCLLocationAccuracyBest
-    locationManager?.requestWhenInUseAuthorization()
-    locationManager?.distanceFilter = 50
-    
-    if CLLocationManager.locationServicesEnabled() {
-      locationManager?.requestWhenInUseAuthorization()
-      locationManager?.startUpdatingLocation()
-      
-      if let location = locationManager?.location {
-        centreOnLocation(location)
-      } else {
-        noLocation = true
-      }
+  func checkLocation() {
+    if let location = userLocation {
+      centreOnLocation(location)
+    } else {
+      noLocation = true
     }
   }
   
@@ -127,7 +116,6 @@ class MapVC: UIViewController {
     } else {
       self.mapView.addAnnotations(pubs)
     }
-    
   }
   
   func networkCall(location: CLLocation, searchRadius: Int, numberOfResults: Int) {
@@ -218,10 +206,4 @@ extension MapVC: MKMapViewDelegate {
   
 }
 
-extension MapVC: CLLocationManagerDelegate {
-  func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-    if status == .authorizedAlways || status == .authorizedWhenInUse {
-      locationManager?.startUpdatingLocation()
-    }
-  }
-}
+

@@ -31,6 +31,8 @@ class OpeningScreenVC: UIViewController {
   
   var timer = Timer()
   var player = AVAudioPlayer()
+  var locationManager: CLLocationManager?
+  var userLocation: CLLocation?
   var makeNetworkCall = true
   var radius = 1000.00
   var results = 25
@@ -48,6 +50,7 @@ class OpeningScreenVC: UIViewController {
     setUpButton()
     getUserDefaults()
     setCorners()
+    setUpLocationManager()
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -94,6 +97,13 @@ class OpeningScreenVC: UIViewController {
     settings.layer.cornerRadius = 30
     button.layer.cornerRadius = 5
     refreshButton.layer.cornerRadius = 20
+  }
+  
+  func setUpLocationManager() {
+    locationManager = CLLocationManager()
+    locationManager?.delegate = self
+    locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+    locationManager?.requestWhenInUseAuthorization()
   }
   
   func animate() {
@@ -220,6 +230,19 @@ class OpeningScreenVC: UIViewController {
       controller.makeNetworkCall = makeNetworkCall
       controller.searchRadius = Int(radius)
       controller.numberOfResults = results
+      controller.userLocation = userLocation 
     }
+  }
+}
+
+extension OpeningScreenVC: CLLocationManagerDelegate {
+  func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    if status == .authorizedAlways || status == .authorizedWhenInUse {
+      locationManager?.startUpdatingLocation()
+    }
+  }
+  
+  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    userLocation = locations[0]
   }
 }
