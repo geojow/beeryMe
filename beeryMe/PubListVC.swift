@@ -23,6 +23,7 @@ class PubListVC: UIViewController {
   
   // MARK: Variables & Constants
   
+  var userLocation: CLLocation?
   var pubList: [Pub] = []
   var makeNetworkCall = false
   let cellSpacingHeight: CGFloat = 5.0
@@ -87,6 +88,7 @@ class PubListVC: UIViewController {
       let controller = segue.destination as! MapVC
       controller.pubs = pubList
       controller.makeNetworkCall = makeNetworkCall
+      controller.userLocation = userLocation
     }
   }
   

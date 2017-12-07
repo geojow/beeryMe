@@ -43,7 +43,6 @@ class MapVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setUserAlertCorners()
-    
     mapView.delegate = self
     if #available(iOS 11.0, *) {
       mapView.register(PubView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
@@ -169,6 +168,7 @@ class MapVC: UIViewController {
     if segue.identifier == "toPubList" {
       let controller = segue.destination as! PubListVC
       controller.pubList = pubs
+      controller.userLocation = userLocation
     }
   }
 }

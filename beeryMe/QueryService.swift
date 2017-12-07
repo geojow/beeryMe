@@ -92,7 +92,6 @@ class QueryService {
             } else {
               newPub.website = ""
             }
-            print(newPub.website)
           }
           if let street = location["address"].string {
             newPub.street = street
