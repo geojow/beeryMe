@@ -18,4 +18,11 @@ extension UIButton {
     pulse.toValue = 1.1
     layer.add(pulse, forKey: "pulse")
   }
+  
+  func roundCorners() {
+    layoutIfNeeded()
+    layer.cornerRadius = frame.size.height/2
+    layer.masksToBounds = true
+  }
+  
 }
