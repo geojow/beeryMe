@@ -82,15 +82,22 @@ class OpeningScreenVC: UIViewController {
   }
   
   func getUserDefaults() {
-    if UserDefaults.standard.getRadius() != -1 {
-      radius = UserDefaults.standard.getRadius()
+    
+    if (UserDefaults.standard.bool(forKey: "HasLaunchedOnce")) {
+      if UserDefaults.standard.getRadius() != -1 {
+        radius = UserDefaults.standard.getRadius()
+      }
+      if UserDefaults.standard.getNoOfResults() != -1 {
+        results = UserDefaults.standard.getNoOfResults()
+      }
+      if UserDefaults.standard.getUnits() != "" {
+        units = UserDefaults.standard.getUnits()
+      }
+    } else {
+      UserDefaults.standard.set(true, forKey: "HasLaunchedOnce")
+      UserDefaults.standard.synchronize()
     }
-    if UserDefaults.standard.getNoOfResults() != -1 {
-      results = UserDefaults.standard.getNoOfResults()
-    }
-    if UserDefaults.standard.getUnits() != "" {
-      units = UserDefaults.standard.getUnits()
-    }
+    
   }
   
   func setCorners() {
