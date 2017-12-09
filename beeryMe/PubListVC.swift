@@ -99,6 +99,7 @@ extension PubListVC: PubCellDelegate {
     currentPub = pub
     pubName.text = pub.name
     address.text = pub.formattedAddress
+    print(pub.formattedAddress)
     if pub.website != "" {
       websiteButton.roundCorners()
       websiteButton.alpha = 1

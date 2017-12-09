@@ -75,20 +75,24 @@ class QueryService {
         
         if let latitude = location["lat"].double, let longitude = location["lng"].double {
           let newPub = Pub(id: id!, name: name!, latitude: latitude, longitude: longitude, visited: false)
-          if let formattedAddress = location["formattedAddress"].array {
-            var address = ""
-            if formattedAddress.count > 1 {
-              for item in formattedAddress {
-                address += "\(item.string!)\n"
-              }
-            } else {
-              address = "No formatted address found!"
-            }
-            newPub.formattedAddress += address
-          }
+//          if let formattedAddress = location["formattedAddress"].array {
+//            var address = ""
+//            if formattedAddress.count > 1 {
+//              for item in formattedAddress {
+//                address += "\(item.string!)\n"
+//              }
+//            } else {
+//              address = "No formatted address found!"
+//            }
+//            newPub.formattedAddress += address
+//          }
           if let pubUrl = venues[venueIndex]["url"].string {
             if pubUrl.count > 3 {
-              newPub.website = pubUrl
+              if !pubUrl.contains("http://") {
+                newPub.website = "http://" + pubUrl
+              } else {
+                newPub.website = pubUrl
+              }
             } else {
               newPub.website = ""
             }
@@ -96,7 +100,7 @@ class QueryService {
           if let street = location["address"].string {
             newPub.street = street
           }
-          
+          newPub.getAddress()
           newPub.visited = UserDefaults.standard.isPubWithIdInUserDefaults(id: newPub.id)
           pubs.append(newPub)
         }

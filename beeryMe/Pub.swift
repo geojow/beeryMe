@@ -15,6 +15,7 @@ class Pub: NSObject {
   let name: String
   let location: CLLocation
   var visited: Bool
+  var geocoder: CLGeocoder?
   
   var formattedAddress = ""
   var website = ""
@@ -59,5 +60,32 @@ extension Pub: MKAnnotation {
     mapItem.name = title
     return mapItem
   }
+}
+
+extension Pub {
   
+  func getAddress() {
+    if geocoder == nil {
+      geocoder = CLGeocoder()
+    }
+    geocoder?.reverseGeocodeLocation(location, completionHandler: { (placemark, error) in
+      
+      if let placemark = placemark?.first {
+        if let streetNumber = placemark.subThoroughfare {
+          self.formattedAddress += streetNumber + " "
+        }
+        if let streetName = placemark.thoroughfare {
+          self.formattedAddress += streetName + "\n"
+        }
+        if let city = placemark.locality {
+          self.formattedAddress += city + "\n"
+        }
+        if let postcode = placemark.postalCode {
+          self.formattedAddress += postcode
+        }
+      } else {
+        self.formattedAddress = "No address found"
+      }
+    })
+  }
 }
