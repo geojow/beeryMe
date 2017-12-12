@@ -99,7 +99,6 @@ extension PubListVC: PubCellDelegate {
     currentPub = pub
     pubName.text = pub.name
     address.text = pub.formattedAddress
-    print(pub.formattedAddress)
     if pub.website != "" {
       websiteButton.roundCorners()
       websiteButton.alpha = 1
@@ -127,7 +126,6 @@ extension PubListVC: UITableViewDataSource {
     let cell = tableView.dequeueReusableCell(withIdentifier: "pubItem", for: indexPath) as! PubCell
     cell.pub = pubList[indexPath.section]
     cell.delegate = self
-    //cell.viewController = self
     cell.selectionStyle = UITableViewCellSelectionStyle.none
     return cell
   }

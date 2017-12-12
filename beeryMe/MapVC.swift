@@ -23,6 +23,7 @@ class MapVC: UIViewController {
   @IBOutlet weak var listButton: UIButton!
   @IBOutlet weak var backButton: UIButton!
   @IBOutlet weak var userAlertLabel: UILabel!
+  @IBOutlet weak var foursquareImage: UIImageView!
   
   // MARK: Variables & Constants
   
@@ -51,6 +52,9 @@ class MapVC: UIViewController {
     }
     if makeNetworkCall {
       mapView.alpha = 0
+      listButton.alpha = 0
+      backButton.alpha = 0
+      foursquareImage.alpha = 0
     }
     checkLocation()
   }
@@ -59,6 +63,9 @@ class MapVC: UIViewController {
     froth.frame = CGRect(x: mug.frame.minX + 10, y: mug.frame.minY + 10, width: 95, height: 128)
     if makeNetworkCall {
       mapView.alpha = 1
+      listButton.alpha = 1
+      backButton.alpha = 1
+      foursquareImage.alpha = 1
       startLoading()
     }
   }
@@ -95,7 +102,6 @@ class MapVC: UIViewController {
     } else if noResults {
       setUserAlert(for: "pubs")
     }
-    
   }
   
   func checkLocation() {
@@ -203,7 +209,6 @@ extension MapVC: MKMapViewDelegate {
       location.mapItem().openInMaps(launchOptions: launchOptions)
     }
   }
-  
 }
 
 

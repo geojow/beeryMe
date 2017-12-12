@@ -82,7 +82,6 @@ class OpeningScreenVC: UIViewController {
   }
   
   func getUserDefaults() {
-    
     if (UserDefaults.standard.bool(forKey: "HasLaunchedOnce")) {
       if UserDefaults.standard.getRadius() != -1 {
         radius = UserDefaults.standard.getRadius()
@@ -97,7 +96,6 @@ class OpeningScreenVC: UIViewController {
       UserDefaults.standard.set(true, forKey: "HasLaunchedOnce")
       UserDefaults.standard.synchronize()
     }
-    
   }
   
   func setCorners() {
@@ -115,7 +113,6 @@ class OpeningScreenVC: UIViewController {
   
   func animate() {
     UIView.animate(withDuration: 0.9, delay: 0.6, options: .curveLinear, animations: {
-      
       self.button.titleLabel?.adjustsFontSizeToFitWidth = true
       self.button.titleLabel?.font = self.button.titleLabel?.font.withSize(25)
       self.button.frame = CGRect(x: (self.screenWidth/2)-45, y: (self.screenHeight/2)-45, width: 90, height: 90)

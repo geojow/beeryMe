@@ -22,7 +22,6 @@
 		BE7DC03A1FD74478007EAB18 /* PubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7DC0391FD74478007EAB18 /* PubCell.swift */; };
 		BEA76D2A1FBCF83A002954E1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA76D291FBCF83A002954E1 /* Constants.swift */; };
 		BEA76D2D1FBE4250002954E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEA76D2C1FBE4250002954E1 /* Assets.xcassets */; };
-		BEA76D311FBE53D2002954E1 /* fizz.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BEA76D301FBE53D1002954E1 /* fizz.mp3 */; };
 		BECABF151F4CE56700D5AD11 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BECABF141F4CE56700D5AD11 /* MapKit.framework */; };
 		BEF24D911FB39AC70001E43B /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF24D901FB39AC70001E43B /* MapVC.swift */; };
 		BEF24D931FB4F92C0001E43B /* PubListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF24D921FB4F92C0001E43B /* PubListVC.swift */; };
@@ -49,7 +48,6 @@
 		BE7DC0391FD74478007EAB18 /* PubCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubCell.swift; sourceTree = "<group>"; };
 		BEA76D291FBCF83A002954E1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BEA76D2C1FBE4250002954E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BEA76D301FBE53D1002954E1 /* fizz.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fizz.mp3; sourceTree = "<group>"; };
 		BECABF141F4CE56700D5AD11 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		BEF24D901FB39AC70001E43B /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		BEF24D921FB4F92C0001E43B /* PubListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubListVC.swift; sourceTree = "<group>"; };
@@ -158,7 +156,6 @@
 		BEFD72371FB24B5200F7BEFE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BEA76D301FBE53D1002954E1 /* fizz.mp3 */,
 				BE7DC0371FCE2361007EAB18 /* beerpour.mp3 */,
 				BE7DC0351FCE10DD007EAB18 /* beer.mp3 */,
 				BE5C1A5F1E4E49BD005AB2A9 /* Info.plist */,
@@ -208,7 +205,7 @@
 				TargetAttributes = {
 					BE5C1A4F1E4E49BD005AB2A9 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = BADG5SS7S8;
+						DevelopmentTeam = U9KB46JJA3;
 						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -242,7 +239,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEA76D311FBE53D2002954E1 /* fizz.mp3 in Resources */,
 				BE7DC0361FCE10DD007EAB18 /* beer.mp3 in Resources */,
 				BE5C1A5E1E4E49BD005AB2A9 /* LaunchScreen.storyboard in Resources */,
 				BEA76D2D1FBE4250002954E1 /* Assets.xcassets in Resources */,
@@ -462,15 +458,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BADG5SS7S8;
+				DEVELOPMENT_TEAM = U9KB46JJA3;
 				INFOPLIST_FILE = beeryMe/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.geojow.beeryMe;
+				PRODUCT_BUNDLE_IDENTIFIER = com.georgejowittdev.beeryMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -481,15 +479,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BADG5SS7S8;
+				DEVELOPMENT_TEAM = U9KB46JJA3;
 				INFOPLIST_FILE = beeryMe/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.geojow.beeryMe;
+				PRODUCT_BUNDLE_IDENTIFIER = com.georgejowittdev.beeryMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

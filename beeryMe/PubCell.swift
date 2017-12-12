@@ -17,8 +17,6 @@ class PubCell: UITableViewCell {
   @IBOutlet weak var pubButton: UIButton!
   @IBOutlet weak var visitedButton: UIButton!
   
-  //var viewController: PubListVC?
-  
   var delegate: PubCellDelegate?
   
   var pub: Pub! {
@@ -53,7 +51,5 @@ class PubCell: UITableViewCell {
   
   @IBAction func pubButtonPressed(_ sender: UIButton) {
     delegate?.showInfoFor(pub: pub)
-    //self.viewController?.setInfoText(pub)
-    //self.viewController?.showInfoView()
   }
 }
