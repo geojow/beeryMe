@@ -82,19 +82,13 @@ class OpeningScreenVC: UIViewController {
   }
   
   func getUserDefaults() {
-    if (UserDefaults.standard.bool(forKey: "HasLaunchedOnce")) {
-      if UserDefaults.standard.getRadius() != -1 {
-        radius = UserDefaults.standard.getRadius()
-      }
-      if UserDefaults.standard.getNoOfResults() != -1 {
-        results = UserDefaults.standard.getNoOfResults()
-      }
-      if UserDefaults.standard.getUnits() != "" {
-        units = UserDefaults.standard.getUnits()
-      }
+    let launchedBefore = UserDefaults.standard.bool(forKey:"HasLaunchedOnce")
+    if launchedBefore {
+      radius = UserDefaults.standard.getRadius()
+      results = UserDefaults.standard.getNoOfResults()
+      units = UserDefaults.standard.getUnits()
     } else {
       UserDefaults.standard.set(true, forKey: "HasLaunchedOnce")
-      UserDefaults.standard.synchronize()
     }
   }
   
@@ -173,7 +167,6 @@ class OpeningScreenVC: UIViewController {
     measurementsButton.layer.cornerRadius = 10
     resultsLabel.text = "\(results)"
     updateRadiusAndUnitsLabels()
-    
     UIView.animate(withDuration: 0.5, animations: {
       self.settings.alpha = 1
       self.backgroundButton.alpha = 1
@@ -202,8 +195,7 @@ class OpeningScreenVC: UIViewController {
       self.settings.alpha = 0
       self.backgroundButton.alpha = 0
     })
-    UserDefaults.standard.setRadius(value: self.radius)
-    UserDefaults.standard.setNoOfResults(value: self.results)
+    saveRadiusAndResults()
   }
   
   @IBAction func radiusSliderMoved(_ sender: UISlider) {
@@ -227,10 +219,18 @@ class OpeningScreenVC: UIViewController {
     updateRadiusAndUnitsLabels()
   }
   
+  func saveRadiusAndResults() {
+    UserDefaults.standard.setRadius(value: radius)
+    UserDefaults.standard.setNoOfResults(value: results)
+  }
+  
   // MARK: Segue Functionality
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "toMap" {
+      print(radius)
+      print(results)
+      saveRadiusAndResults()
       let controller = segue.destination as! MapVC
       controller.makeNetworkCall = makeNetworkCall
       controller.searchRadius = Int(radius)
