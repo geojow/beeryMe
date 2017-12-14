@@ -228,8 +228,6 @@ class OpeningScreenVC: UIViewController {
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "toMap" {
-      print(radius)
-      print(results)
       saveRadiusAndResults()
       let controller = segue.destination as! MapVC
       controller.makeNetworkCall = makeNetworkCall
