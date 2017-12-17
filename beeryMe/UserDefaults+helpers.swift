@@ -29,6 +29,8 @@ extension UserDefaults {
     }
   }
   
+  // TODO - Delete this
+  
   func setNoOfResults(value: Int) {
     set(value, forKey: "results")
   }
@@ -36,6 +38,8 @@ extension UserDefaults {
   func getNoOfResults() -> Int {
     return integer(forKey: "results")
   }
+  
+  /////////////////
   
   func addPub(id: String) {
     set(id, forKey: "\(id)")

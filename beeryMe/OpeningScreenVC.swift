@@ -20,9 +20,17 @@ class OpeningScreenVC: UIViewController {
   @IBOutlet weak var geojowLbl: UILabel!
   @IBOutlet weak var settings: UIView!
   @IBOutlet weak var radiusLabel: UILabel!
+  
+  
+  // TODO - Delete this
   @IBOutlet weak var resultsLabel: UILabel!
+  
   @IBOutlet weak var radiusSlider: UISlider!
+  
+  // TODO - Delete this
   @IBOutlet weak var resultsSlider: UISlider!
+  
+  
   @IBOutlet weak var measurementsButton: UIButton!
   @IBOutlet weak var settingsButton: UIButton!
   @IBOutlet weak var refreshButton: UIButton!
@@ -35,6 +43,8 @@ class OpeningScreenVC: UIViewController {
   var userLocation: CLLocation?
   var makeNetworkCall = true
   var radius = 1000.00
+  
+  // TODO - Change to 50
   var results = 25
   var units = "km"
   var screen = CGRect()
@@ -85,7 +95,10 @@ class OpeningScreenVC: UIViewController {
     let launchedBefore = UserDefaults.standard.bool(forKey:"HasLaunchedOnce")
     if launchedBefore {
       radius = UserDefaults.standard.getRadius()
+      
+      // TODO - Delete this
       results = UserDefaults.standard.getNoOfResults()
+      
       units = UserDefaults.standard.getUnits()
     } else {
       UserDefaults.standard.set(true, forKey: "HasLaunchedOnce")
@@ -163,9 +176,16 @@ class OpeningScreenVC: UIViewController {
   
   @IBAction func settingsPressed(_ sender: UIButton) {
     radiusSlider.setValue(Float(radius), animated: false)
+    
+    // TODO - Delete this
     resultsSlider.setValue(Float(results), animated: false)
+    
     measurementsButton.layer.cornerRadius = 10
+    
+    // TODO - Delete this
     resultsLabel.text = "\(results)"
+    
+    
     updateRadiusAndUnitsLabels()
     UIView.animate(withDuration: 0.5, animations: {
       self.settings.alpha = 1
@@ -203,6 +223,8 @@ class OpeningScreenVC: UIViewController {
     updateRadiusAndUnitsLabels()
   }
   
+  
+  // TODO - Delete this
   @IBAction func resultsSliderMoved(_ sender: UISlider) {
     results = lroundf(sender.value)
     resultsLabel.text = "\(results)"
@@ -221,6 +243,8 @@ class OpeningScreenVC: UIViewController {
   
   func saveRadiusAndResults() {
     UserDefaults.standard.setRadius(value: radius)
+    
+    // TODO - Delete this
     UserDefaults.standard.setNoOfResults(value: results)
   }
   
@@ -229,11 +253,14 @@ class OpeningScreenVC: UIViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "toMap" {
       saveRadiusAndResults()
+      UserDefaults.standard.set(false, forKey: "searchThisArea")
       let controller = segue.destination as! MapVC
       controller.makeNetworkCall = makeNetworkCall
       controller.searchRadius = Int(radius)
+      
+      // TODO - Delete this
       controller.numberOfResults = results
-      controller.userLocation = userLocation 
+      controller.userLocation = userLocation
     }
   }
 }

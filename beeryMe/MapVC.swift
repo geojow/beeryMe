@@ -24,6 +24,7 @@ class MapVC: UIViewController {
   @IBOutlet weak var backButton: UIButton!
   @IBOutlet weak var userAlertLabel: UILabel!
   @IBOutlet weak var foursquareImage: UIImageView!
+  @IBOutlet weak var searchAreaButton: UIButton!
   
   // MARK: Variables & Constants
   
@@ -32,7 +33,10 @@ class MapVC: UIViewController {
   var player = AVAudioPlayer()
   var timer = Timer()
   var userLocation: CLLocation?
+  var newSearchLocation: CLLocation?
   var searchRadius = 500
+  
+  // TODO - change to 50
   var numberOfResults = 25
   var noResults = false
   var noLocation = false
@@ -43,7 +47,7 @@ class MapVC: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    setUserAlertCorners()
+    setCorners()
     mapView.delegate = self
     if #available(iOS 11.0, *) {
       mapView.register(PubView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
@@ -70,9 +74,10 @@ class MapVC: UIViewController {
     }
   }
   
-  func setUserAlertCorners() {
+  func setCorners() {
     userAlertLabel.layer.cornerRadius = 20
     userAlertLabel.layer.masksToBounds = true
+    searchAreaButton.roundCorners()
   }
   
   func startLoading() {
@@ -117,10 +122,12 @@ class MapVC: UIViewController {
                                                               regionRadius, regionRadius)
     mapView.setRegion(coordinateRegion, animated: true)
     if makeNetworkCall {
+      // TODO - Change numberofResults to 50
       networkCall(location: location, searchRadius: searchRadius, numberOfResults: numberOfResults)
     } else {
       self.mapView.addAnnotations(pubs)
     }
+    UserDefaults.standard.set(true, forKey: "searchThisArea")
   }
   
   func networkCall(location: CLLocation, searchRadius: Int, numberOfResults: Int) {
@@ -168,6 +175,17 @@ class MapVC: UIViewController {
     player.stop()
   }
   
+  // MARK: Search This Area Pressed
+  
+  @IBAction func searchThisAreaPressed(_ sender: UIButton) {
+    if let location = newSearchLocation {
+      networkCall(location: location, searchRadius: searchRadius, numberOfResults: numberOfResults)
+    }
+    UIView.animate(withDuration: 1, animations: {
+      self.searchAreaButton.alpha = 0
+    })
+  }
+  
   // MARK: Segue Functionality
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -209,6 +227,18 @@ extension MapVC: MKMapViewDelegate {
       location.mapItem().openInMaps(launchOptions: launchOptions)
     }
   }
+  
+  func mapView(_ mapView: MKMapView, regionDidChangeAnimated animate: Bool) {
+    newSearchLocation = CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
+    let searchThisArea = UserDefaults.standard.bool(forKey:"searchThisArea")
+    if searchThisArea {
+      UIView.animate(withDuration: 1, delay: 2, options: .curveLinear, animations: {
+        self.searchAreaButton.alpha = 1
+      })
+    }
+  }
+  
+
 }
 
 

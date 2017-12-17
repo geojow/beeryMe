@@ -85,6 +85,7 @@ class PubListVC: UIViewController {
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "toMapFromList" {
+      UserDefaults.standard.set(false, forKey: "searchThisArea")
       let controller = segue.destination as! MapVC
       controller.pubs = pubList
       controller.makeNetworkCall = makeNetworkCall

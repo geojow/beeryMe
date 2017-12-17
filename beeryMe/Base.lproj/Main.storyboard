@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -281,6 +280,20 @@
                                     <segue destination="2Bk-Kn-CAp" kind="show" identifier="toPubList" id="9pe-35-ZHM"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2c9-sw-Ocd">
+                                <rect key="frame" x="85" y="40" width="150" height="50"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.58039215690000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="OlX-VF-msO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="14"/>
+                                <state key="normal" title="SEARCH THIS AREA">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchThisAreaPressed:" destination="g7C-5a-bzk" eventType="touchUpInside" id="dls-Fy-EqJ"/>
+                                </connections>
+                            </button>
                             <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="foursquare" translatesAutoresizingMaskIntoConstraints="NO" id="QPC-V7-qnk">
                                 <rect key="frame" x="25" y="415" width="40" height="40"/>
                                 <constraints>
@@ -336,11 +349,14 @@
                         <constraints>
                             <constraint firstItem="Laz-zb-BIZ" firstAttribute="bottom" secondItem="QPC-V7-qnk" secondAttribute="bottom" constant="25" id="43c-kJ-hnV"/>
                             <constraint firstItem="qrx-qU-FNO" firstAttribute="leading" secondItem="Laz-zb-BIZ" secondAttribute="leading" constant="25" id="9lf-Qq-lay"/>
+                            <constraint firstItem="2c9-sw-Ocd" firstAttribute="leading" secondItem="qrx-qU-FNO" secondAttribute="trailing" constant="10" id="Fzj-B2-4Wm"/>
                             <constraint firstItem="Kg8-BI-Ohw" firstAttribute="centerX" secondItem="7p0-IR-5Gj" secondAttribute="centerX" id="Hkj-nq-sjp"/>
                             <constraint firstItem="Laz-zb-BIZ" firstAttribute="trailing" secondItem="yyw-IZ-h1F" secondAttribute="trailing" constant="25" id="Lv4-cL-n07"/>
                             <constraint firstItem="QPC-V7-qnk" firstAttribute="leading" secondItem="Laz-zb-BIZ" secondAttribute="leading" constant="25" id="OXP-Yu-e1N"/>
+                            <constraint firstItem="2c9-sw-Ocd" firstAttribute="top" secondItem="Laz-zb-BIZ" secondAttribute="top" constant="20" id="cEw-ct-yx8"/>
                             <constraint firstItem="FmK-vj-laA" firstAttribute="leading" secondItem="Kg8-BI-Ohw" secondAttribute="leading" constant="10" id="d5x-po-Igf"/>
                             <constraint firstItem="Kg8-BI-Ohw" firstAttribute="centerY" secondItem="7p0-IR-5Gj" secondAttribute="centerY" id="g8b-R5-b8e"/>
+                            <constraint firstItem="yyw-IZ-h1F" firstAttribute="leading" secondItem="2c9-sw-Ocd" secondAttribute="trailing" constant="10" id="i2Y-53-Fxh"/>
                             <constraint firstItem="qrx-qU-FNO" firstAttribute="centerY" secondItem="yyw-IZ-h1F" secondAttribute="centerY" id="rWE-sP-jJY"/>
                             <constraint firstItem="yyw-IZ-h1F" firstAttribute="top" secondItem="Laz-zb-BIZ" secondAttribute="top" constant="20" id="uv6-qy-Fh5"/>
                             <constraint firstItem="FmK-vj-laA" firstAttribute="top" secondItem="Kg8-BI-Ohw" secondAttribute="top" constant="10" id="zXX-Gr-fTd"/>
@@ -357,6 +373,7 @@
                         <outlet property="loadingView" destination="97S-0g-US6" id="HqR-6D-Qzq"/>
                         <outlet property="mapView" destination="VfJ-jX-WWY" id="HQo-c5-RxM"/>
                         <outlet property="mug" destination="Kg8-BI-Ohw" id="dVv-xB-xYK"/>
+                        <outlet property="searchAreaButton" destination="2c9-sw-Ocd" id="zXg-q0-Lcf"/>
                         <outlet property="userAlertLabel" destination="oap-Co-vSW" id="P76-Bq-Z98"/>
                     </connections>
                 </viewController>
