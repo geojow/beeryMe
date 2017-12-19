@@ -20,10 +20,9 @@ class OpeningScreenVC: UIViewController {
   @IBOutlet weak var geojowLbl: UILabel!
   @IBOutlet weak var settings: UIView!
   @IBOutlet weak var radiusLabel: UILabel!
-  @IBOutlet weak var resultsLabel: UILabel!
   @IBOutlet weak var radiusSlider: UISlider!
-  @IBOutlet weak var resultsSlider: UISlider!
   @IBOutlet weak var measurementsButton: UIButton!
+  @IBOutlet weak var soundsButton: UIButton!
   @IBOutlet weak var settingsButton: UIButton!
   @IBOutlet weak var refreshButton: UIButton!
   
@@ -34,9 +33,9 @@ class OpeningScreenVC: UIViewController {
   var locationManager: CLLocationManager?
   var userLocation: CLLocation?
   var makeNetworkCall = true
-  var radius = 1000.00
-  var results = 25
+  var radius = 1495.00
   var units = "km"
+  var soundOn = true
   var screen = CGRect()
   var screenWidth: CGFloat = 0
   var screenHeight: CGFloat = 0
@@ -85,10 +84,14 @@ class OpeningScreenVC: UIViewController {
     let launchedBefore = UserDefaults.standard.bool(forKey:"HasLaunchedOnce")
     if launchedBefore {
       radius = UserDefaults.standard.getRadius()
-      results = UserDefaults.standard.getNoOfResults()
       units = UserDefaults.standard.getUnits()
+      soundOn = UserDefaults.standard.getSoundOn()
     } else {
       UserDefaults.standard.set(true, forKey: "HasLaunchedOnce")
+    }
+    let soundsSetting = UserDefaults.standard.object(forKey: "soundOn")
+    if soundsSetting == nil {
+      UserDefaults.standard.setSoundOn(value: true)
     }
   }
   
@@ -136,6 +139,13 @@ class OpeningScreenVC: UIViewController {
       self.settingsButton.alpha = 0
     })
     sender.layer.removeAllAnimations()
+    if soundOn {
+      playSound()
+    }
+    buttonPressedExpand()
+  }
+  
+  func playSound() {
     let audioPath = Bundle.main.path(forResource: "beer", ofType: "mp3")
     do {
       try player = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath!))
@@ -143,7 +153,6 @@ class OpeningScreenVC: UIViewController {
     } catch {
       // Process any errors
     }
-    buttonPressedExpand()
   }
   
   func buttonPressedExpand() {
@@ -163,10 +172,10 @@ class OpeningScreenVC: UIViewController {
   
   @IBAction func settingsPressed(_ sender: UIButton) {
     radiusSlider.setValue(Float(radius), animated: false)
-    resultsSlider.setValue(Float(results), animated: false)
     measurementsButton.layer.cornerRadius = 10
-    resultsLabel.text = "\(results)"
+    soundsButton.layer.cornerRadius = 10
     updateRadiusAndUnitsLabels()
+    updateSounds()
     UIView.animate(withDuration: 0.5, animations: {
       self.settings.alpha = 1
       self.backgroundButton.alpha = 1
@@ -186,6 +195,15 @@ class OpeningScreenVC: UIViewController {
     }
   }
   
+  func updateSounds() {
+    let soundOn = UserDefaults.standard.getSoundOn()
+    if soundOn {
+      soundsButton.setTitle("on", for: .normal)
+    } else {
+      soundsButton.setTitle("off", for: .normal)
+    }
+  }
+  
   func convertToMiles(_ number: Double) -> Double {
     return number / 1.6
   }
@@ -195,17 +213,12 @@ class OpeningScreenVC: UIViewController {
       self.settings.alpha = 0
       self.backgroundButton.alpha = 0
     })
-    saveRadiusAndResults()
+    saveSettings()
   }
   
   @IBAction func radiusSliderMoved(_ sender: UISlider) {
     radius = Double(sender.value)
     updateRadiusAndUnitsLabels()
-  }
-  
-  @IBAction func resultsSliderMoved(_ sender: UISlider) {
-    results = lroundf(sender.value)
-    resultsLabel.text = "\(results)"
   }
   
   @IBAction func changeUnitsOfMeasurement(_ sender: UIButton) {
@@ -219,21 +232,28 @@ class OpeningScreenVC: UIViewController {
     updateRadiusAndUnitsLabels()
   }
   
-  func saveRadiusAndResults() {
+  @IBAction func toggleSounds(_ sender: UIButton) {
+    soundOn = !soundOn
+    UserDefaults.standard.setSoundOn(value: soundOn)
+    updateSounds()
+  }
+  
+  func saveSettings() {
     UserDefaults.standard.setRadius(value: radius)
-    UserDefaults.standard.setNoOfResults(value: results)
+    UserDefaults.standard.setSoundOn(value: soundOn)
   }
   
   // MARK: Segue Functionality
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "toMap" {
-      saveRadiusAndResults()
+      saveSettings()
+      UserDefaults.standard.set(false, forKey: "searchThisArea")
       let controller = segue.destination as! MapVC
       controller.makeNetworkCall = makeNetworkCall
       controller.searchRadius = Int(radius)
-      controller.numberOfResults = results
-      controller.userLocation = userLocation 
+      controller.userLocation = userLocation
+      controller.soundOn = soundOn
     }
   }
 }
