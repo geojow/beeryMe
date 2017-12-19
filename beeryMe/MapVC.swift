@@ -35,11 +35,10 @@ class MapVC: UIViewController {
   var userLocation: CLLocation?
   var newSearchLocation: CLLocation?
   var searchRadius = 500
-  
-  // TODO - change to 50
-  var numberOfResults = 25
+  var numberOfResults = 50
   var noResults = false
   var noLocation = false
+  var soundOn = true
   let queryService = QueryService()
   let regionRadius: CLLocationDistance = 500
   
@@ -49,11 +48,7 @@ class MapVC: UIViewController {
     super.viewDidLoad()
     setCorners()
     mapView.delegate = self
-    if #available(iOS 11.0, *) {
-      mapView.register(PubView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-    } else {
-      // Fallback on earlier versions
-    }
+    mapView.register(PubView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
     if makeNetworkCall {
       mapView.alpha = 0
       listButton.alpha = 0
@@ -86,7 +81,9 @@ class MapVC: UIViewController {
     beer.alpha = 1
     froth.alpha = 1
     beeryMe.alpha = 1
-    playFizz()
+    if soundOn {
+      playFizz()
+    }
     UIView.animate(withDuration: 5, animations: {
       self.froth.transform = CGAffineTransform(scaleX: 1, y: 1/128)
       self.froth.frame = CGRect(x: self.beer.frame.minX, y: self.beer.frame.minY, width: 95, height: 1)
@@ -122,7 +119,6 @@ class MapVC: UIViewController {
                                                               regionRadius, regionRadius)
     mapView.setRegion(coordinateRegion, animated: true)
     if makeNetworkCall {
-      // TODO - Change numberofResults to 50
       networkCall(location: location, searchRadius: searchRadius, numberOfResults: numberOfResults)
     } else {
       self.mapView.addAnnotations(pubs)
@@ -232,12 +228,11 @@ extension MapVC: MKMapViewDelegate {
     newSearchLocation = CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
     let searchThisArea = UserDefaults.standard.bool(forKey:"searchThisArea")
     if searchThisArea {
-      UIView.animate(withDuration: 1, delay: 2, options: .curveLinear, animations: {
+      UIView.animate(withDuration: 1, delay: 1, options: .curveLinear, animations: {
         self.searchAreaButton.alpha = 1
       })
     }
   }
-  
 
 }
 

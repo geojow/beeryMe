@@ -29,17 +29,13 @@ extension UserDefaults {
     }
   }
   
-  // TODO - Delete this
-  
-  func setNoOfResults(value: Int) {
-    set(value, forKey: "results")
+  func setSoundOn(value: Bool) {
+    set(value, forKey: "soundOn")
   }
   
-  func getNoOfResults() -> Int {
-    return integer(forKey: "results")
+  func getSoundOn() -> Bool {
+    return bool(forKey: "soundOn")
   }
-  
-  /////////////////
   
   func addPub(id: String) {
     set(id, forKey: "\(id)")
